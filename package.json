@@ -16,7 +16,7 @@
     "url": "git+ssh://git@github.com/dcts/LiistComponents.git.git"
   },
   "keywords": [
-    "liist",
+    "liist"
   ],
   "dependencies": {
     "fa-icons": "^0.2.0",
