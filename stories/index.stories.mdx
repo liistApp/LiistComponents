@@ -1,0 +1,45 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+
+import '../liist-test.js';
+
+<Meta
+  title="LiistComponents"
+  parameters={{
+    component: "liist-author",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# LiistAuthor
+
+A component that displays an avatar and the name of the author.
+
+## How to use
+
+### Installation
+
+```bash
+npm add @liist/liist-author
+```
+
+```js
+import 'liist-author/liist-author.js';
+```
+
+### Preview
+<Preview>
+  <Story name="liist-author">
+    {html`
+      <liist-author
+        displayName="Thomas S."
+        userImageUrl="https://avatars0.githubusercontent.com/u/44790691?s=460&u=2a44ea33f69d6cf02bc659381a70ea4fedf62ffb&v=4"
+      ></liist-author>
+    `}
+  </Story>
+</Preview>
+
+## API
+
+<Props of="liist-author" />
+
+
