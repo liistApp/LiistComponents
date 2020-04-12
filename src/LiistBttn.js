@@ -1,34 +1,64 @@
 import { html, css, LitElement } from 'lit-element';
+import 'fa-icons';
 
 export class LiistBttn extends LitElement {
   static get styles() {
     return css`
+      * {
+        font-family: "Helvetica", serif;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        font-size: 12px;
+      }
+      #wrapper {
+        display: inline-block;
+      }
       .bttn {
-
+        padding: 0 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 32px;
+        max-width: 165px;
+        border-radius: 8px
+      }
+      p#text {
+        padding-right: 10px;
+      }
+      .fa-icon {
+        font-size: 10px;
       }
     `;
   }
 
   static get properties() {
     return {
-      text: { type: String }
+      text: { type: String },
+      faSpec: { type: String },
+      bgColor: { type: String },
+      color: { type: String },
     };
   }
 
   constructor() {
     super();
+    this.bgColor = "black";
+    this.color = "white";
+    this.text = "loading ...";
+    this.faSpec = "far fa-question-circle"
   }
-
-
 
   render() {
     return html`
-      <div class="bttn">
-        <p id="give-suggestion">${this.text}</p>
-        <i class="far fa-envelope"></i>
+      <div id="wrapper">
+        <div class="bttn" style="background-color: ${this.bgColor}; color: ${this.color}">
+          <p id="text">${this.text}</p>
+          <fa-icon class="${this.faSpec}" size="14px"></fa-icon>
+        </div>
       </div>
     `;
   }
 }
+// color="#2980B9" size="2em"
 
-window.customElements.define('liist-test', LiistBttn);
+window.customElements.define('liist-bttn', LiistBttn);

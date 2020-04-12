@@ -4,7 +4,7 @@ export class LiistAuthor extends LitElement {
   static get styles() {
     return css`
       * {
-        font-family: "Helvetica", serif;
+        font-family: 'DM Sans', sans-serif;
       }
       .list-author-wrapper {
         display: flex;
@@ -42,7 +42,7 @@ export class LiistAuthor extends LitElement {
     return html`
       <div class="list-author-wrapper">
         <img id="author-avatar" class="overlay-images" src="${this.userImageUrl}">
-        <p id="author-name-initial">${this.displayName}</p>
+        <p id="author-name-initial">By ${this.displayName}</p>
       </div>
     `;
   }
