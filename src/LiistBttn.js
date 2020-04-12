@@ -24,9 +24,7 @@ export class LiistBttn extends LitElement {
       }
       p#text {
         padding-right: 10px;
-      }
-      .fa-icon {
-        font-size: 10px;
+        margin: 0;
       }
     `;
   }
@@ -53,7 +51,7 @@ export class LiistBttn extends LitElement {
       <div id="wrapper">
         <div class="bttn" style="background-color: ${this.bgColor}; color: ${this.color}">
           <p id="text">${this.text}</p>
-          <fa-icon class="${this.faSpec}" size="14px"></fa-icon>
+          <fa-icon class="${this.faSpec}" style="display: flex; justify-content: center; align-items: center;" size="14px"></fa-icon>
         </div>
       </div>
     `;
