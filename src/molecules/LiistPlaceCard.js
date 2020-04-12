@@ -75,7 +75,7 @@ export class LiistPlaceCard extends LitElement {
         transition: all ease 1s;
         display: block;
         max-width: 479px;
-        margin: 0 10px;
+        margin: 0;
       }
 
       .location-picture-small {
