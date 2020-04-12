@@ -59,6 +59,5 @@ export class LiistBttn extends LitElement {
     `;
   }
 }
-// color="#2980B9" size="2em"
 
 window.customElements.define('liist-bttn', LiistBttn);
