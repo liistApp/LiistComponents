@@ -1,23 +1,22 @@
-# \<liist-test>
+# Liist Webcomponents
 
-This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
+This webcomponent library follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
 
 ## Installation
 ```bash
-npm i liist-test
+npm i liist-webcomponents
 ```
 
 ## Usage
 ```html
 <script type="module">
-  import 'liist-test/liist-test.js';
+  import 'liist-webcomponents/liist-bttn.js';
 </script>
-
-<liist-test></liist-test>
+<liist-bttn text="hello button" faSpec="fas fa-envelope"></liist-bttn>
 ```
 
 ## Demoing with Storybook
-To run a local instance of Storybook for your component, run
+To run a local instance of Storybook for your components, run
 ```bash
 npm run storybook
 ```
@@ -26,7 +25,6 @@ To build a production version of Storybook, run
 ```bash
 npm run storybook:build
 ```
-
 
 ## Tooling configs
 

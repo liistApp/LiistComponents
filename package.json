@@ -1,8 +1,8 @@
 {
-  "name": "liist-test",
+  "name": "liist-webcomponents",
   "version": "0.0.0",
-  "description": "Webcomponent liist-test following open-wc recommendations",
-  "author": "liist-test",
+  "description": "Webcomponents for liist (following open-wc recommendations)",
+  "author": "dcts",
   "license": "MIT",
   "main": "index.js",
   "module": "index.js",
