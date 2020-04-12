@@ -20,8 +20,8 @@ export class LiistPlaceCard extends LitElement {
     this.name = "loading";
     this.comment = "loading...";
     // this.thumbnail = "https://thumbs.gfycat.com/BlankShyFritillarybutterfly-max-1mb.gif";
-    // this.thumbnail = "https://firebasestorage.googleapis.com/v0/b/liist-prod.appspot.com/o/LiistComponentsAssets%2Floading.svg?alt=media&token=3bcf63df-ed78-4166-9881-2c726d8549ce";
-    this.thumbnail = "../../images/loading.svg";
+    // this.thumbnail = "../../images/loading.svg";
+    this.thumbnail = "https://firebasestorage.googleapis.com/v0/b/liist-prod.appspot.com/o/LiistComponentsAssets%2Floading.svg?alt=media&token=3bcf63df-ed78-4166-9881-2c726d8549ce";
     this.tag = "📍";
   }
 
