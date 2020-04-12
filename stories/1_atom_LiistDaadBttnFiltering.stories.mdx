@@ -1,0 +1,42 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import '../src/atoms/LiistDaadBttnFiltering.js';
+
+<Meta
+  title="atoms|LiistDaadBttnFiltering"
+  parameters={{
+    component: "liist-daad-bttn-filtering",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# `<liist-daad-bttn-filtering>`
+
+Main button component to use for DAAD ([Dining at a Distance](https://www.diningatadistance.com)) Maps.
+
+### Normal
+<Preview>
+  <Story name="normal">
+    {html`
+      <liist-daad-bttn-filtering
+      ></liist-daad-bttn-filtering>
+    `}
+  </Story>
+</Preview>
+
+### Small
+<Preview>
+  <Story name="small">
+    {html`
+      <liist-daad-bttn-filtering
+      ></liist-daad-bttn-filtering>
+    `}
+  </Story>
+</Preview>
+
+
+## Properties
+
+- **`text`**: label/text of the button.
+- **`faSpec`**: insert the target fontawesome class.
+- **`color`**: text and icon color of the button.
+- **`bgColor`**: background color of the button.
