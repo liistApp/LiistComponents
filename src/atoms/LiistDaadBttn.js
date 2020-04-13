@@ -64,6 +64,27 @@ export class LiistDaadBttn extends LitElement {
       .boxshadow {
         box-shadow: 0 0 14px rgba(0,0,0,0.1);
       }
+
+      .counter-wrapper {
+        width: 47px;
+        height: 47px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 5px;
+        margin-right: 8px;
+      }
+
+      .circle {
+        color: white;
+        background-color: #3367C1;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     `;
   }
 
@@ -91,6 +112,10 @@ export class LiistDaadBttn extends LitElement {
 
   isLocation() {
     return this.type === "location";
+  }
+
+  isFiltering() {
+    return this.type === "filtering";
   }
 
   isSmall() {
@@ -123,9 +148,15 @@ export class LiistDaadBttn extends LitElement {
         ${this.isLocation() ? "location" : "filtering"}
         ${this.isSmall() ? "small" : ""}
         ${this.boxshadow ? "boxshadow" : ""}">
-        <div id="icon">
-          <img src="${this.icon}" alt="" />
-        </div>
+        ${this.isFiltering() && this.isSmall() && this.nSelectedFilters > 0 ?
+          html`
+            <div class="counter-wrapper">
+              <div class="circle">${this.nSelectedFilters}</div>
+            </div>` :
+          html`
+            <div id="icon">
+              <img src="${this.icon}" alt="" />
+            </div>`}
         <div id="text-wrapper">
           <p class="text">${this.text}</p>
         </div>

@@ -20,10 +20,12 @@ Main button component for DAAD.
       <div style="padding: 20px; background-color: white; display:flex; justify-content: space-around;">
         <liist-daad-bttn
           type="location"
+          boxshadow
         ></liist-daad-bttn>
         <liist-daad-bttn
           type="location"
           size="small"
+          boxshadow
         ></liist-daad-bttn>
       </div>
     `}
@@ -44,6 +46,12 @@ Main button component for DAAD.
           size="small"
           boxshadow
         ></liist-daad-bttn>
+        <liist-daad-bttn
+          type="filtering"
+          size="small"
+          nSelectedFilters="4"
+          boxshadow
+        ></liist-daad-bttn>
       </div>
     `}
   </Story>
@@ -54,3 +62,4 @@ Main button component for DAAD.
 - **`type`**: possible values: `location` or `filtering`.
 - **`size`**: possible values `big` (default) or `small`.
 - **`boxshadow`**: boolean, if attribute is present boxshadow is applied.
+- **`nSelectedFilters`**: `if nSelectedFilters > 0` a badge is displayed that indicates the amount of filters applied.
