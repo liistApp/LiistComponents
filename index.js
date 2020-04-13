@@ -15,4 +15,4 @@ export { LiistToggleBttn } from './src/molecules/LiistToggleBttn.js';
 /*
  * ORGAMISMS
  */
-// export { LiistDaadContentFiltering } from './src/organisms/LiistDaadContentFiltering.js';
+export { LiistDaadFilter } from './src/organisms/LiistDaadFilter.js';

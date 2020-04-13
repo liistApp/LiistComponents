@@ -1,59 +1,146 @@
 import { LitElement, html, css } from 'lit-element';
+import { LiistCheckItem } from '../molecules/LiistCheckItem.js';
+import { LiistToggleBttn } from '../molecules/LiistToggleBttn.js';
 
 export class LiistDaadFilter extends LitElement {
   static get properties() {
     return {
-      title: { type: String },
+      serviceTypes: {
+        type: Object
+      }
     }
   }
 
   // no need for constructor?
   constructor() {
     super();
-    this.title = "placeholder";
+    this.serviceTypes = [
+      "delivery",
+      "take-out / curbsite",
+      "giftcard"
+    ];
+    this.categories = [
+      "Alcohol",
+      "American",
+      "Bakery/Dessert",
+      "BBQ",
+      "Brazilian",
+      "Breakfast",
+      "Caribbean",
+      "Chinese",
+      "Coffee",
+      "Deli",
+      "Fast Food",
+      "Filipino",
+      "French",
+      "Hawaiian",
+      "Healthy",
+      "Indian",
+      "Italian",
+      "Japanese",
+      "Korean",
+      "Lebanese",
+      "Malaysian",
+      "Mediterranean",
+      "Mexican",
+      "Persian",
+      "Pizza",
+      "Polish",
+      "Pub",
+      "Salvadoran",
+      "Seafood",
+      "Sushi",
+      "Taiwanese",
+      "Tapas",
+      "Thai",
+      "Vegan",
+      "Vegetarian",
+      "Vietnamese",
+    ]
+  }
+
+  setCategories(array) {
+    this.categories = array;
+    this.requestUpdate();
+    this.getDomElements();
+  }
+
+  setServiceTypes(array) {
+    this.serviceTypes = array;
+    this.requestUpdate();
+    this.getDomElements();
+  }
+
+  getSelectedCategories() {
+    const result = [];
+    this.checkItemEls.forEach(checkItemEl => {
+      if (checkItemEl.checked) {
+        result.push(checkItemEl.text);
+      }
+    })
+    return result;
+  }
+
+  getSelectedServiceTypes() {
+    const result = [];
+    this.toggleBttnEls.forEach(toggleBttnEl => {
+      if (toggleBttnEl.checked) {
+        result.push(toggleBttnEl.text);
+      }
+    })
+    return result;
   }
 
   firstUpdated() {
-    const consumptionOptions = this.shadowRoot.querySelectorAll(".consumption-option");
-    for (let i = 0; i < consumptionOptions.length; i++) {
-      consumptionOptions[i].addEventListener('click', function() {
-        this.classList.toggle("consumption-option-selected");
-      });
+    this.getDomElements();
+    this.createEventListeners();
+  }
+
+  createEventListeners() {
+    console.log("creating eventlisteners");
+  }
+
+  dispatchFilterChangedEvent() {
+    const x = {
+      categories: this.getSelectedCategories(),
+      serviceTypes: this.getSelectedServiceTypes(),
     }
-    const foodCategories = this.shadowRoot.querySelectorAll(".food-category");
-    for (let i = 0; i < foodCategories.length; i++) {
-      foodCategories[i].addEventListener('click', function() {
-        this.children[0].classList.toggle("checkbox-selected");
-        this.children[0].children[0].classList.toggle("invisible");
-        this.children[1].classList.toggle("category-selected");
-      });
-    }
+    // console.log(x);
+    this.dispatchEvent(new CustomEvent('liist-daad-filter-changed', {
+      bubbles: true,
+      detail: x
+    }));
+  }
+
+  getDomElements() {
+    this.toggleBttnEls = this.shadowRoot.querySelectorAll("liist-toggle-bttn");
+    this.checkItemEls = this.shadowRoot.querySelectorAll("liist-check-item");
   }
 
   render() {
     return html`
       <div class="wrapper">
-        <section class="filtering-section">
-          <div class="consumption-options-wrapper">
-            <div class="consumption-option">
-              <p>delivery</p>
-            </div>
-            <div class="consumption-option">
-              <p>take-out / curbside</p>
-            </div>
-            <div class="consumption-option" >
-              <p>giftcard</p>
-            </div>
+        <div class="toggle-bttns-container">
+          <div>
+            ${this.serviceTypes.map(serviceType => {
+              return html`
+                <br>
+                <liist-toggle-bttn @click="${this.dispatchFilterChangedEvent}"
+                  text="${serviceType}"
+                ></liist-toggle-bttn>
+              `;
+            })}
           </div>
-          <div class="food-categories-wrapper">
-            <div class="food-category">
-              <div class="checkbox-category">
-                <i class="fas fa-check invisible"></i>
-              </div>
-              <p>Chinese</p>
-            </div>
-          </div>
-        </section>
+        </div>
+        <div class="check-items-container">
+          ${this.categories.map(category => {
+            return html`
+              <liist-check-item @click="${this.dispatchFilterChangedEvent}"
+                text="${category}"
+              ></liist-check-item>
+            `;
+          })}
+        </div>
       </div>
     `;
   }
@@ -61,114 +148,30 @@ export class LiistDaadFilter extends LitElement {
   static get styles() {
     return css`
       .wrapper {
-        min-width: 375px;
-        max-width: 400px;
-        height: 500px;
-        border: 1px solid red;
+        min-width: 350px;
+        max-width: 450px;
+        min-height: 500px;
+        width: 100%;
       }
-      .filtering-section {
-        max-width: 375px;
-        margin: 0 auto;
-      }
-
-      .filter-separator {
-        margin: 20px 0;
-      }
-      .filter-tag {
-        display: flex;
-        align-items: center;
-        margin: 0 18px;
-        color: #4c4b5e;
-      }
-      .filter-tag i {
-        font-size: 23px;
-      }
-      .filter-tag p {
-        margin: 0;
-        padding-left: 15px;
-        font-variant: small-caps;
-        font-weight: bold;
-        font-size: 20px;
-        font-family: "DM Sans", sans-serif;
-      }
-
-      .consumption-options-wrapper {
-        padding: 0 30px;
-        font-family: "DM Sans", sans-serif;
-        color: #4c4b5e;
-      }
-
-      .consumption-option {
-        border: 1px solid #ababab;
-        border-radius: 3px;
-        text-align: center;
-        margin: 25px 0;
-      }
-
-      .consumption-option p {
-        margin: 0;
-        padding: 10px 0;
-        font-variant: small-caps;
-        font-weight: 700;
-        font-size: 16px;
-      }
-
-      .consumption-option:hover {
-        cursor: pointer;
-      }
-
-      .consumption-option-selected {
-        color: white;
-        background-color: #3C68BB;
-      }
-
-      .food-categories-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        margin-top: 35px;
-        margin-bottom: 80px;
-        padding: 0 30px;
-        font-family: "DM Sans", sans-serif;
-      }
-
-      .checkbox-category {
-        width: 23px;
-        height: 23px;
-        border: 1px solid #dadada;
-        border-radius: 50%;
+      .toggle-bttns-container {
         display: flex;
         justify-content: center;
-        align-items: center;
+        flex-direction: column;
+        padding-left: 20px;
+        padding-right: 20px;
       }
-      .checkbox-category i {
-        color: white;
-        font-size: 11px;
+      .check-items-container {
+        padding-top: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
       }
-
-      .food-category {
-        display: flex;
-        align-items: center;
-        padding: 8px 0;
+      liist-toggle-bttn {
+        margin: 0 auto;
+        display: inline;
+        text-align: center;
       }
-      .food-category p {
-        margin: 0;
-        padding-left: 10px;
-        color: #909090;
-        font-size: 16px;
-      }
-      .food-category:hover {
-        cursor: pointer;
-      }
-
-      .checkbox-selected {
-        background-color: #3C68BB;
-        border: 1px solid #3C68BB;
-      }
-
-      .category-selected {
-        color: #3C68BB !important;
-      }
-
     `;
   }
 }

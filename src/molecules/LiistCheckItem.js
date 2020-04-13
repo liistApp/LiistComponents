@@ -15,8 +15,8 @@ export class LiistCheckItem extends LitElement {
         align-items: center;
       }
       .circle {
-        width: 32px;
-        height: 32px;
+        width: 29px;
+        height: 29px;
         background-color: #3367C1;
         border: 1px solid #3367C1;
         display: flex;
@@ -30,13 +30,11 @@ export class LiistCheckItem extends LitElement {
         border: 1px solid #D2D2D2;
       }
       #text {
-        font-size: 13px;
         text-transform: uppercase;
         font-family: Montserrat, sans-serif;
         font-style: normal;
         font-weight: bold;
-        font-size: 15px;
-        line-height: 15px;
+        line-height: 12px;
         letter-spacing: 1.52px;
         text-transform: uppercase;
         color: #3367C1;
@@ -52,7 +50,6 @@ export class LiistCheckItem extends LitElement {
         margin-top: 4px !important;
         color: #D2D2D2;
       }
-
     `;
   }
 

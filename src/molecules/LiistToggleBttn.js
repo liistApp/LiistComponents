@@ -1,16 +1,19 @@
 import { html, css, LitElement } from 'lit-element';
 
-export class LiistToogleBttn extends LitElement {
+export class LiistToggleBttn extends LitElement {
   static get styles() {
     return css`
       * {
         font-family: "Helvetica", serif;
         cursor: pointer;
         font-family: "DM Sans", sans-serif;
+        font-size: 12px;
       }
       .wrapper {
         height: 47px;
-        width: 330px;
+        width: 100%;
+        // min-width: 330px;
+        // max-width: 450px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -24,8 +27,7 @@ export class LiistToogleBttn extends LitElement {
       #text {
         font-style: normal;
         font-weight: bold;
-        font-size: 15px;
-        line-height: 15px;
+        line-height: 12px;
         text-align: center;
         letter-spacing: 1.52px;
         text-transform: uppercase;
@@ -65,6 +67,11 @@ export class LiistToogleBttn extends LitElement {
     this.shadowRoot.querySelector(".wrapper").addEventListener("click", () => {
       this.toggleState();
     });
+    this.setWidth(this.width);
+  }
+
+  setWidth(width) {
+    this.shadowRoot.querySelector(".wrapper").style.width = `${width}px`;
   }
 
   render() {
@@ -76,4 +83,4 @@ export class LiistToogleBttn extends LitElement {
   }
 }
 
-window.customElements.define('liist-toggle-bttn', LiistToogleBttn);
+window.customElements.define('liist-toggle-bttn', LiistToggleBttn);

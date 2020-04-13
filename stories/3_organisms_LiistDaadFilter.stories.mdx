@@ -13,25 +13,55 @@ import '../src/organisms/LiistDaadFilter.js';
 
 A component that displays an avatar image and the name of the author.
 
-### Desktop
-<Preview>
-  <Story name="desktop">
-    {html`
-      <liist-daad-filter>
-    `}
-  </Story>
-</Preview>
-
-### Mobile
-<Preview>
-  <Story name="mobile">
-    {html`
-      <liist-daad-filter>
-    `}
-  </Story>
-</Preview>
-
 
 ## Properties
 
-- **`X`**: x
+- **`serviceTypes`**: Array of strings. Each item represents a `<liist-toggle-bttn>`. Can be dynamically set with `setServiceTypes(array)`.
+- **`categories`**: Array of strings. Each item represent a `<liist-check-item>`. Can be dynamically set with `setCategories(array)`.
+
+
+## API (Custom Events)
+
+On every toggle the component sends a custom `liist-daad-filter-changed` event. Which can be catched with the following code (however this does not work for storybook showcase, but it works in a real usecase):
+```js
+document.querySelector("liist-daad-filter").addEventListener("liist-daad-filter-changed", (e) => {
+  console.log(e.detail.categories);
+  console.log(e.detail.serviceTypes);
+});
+```
+
+
+## Demo
+### Desktop
+<Preview>
+  <Story name="desktop (450px)">
+    {html`
+      <liist-daad-filter
+      ></liist-daad-filter>
+    `}
+  </Story>
+</Preview>
+
+### Mobile 400px
+<Preview>
+  <Story name="mobile (400px)">
+    {html`
+      <div style="max-width: 400px;">
+        <liist-daad-filter></liist-daad-filter>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+
+### Mobile 350px
+<Preview>
+  <Story name="mobile (350px)">
+    {html`
+      <div style="max-width: 350px;">
+        <liist-daad-filter></liist-daad-filter>
+      </div>
+    `}
+  </Story>
+</Preview>
+
