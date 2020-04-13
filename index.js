@@ -11,6 +11,7 @@ export { LiistDaadBttn } from './src/atoms/LiistDaadBttn.js';
 export { LiistAuthor } from './src/molecules/LiistAuthor.js';
 export { LiistCheckItem } from './src/molecules/LiistCheckItem.js';
 export { LiistPlaceCard } from './src/molecules/LiistPlaceCard.js';
+export { LiistToggleBttn } from './src/molecules/LiistToggleBttn.js';
 /*
  * ORGAMISMS
  */
