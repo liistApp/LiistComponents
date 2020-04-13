@@ -20,7 +20,7 @@ export class LiistBttn extends LitElement {
         align-items: center;
         height: 32px;
         max-width: 165px;
-        border-radius: 8px
+        border-radius: 8px;
       }
       p#text {
         padding-right: 10px;
@@ -59,3 +59,4 @@ export class LiistBttn extends LitElement {
 }
 
 window.customElements.define('liist-bttn', LiistBttn);
+
