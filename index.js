@@ -3,8 +3,6 @@
  */
 export { LiistBttn } from './src/atoms/LiistBttn.js';
 export { LiistDaadBttn } from './src/atoms/LiistDaadBttn.js';
-// export { LiistDaadBttnLocation } from './src/atoms/LiistDaadBttnLocation.js';
-// export { LiistDaadBttnFiltering } from './src/atoms/LiistDaadBttnFiltering.js';
 /*
  * MOLECULES
  */
