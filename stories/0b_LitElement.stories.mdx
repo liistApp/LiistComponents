@@ -1,0 +1,53 @@
+<Meta
+  title="GUIDES|Lit Element Basics"
+  parameters={{
+    component: "none",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# Lit Element Basics
+
+Lit-Element is a lightweiht wrapper that allows to build vanilla js webcomponents with ease. It comes with some very basic but usefull functionality. It's the evolution of the polymer project maintained by google.
+
+
+<Story name="boilerplate"></Story>
+
+### Boilerplate Custom Element
+
+```js
+import { html, css, LitElement } from 'lit-element';
+
+export class MyTestComponent extends LitElement {
+  static get styles() {
+    return css``;
+  }
+
+  static get properties() {
+    return {
+      propStr:    { type: String },
+      propNum:    { type: Number },
+      propBool:   { type: Boolean },
+      propArr:    { type: Array },
+      propObject: { type: Object },
+    };
+  }
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    return html``;
+  }
+}
+
+window.customElements.define('my-test-component', MyTestComponent);
+```
+
+<Story name="initializing"></Story>
+
+### Usage
+
+
+
