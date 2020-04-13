@@ -18,7 +18,6 @@ export class LiistDaadBttn extends LitElement {
         display: flex;
         width: 284px;
         height: 47px;
-        box-shadow: 0 0 14px rgba(0,0,0,0.1);
       }
       .bttn.location {
         background-color: #3367C1;
@@ -62,6 +61,9 @@ export class LiistDaadBttn extends LitElement {
         margin-left: 0;
         margin-right: 0;
       }
+      .boxshadow {
+        box-shadow: 0 0 14px rgba(0,0,0,0.1);
+      }
     `;
   }
 
@@ -70,6 +72,7 @@ export class LiistDaadBttn extends LitElement {
       text: { type: String },
       type: { type: String },
       size: { type: String },
+      boxshadow: { type: Boolean },
       nSelectedFilters: { type: Number },
     };
   }
@@ -78,6 +81,7 @@ export class LiistDaadBttn extends LitElement {
     super();
     this.size = "big";
     this.nSelectedFilters = 0;
+    this.boxshadow = false;
   }
 
   firstUpdated(changedProperties) {
@@ -117,7 +121,8 @@ export class LiistDaadBttn extends LitElement {
     return html`
       <div class="bttn
         ${this.isLocation() ? "location" : "filtering"}
-        ${this.isSmall() ? "small" : ""}" >
+        ${this.isSmall() ? "small" : ""}
+        ${this.boxshadow ? "boxshadow" : ""}">
         <div id="icon">
           <img src="${this.icon}" alt="" />
         </div>
