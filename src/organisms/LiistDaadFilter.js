@@ -94,11 +94,6 @@ export class LiistDaadFilter extends LitElement {
 
   firstUpdated() {
     this.getDomElements();
-    this.createEventListeners();
-  }
-
-  createEventListeners() {
-    console.log("creating eventlisteners");
   }
 
   dispatchFilterChangedEvent() {
