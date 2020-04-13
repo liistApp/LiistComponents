@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { LiistCheckItem } from '../molecules/LiistCheckItem.js';
 import { LiistToggleBttn } from '../molecules/LiistToggleBttn.js';
+import 'fa-icons';
 
 export class LiistDaadFilter extends LitElement {
   static get properties() {
@@ -104,8 +105,10 @@ export class LiistDaadFilter extends LitElement {
     this.dispatchEvent(new CustomEvent('liist-daad-filter-changed', {
       bubbles: true,
       detail: {
-        categories: this.getSelectedCategories(),
-        serviceTypes: this.getSelectedServiceTypes(),
+        selected: {
+          categories: this.getSelectedCategories(),
+          serviceTypes: this.getSelectedServiceTypes(),
+        }
       }
     }));
   }
