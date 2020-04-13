@@ -101,14 +101,12 @@ export class LiistDaadFilter extends LitElement {
   }
 
   dispatchFilterChangedEvent() {
-    const x = {
-      categories: this.getSelectedCategories(),
-      serviceTypes: this.getSelectedServiceTypes(),
-    }
-    // console.log(x);
     this.dispatchEvent(new CustomEvent('liist-daad-filter-changed', {
       bubbles: true,
-      detail: x
+      detail: {
+        categories: this.getSelectedCategories(),
+        serviceTypes: this.getSelectedServiceTypes(),
+      }
     }));
   }
 
