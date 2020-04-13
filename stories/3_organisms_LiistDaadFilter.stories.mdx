@@ -1,0 +1,37 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import '../src/organisms/LiistDaadFilter.js';
+
+<Meta
+  title="organisms|LiistDaadFilter"
+  parameters={{
+    component: "liist-daad-filter",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# `<liist-daad-filter>`
+
+A component that displays an avatar image and the name of the author.
+
+### Desktop
+<Preview>
+  <Story name="desktop">
+    {html`
+      <liist-daad-filter>
+    `}
+  </Story>
+</Preview>
+
+### Mobile
+<Preview>
+  <Story name="mobile">
+    {html`
+      <liist-daad-filter>
+    `}
+  </Story>
+</Preview>
+
+
+## Properties
+
+- **`X`**: x
