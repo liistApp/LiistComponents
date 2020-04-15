@@ -105,10 +105,14 @@ export class LiistDaadFilter extends LitElement {
 
   dispatchCancelEvent() { // mobile
     if (this.device === "mobile") {
-      this.dispatchEvent(new CustomEvent('liist-daad-filter-cancel', {
+      this.dispatchEvent(new CustomEvent('liist-daad-filter-action', {
         bubbles: true,
         detail: {
-          action: "cancel"
+          action: "cancel",
+          selected: {
+            categories: this.getSelectedCategories(),
+            serviceTypes: this.getSelectedServiceTypes(),
+          }
         }
       }));
     }
@@ -116,9 +120,10 @@ export class LiistDaadFilter extends LitElement {
 
   dispatchApplyEvent() { // mobile
     if (this.device === "mobile") {
-      this.dispatchEvent(new CustomEvent('liist-daad-filter-apply', {
+      this.dispatchEvent(new CustomEvent('liist-daad-filter-action', {
         bubbles: true,
         detail: {
+          action: "apply",
           selected: {
             categories: this.getSelectedCategories(),
             serviceTypes: this.getSelectedServiceTypes(),
