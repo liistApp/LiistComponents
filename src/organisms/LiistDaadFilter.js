@@ -7,7 +7,13 @@ export class LiistDaadFilter extends LitElement {
   static get properties() {
     return {
       serviceTypes: {
-        type: Object
+        type: Array
+      },
+      categories: {
+        type: Array
+      },
+      device: {
+        type: String
       }
     }
   }
@@ -15,6 +21,7 @@ export class LiistDaadFilter extends LitElement {
   // no need for constructor?
   constructor() {
     super();
+    this.device = "desktop";
     this.serviceTypes = [
       "delivery",
       "take-out / curbsite",
@@ -96,16 +103,52 @@ export class LiistDaadFilter extends LitElement {
     this.getDomElements();
   }
 
-  dispatchFilterChangedEvent() {
-    this.dispatchEvent(new CustomEvent('liist-daad-filter-changed', {
-      bubbles: true,
-      detail: {
-        selected: {
-          categories: this.getSelectedCategories(),
-          serviceTypes: this.getSelectedServiceTypes(),
+  dispatchCancelEvent() { // mobile
+    if (this.device === "mobile") {
+      this.dispatchEvent(new CustomEvent('liist-daad-filter-action', {
+        bubbles: true,
+        detail: {
+          action: "cancel",
+          selected: {
+            categories: this.getSelectedCategories(),
+            serviceTypes: this.getSelectedServiceTypes(),
+          }
         }
-      }
-    }));
+      }));
+    }
+  }
+
+  dispatchApplyEvent() { // mobile
+    if (this.device === "mobile") {
+      this.dispatchEvent(new CustomEvent('liist-daad-filter-action', {
+        bubbles: true,
+        detail: {
+          action: "apply",
+          selected: {
+            categories: this.getSelectedCategories(),
+            serviceTypes: this.getSelectedServiceTypes(),
+          }
+        }
+      }));
+    }
+  }
+
+  dispatchFilterChangedEvent() { // desktop only
+    if (this.device === "desktop") {
+      this.dispatchEvent(new CustomEvent('liist-daad-filter-changed', {
+        bubbles: true,
+        detail: {
+          selected: {
+            categories: this.getSelectedCategories(),
+            serviceTypes: this.getSelectedServiceTypes(),
+          }
+        }
+      }));
+    }
+  }
+
+  getDevice() {
+    return this.device;
   }
 
   getDomElements() {
@@ -116,6 +159,26 @@ export class LiistDaadFilter extends LitElement {
   render() {
     return html`
       <div class="wrapper">
+        <div class="header ${this.device === "desktop" ? "desktop" : "mobile"}">
+          ${this.device === "desktop" ?
+            html`
+              <div style="display: flex; justify-content: center; align-items: center;">
+                <liist-daad-bttn
+                  type="filter"
+                  size="small"
+                ></liist-daad-bttn>
+              </div>
+              <div id="horizontal-line"></div>
+            ` :
+            html`
+              <p class="mobile-bttn cancel-bttn" @click="${this.dispatchCancelEvent}">Cancel</p>
+              <liist-daad-bttn
+                type="filter"
+                size="small"
+              ></liist-daad-bttn>
+              <p class="mobile-bttn apply-bttn" @click="${this.dispatchApplyEvent}">Apply</p>
+            `}
+        </div>
         <div class="toggle-bttns-container">
           <div>
             ${this.serviceTypes.map(serviceType => {
@@ -143,6 +206,31 @@ export class LiistDaadFilter extends LitElement {
 
   static get styles() {
     return css`
+      .mobile-bttn {
+        font-family: "DM Sans", sans-serif;
+        cursor: pointer;
+      }
+      .mobile-bttn.apply-bttn {
+        color: #3367C1;
+      }
+      #horizontal-line {
+        border: 0.5px solid rgba(0,0,0,0.1);
+        position: absolute;
+        width: 100%;
+        top: 22px;
+        z-index: -1;
+      }
+      .header.desktop {
+        position: relative;
+      }
+      .header.mobile {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding-bottom: 7px;
+        margin-bottom: 7px;
+      }
       .wrapper {
         min-width: 350px;
         max-width: 450px;
