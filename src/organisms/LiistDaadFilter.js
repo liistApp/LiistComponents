@@ -105,6 +105,7 @@ export class LiistDaadFilter extends LitElement {
 
   dispatchCancelEvent() { // mobile
     if (this.device === "mobile") {
+      this.requestUpdate();
       this.dispatchEvent(new CustomEvent('liist-daad-filter-action', {
         bubbles: true,
         detail: {
@@ -120,6 +121,7 @@ export class LiistDaadFilter extends LitElement {
 
   dispatchApplyEvent() { // mobile
     if (this.device === "mobile") {
+      this.requestUpdate();
       this.dispatchEvent(new CustomEvent('liist-daad-filter-action', {
         bubbles: true,
         detail: {
@@ -135,6 +137,7 @@ export class LiistDaadFilter extends LitElement {
 
   dispatchFilterChangedEvent() { // desktop only
     if (this.device === "desktop") {
+      this.requestUpdate();
       this.dispatchEvent(new CustomEvent('liist-daad-filter-changed', {
         bubbles: true,
         detail: {
