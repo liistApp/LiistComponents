@@ -1,5 +1,4 @@
 import { html, css, LitElement } from 'lit-element';
-import 'fa-icons';
 
 export class LiistCheckItem extends LitElement {
   static get styles() {
@@ -42,13 +41,8 @@ export class LiistCheckItem extends LitElement {
       #text.not-checked {
         color: #979797;
       }
-      fa-icon {
-        margin-top: 4px !important;
-        color: white;
-      }
-      fa-icon.not-checked {
-        margin-top: 4px !important;
-        color: #D2D2D2;
+      img.checkmark {
+        width: 17px;
       }
     `;
   }
@@ -76,11 +70,20 @@ export class LiistCheckItem extends LitElement {
     });
   }
 
+  checkmarkUrl(color) {
+    if (color === "grey") {
+      return "https://firebasestorage.googleapis.com/v0/b/liist-prod.appspot.com/o/LiistComponentsAssets%2Ficons%2Ficon-check-grey.svg?alt=media&token=3c9ede3b-86bc-455c-87c3-8db7395a857d";
+    } else if (color === "white") {
+      return "https://firebasestorage.googleapis.com/v0/b/liist-prod.appspot.com/o/LiistComponentsAssets%2Ficons%2Ficon-check-white.svg?alt=media&token=73f47906-ec5b-4d24-9324-6f0220cd6505";
+    }
+    return null;
+  }
+
   render() {
     return html`
       <div class="wrapper">
         <div class="circle ${this.checked ? "" : "not-checked"}">
-          <fa-icon class="fas fa-check ${this.checked ? "" : "not-checked"}" size="18px"></fa-icon>
+          <img class="checkmark" src="${this.checked ? this.checkmarkUrl("white") : this.checkmarkUrl("grey")}">
         </div>
         <p class="${this.checked ? "" : "not-checked"}" id="text">${this.text}</p>
       </div>
