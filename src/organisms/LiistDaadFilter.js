@@ -228,6 +228,9 @@ export class LiistDaadFilter extends LitElement {
       }
       .header.mobile {
         display: flex;
+        position: sticky;
+        top: 0;
+        background-color: white;
         justify-content: space-around;
         align-items: center;
         border-bottom: 1px solid rgba(0,0,0,0.1);
