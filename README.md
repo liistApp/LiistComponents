@@ -1,6 +1,6 @@
 # Liist Webcomponents
 
-This webcomponent library follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
+This webcomponent library follows the [open-wc](https://github.com/open-wc/open-wc) recommendation. Open [liist-webcomponents storyook](https://liist-webcomponents.netlify.app/?path=/docs/) for documentation.
 
 ## Installation
 ```bash
