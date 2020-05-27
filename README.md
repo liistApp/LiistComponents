@@ -27,7 +27,7 @@ npm run storybook:build
 ```
 ## Deployment and auto build with Netlify
 
-The storybook is automatically build and deployed with Netlify, whenever there is a new commit to master. It is hosted here: https://serene-keller-d1ba70.netlify.app/?path=/docs
+The storybook is automatically build and deployed with Netlify, whenever there is a new commit to master. It is hosted here: https://liist-webcomponents.netlify.app/?path=/docs/
 
 ## Tooling configs
 
