@@ -21,42 +21,40 @@ A switch component that contains a checkmark and a text. Can have 2 states (chec
 
 ### Basic Usage
 <Preview>
-  <div>
-    <liist-toggle-bttn
-      text="delivery"
-      width="400"
-      checked
-    ></liist-toggle-bttn>
-    <br></br>
-    <liist-toggle-bttn
-      text="take-out / curbsite"
-      width="400"
-    ></liist-toggle-bttn>
-    <br></br>
-    <liist-toggle-bttn
-      text="giftcard"
-      width="400"
-    ></liist-toggle-bttn>
-  </div>
+  <liist-toggle-bttn
+    text="delivery"
+    checked
+  ></liist-toggle-bttn>
+  <hr></hr>
+  <br></br>
+  <liist-toggle-bttn
+    text="take-out / curbsite"
+  ></liist-toggle-bttn>
+  <br></br>
+  <liist-toggle-bttn
+    text="giftcard"
+  ></liist-toggle-bttn>
 </Preview>
 
 ### Custom Width
 <Preview>
-  <div>
-    <liist-toggle-bttn
-      text="delivery"
-      width="550"
-      checked
-    ></liist-toggle-bttn>
-    <br></br>
-    <liist-toggle-bttn
-      text="take-out / curbsite"
-      width="450"
-    ></liist-toggle-bttn>
-    <br></br>
-    <liist-toggle-bttn
-      text="giftcard"
-      width="250"
-    ></liist-toggle-bttn>
-  </div>
+  <Story name="custom width">
+    {html`
+      <liist-toggle-bttn
+        text="delivery"
+        width="550"
+        checked
+      ></liist-toggle-bttn>
+      <br>
+      <liist-toggle-bttn
+        text="take-out / curbsite"
+        width="450"
+      ></liist-toggle-bttn>
+      <br>
+      <liist-toggle-bttn
+        text="giftcard"
+        width="250"
+      ></liist-toggle-bttn>
+    `}
+  </Story>
 </Preview>

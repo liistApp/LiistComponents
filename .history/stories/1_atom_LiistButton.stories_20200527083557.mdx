@@ -1,0 +1,109 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import '../src/atoms/LiistBttn.js';
+
+<Meta
+  title="atoms|LiistBttn"
+  parameters={{
+    component: "liist-bttn",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# `<liist-bttn>`
+
+Main button component. Fontawesome icon identifier and the content of the text can be parsed by adding properties `text` `faSpec` `bgColor` and `color`.
+
+### Default State
+<Preview>
+    {html`
+      <liist-bttn></liist-bttn>
+    `}
+</Preview>
+
+### Colors
+<Preview>
+  <Story name="colors and icons">
+    {html`
+      <liist-bttn
+        bgColor="#2A2A2A"
+        color="white"
+        text="Send Suggestion"
+        faSpec="far fa-envelope"
+      ></liist-bttn>
+      <liist-bttn
+        color="white"
+        bgColor="#9697fb"
+        text="Open in Google Maps"
+        faSpec="fas fa-location-arrow"
+      ></liist-bttn>
+      <liist-bttn
+        color="white"
+        bgColor="#76d672"
+        text="Call Restaurant"
+        faSpec="fas fa-phone"
+      ></liist-bttn>
+      <liist-bttn
+        text="View Map"
+        faSpec="far fa-map"
+      ></liist-bttn>
+      <liist-bttn
+        bgColor="white"
+        color="black"
+        text="View Map"
+        faSpec="far fa-map"
+      ></liist-bttn>
+    `}
+  </Story>
+</Preview>
+
+### On Dark Background
+<Preview>
+  <Story name="on dark background">
+    {html`
+      <liist-bttn
+        bgColor="#2A2A2A"
+        color="white"
+        text="Send Suggestion"
+        faSpec="far fa-envelope"
+      ></liist-bttn>
+      <liist-bttn
+        color="white"
+        bgColor="#9697fb"
+        text="Open in Google Maps"
+        faSpec="fas fa-location-arrow"
+      ></liist-bttn>
+      <liist-bttn
+        color="white"
+        bgColor="#76d672"
+        text="Call Restaurant"
+        faSpec="fas fa-phone"
+      ></liist-bttn>
+      <liist-bttn
+        text="View Map"
+        faSpec="far fa-map"
+      ></liist-bttn>
+      <liist-bttn
+        bgColor="white"
+        color="black"
+        text="View Map"
+        faSpec="far fa-map"
+      ></liist-bttn>
+    `}
+  </Story>
+</Preview>
+
+### Fontawesome Icons
+<Preview>
+<Story name="with icon">
+  {html`
+    <liist-bttn></liist-bttn>
+  `}
+</Story>
+</Preview>
+
+## Properties
+
+- **`text`**: label/text of the button.
+- **`faSpec`**: insert the target fontawesome class.
+- **`color`**: text and icon color of the button.
+- **`bgColor`**: background color of the button.

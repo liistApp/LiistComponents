@@ -15,15 +15,23 @@ A component that displays an avatar image and the name of the author.
 
 ### Default User
 <Preview>
-  <liist-author></liist-author>
+  <Story name="default user">
+    {html`
+      <liist-author></liist-author>
+    `}
+  </Story>
 </Preview>
 
 ### Add Name and Avatar
 <Preview>
-  <liist-author
-    displayName="Thomas S."
-    userImageUrl="https://avatars0.githubusercontent.com/u/44790691?s=460&u=2a44ea33f69d6cf02bc659381a70ea4fedf62ffb&v=4"
-  ></liist-author>
+<Story name="user data">
+  {html`
+    <liist-author
+      displayName="Thomas S."
+      userImageUrl="https://avatars0.githubusercontent.com/u/44790691?s=460&u=2a44ea33f69d6cf02bc659381a70ea4fedf62ffb&v=4"
+    ></liist-author>
+  `}
+</Story>
 </Preview>
 
 ## Properties
