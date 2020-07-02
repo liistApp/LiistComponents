@@ -3,6 +3,15 @@ import { html, css, LitElement } from 'lit-element';
 export class LiistPlaceCardNew extends LitElement {
   static get styles() {
     return css`
+      .card-main {
+        min-height: 105px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-bottom: 1px solid #EDEEF9;
+        max-width: 359px;
+      }
+
       .card-wrapper {
         width: 100%;
         max-width: 359px;
@@ -41,13 +50,14 @@ export class LiistPlaceCardNew extends LitElement {
 
       .card-content-details {
         display: flex;
-        line-height: 23px;
+        line-height: 18px;
         font-size: 13px;
         color: #3D3E6C;
       }
 
       .place-title {
         font-size: 19px;
+        line-height: 24px;
         color: #3D3E6C;
         line-height: 23px;
       }
@@ -69,6 +79,18 @@ export class LiistPlaceCardNew extends LitElement {
       .closed {
         color: #3D3E6C;
         font-weight: bold;
+      }
+
+      .icon-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-grow: 1;
+      }
+
+      .chivron {
+        width: 18px;
+        height: 18px;
       }
     `;
   }
@@ -145,19 +167,28 @@ export class LiistPlaceCardNew extends LitElement {
     super();
     this.name = "Place Title";
     this.address = "30 E 14th Street, NYC, NY";
-    this.status = "OPEN"
-    this.image = "https://firebasestorage.googleapis.com/v0/b/liist-prod.appspot.com/o/LiistComponentsAssets%2Floading.svg?alt=media&token=3bcf63df-ed78-4166-9881-2c726d8549ce";
+    // this.status = "OPEN";
+    if (this.image !== null && this.image !== undefined) {
+      this.image = "https://firebasestorage.googleapis.com/v0/b/liist-prod.appspot.com/o/LiistComponentsAssets%2Floading.svg?alt=media&token=3bcf63df-ed78-4166-9881-2c726d8549ce";
+    } else {
+      this.image = "https://firebasestorage.googleapis.com/v0/b/liist-prod.appspot.com/o/placeNotFound.png?alt=media&token=a3f6cf7d-876c-45eb-a69c-1d20723c0db4";
+    }
   }
 
   render() {
     return html`
-      <div class="card-wrapper">
-        <img class="place-thumbnail" src="https://www.fodors.com/wp-content/uploads/2016/02/1-Ultimate-New-York-Hero.jpg" alt="place image thumbnail">
-        <div class="card-content">
-          <p class="place-title">${this.name}</p>
-          <div class="card-content-details">
-            <p class="place-address">${this.address},</p>
-            <p class="place-status ${this.status === "OPEN" ? "open" : "closed"}">${this.status}</p>
+      <div class="card-main">
+        <div class="card-wrapper">
+          <img class="place-thumbnail" src="https://www.fodors.com/wp-content/uploads/2016/02/1-Ultimate-New-York-Hero.jpg" alt="place image thumbnail">
+          <div class="card-content">
+            <p class="place-title">${this.name}</p>
+            <div class="card-content-details">
+              <p class="place-address">${this.address},</p>
+              <p class="place-status ${this.status === "OPEN" ? "open" : "closed"}">${this.status}</p>
+            </div>
+          </div>
+          <div class="icon-wrapper">
+            <img class="chivron" src="https://firebasestorage.googleapis.com/v0/b/liist-prod.appspot.com/o/listIcons%2Fchev%20right.png?alt=media&token=05d4e0a4-1d5f-4fa2-ab1d-cdd4b7bd4459" alt="chivron right">
           </div>
         </div>
       </div>
