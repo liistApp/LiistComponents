@@ -28,6 +28,7 @@ export class LiistPlaceCardNew extends LitElement {
         justify-content: space-around;
         display: flex;
         flex-direction: column;
+        flex-grow: 2;
       }
 
       .card-content > p {
@@ -92,6 +93,55 @@ export class LiistPlaceCardNew extends LitElement {
         width: 18px;
         height: 18px;
       }
+
+      .show {
+        display: inherit;
+      }
+
+      .hide {
+        display: none;
+      }
+
+      .loader-placeholder {
+        float: left;
+        width: 60px;
+        height: 60px;
+        background-color: #ccc;
+        border-radius: 6px;
+        /* margin: 8px; */
+        background-image: linear-gradient(90deg, #F4F4F4 0px, rgba(229,229,229,0.8) 40px, #F4F4F4 80px);
+        background-size: 600px;
+        animation: shine-placeholder 2.1s infinite ease-out;
+        margin-right: 16px;
+      }
+
+      .text-placeholder {
+        float: left;
+        width: 100%;
+        height: 24px;
+        border-radius: 6px;
+        background-image: linear-gradient(90deg, #F4F4F4 0px, rgba(229,229,229,0.8) 40px, #F4F4F4 80px);
+        animation: shine-text-placeholder 2.1s infinite ease-out;
+      }
+
+      .text-placeholder-slim {
+        float: left;
+        width: 100%;
+        height: 13.5px;
+        border-radius: 6px;
+        background-image: linear-gradient(90deg, #F4F4F4 0px, rgba(229,229,229,0.8) 40px, #F4F4F4 80px);
+        animation: shine-text-placeholder 2.1s infinite ease-out;
+      }
+
+      @keyframes shine-placeholder {
+        0% { background-position: -150px  }
+        40%, 100% { background-position: 170px  }
+      }
+
+      @keyframes shine-text-placeholder {
+        0% { background-position: -150px  }
+        40%, 100% { background-position: 170px  }
+      }
     `;
   }
 
@@ -109,14 +159,6 @@ export class LiistPlaceCardNew extends LitElement {
   setOpeningHours(array) {
     this.openingHours = array
   };
-
-  // isOpen() {
-  //   return this.status === "OPEN"
-  // };
-
-  // isClosed() {
-  //   return this.status === "CLOSED"
-  // };
 
   setStatus() {
     this.openingHours
@@ -163,13 +205,18 @@ export class LiistPlaceCardNew extends LitElement {
     };
   };
 
+  // not sure if needed? in current setup need to be empty for loader to show
   constructor() {
     super();
-    this.name = "Place Title";
-    this.address = "30 E 14th Street, NYC, NY";
-    // this.status = "OPEN";
-    if (this.image !== null && this.image !== undefined) {
-      this.image = "https://firebasestorage.googleapis.com/v0/b/liist-prod.appspot.com/o/LiistComponentsAssets%2Floading.svg?alt=media&token=3bcf63df-ed78-4166-9881-2c726d8549ce";
+  }
+
+  replaceData(obj) {
+    this.name = obj.name;
+    this.address = obj.address;
+    this.itemId = obj.itemId;
+    this.status = obj.status;
+    if (obj.image !== null && obj.image !== undefined) {
+      this.image = obj.image;
     } else {
       this.image = "https://firebasestorage.googleapis.com/v0/b/liist-prod.appspot.com/o/placeNotFound.png?alt=media&token=a3f6cf7d-876c-45eb-a69c-1d20723c0db4";
     }
@@ -179,12 +226,15 @@ export class LiistPlaceCardNew extends LitElement {
     return html`
       <div class="card-main">
         <div class="card-wrapper">
-          <img class="place-thumbnail" src="https://www.fodors.com/wp-content/uploads/2016/02/1-Ultimate-New-York-Hero.jpg" alt="place image thumbnail">
+          <img class="place-thumbnail ${this.image === undefined || null ? "hide" : "show"}" src="${this.image}" alt="place image thumbnail">
+          <div class="loader-placeholder ${this.image === undefined || null ? "show" : "hide"}"></div>
           <div class="card-content">
-            <p class="place-title">${this.name}</p>
+            <p class="place-title ${this.name === undefined || null ? "hide" : "show"}">${this.name}</p>
+            <div class="text-placeholder ${this.name === undefined || null ? "show" : "hide"}"></div>
             <div class="card-content-details">
-              <p class="place-address">${this.address},</p>
-              <p class="place-status ${this.status === "OPEN" ? "open" : "closed"}">${this.status}</p>
+              <p class="place-address ${this.address === undefined || null ? "hide" : "show"}">${this.address},</p>
+              <p class="place-status ${this.status === "OPEN" ? "open" : "closed"} ${this.status === undefined || null ? "hide" : "show"}"> ${this.status}</p>
+              <div class="text-placeholder-slim ${this.address === undefined || null ? "show" : "hide"}"></div>
             </div>
           </div>
           <div class="icon-wrapper">
