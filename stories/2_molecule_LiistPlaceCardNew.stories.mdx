@@ -1,0 +1,39 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import '../src/molecules/LiistPlaceCardNew.js';
+
+<Meta
+  title="molecules|LiistPlaceCardNew"
+  parameters={{
+    component: "liist-place-card-new",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# `<liist-place-card-new>`
+
+A component that displays a place object.
+
+### Loading State
+<Preview>
+  <liist-place-card-new></liist-place-card-new>
+</Preview>
+
+### With content
+<Preview>
+  <liist-place-card-new
+    name="Place Name"
+    address="Graefestraße 76, 10967 Berlin"
+    status="OPEN"
+    image="https://lh3.googleusercontent.com/p/AF1QipNMRSXPYxXoHdar12LmfEuassK6Ggt_Pd7uB9U=s1600-w200"
+  ></liist-place-card-new>
+</Preview>
+
+
+## Properties
+
+- **`name`**: name of the place
+- **`address`**: place as string - 1 line
+- **`image`**: image url, cropped to thumbnail
+- **`status`**: either open or closed
+- **`itemId`**: itemId of that place to be able to quickly fetch place details from firestore.
+
