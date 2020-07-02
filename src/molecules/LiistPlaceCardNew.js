@@ -1,6 +1,6 @@
 import { html, css, LitElement } from 'lit-element';
 
-export class LiistAuthor extends LitElement {
+export class LiistPlaceCardNew extends LitElement {
   static get styles() {
     return css`
 
@@ -18,7 +18,6 @@ export class LiistAuthor extends LitElement {
 
   render() {
     return html`
-
     `;
   }
 }
