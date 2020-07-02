@@ -88,64 +88,58 @@ export class LiistPlaceCardNew extends LitElement {
     this.openingHours = array
   };
 
-  isOpen() {
-    return this.status === "OPEN"
-  };
+  // isOpen() {
+  //   return this.status === "OPEN"
+  // };
 
-  isClosed() {
-    return this.status === "CLOSED"
-  };
+  // isClosed() {
+  //   return this.status === "CLOSED"
+  // };
 
   setStatus() {
     this.openingHours
 
-    // get current date
+    // get current date variables
     let date = new Date();
-
-    // let weekday = new Array(7);
-    // weekday[0] = "Sunday";
-    // weekday[1] = "Monday";
-    // weekday[2] = "Tuesday";
-    // weekday[3] = "Wednesday";
-    // weekday[4] = "Thursday";
-    // weekday[5] = "Friday";
-    // weekday[6] = "Saturday";
-    // let dayToday = weekday[date.getDay()];
-    // let yearNow = date.getFullYear();
-    // let monthNow = date.getMonth + 1;
-    // let hourNow = date.getHours();
-    // let dayNow = date.getDate();
-    // let minutesNow = date.getMinutes();
-    // let toAmPm = (hourNow > 12) ? (hourNow - 12 + ':' + minutesNow + ' PM') : (hourNow + ':' + minutesNow + ' AM');
-    // let toNormalTime = (hourNow > 12) ? (hourNow + 12 + ':' + minutesNow) : (hourNow + ':' + minutesNow);
-    // let timeNow = dayToday + ": " + toAmPm;
-    // var timeFormat = yearNow + "-" + monthNow + "-" dayNow + "T" + hourNow + minutesNow;
+    let yearNow = date.getFullYear();
+    let monthNow = date.getMonth() + 1;
+    let monthWithZeroInFront = ('0' + monthNow).slice(-2);
+    let dayNow = parseInt(date.getDate());
+    let dayWithZeroInFront = ('0' + dayNow).slice(-2);
+    let minutesNow = date.getMinutes();
 
     // get the opening time of this day in correct time format
-    if (this.openingHours[date.getDay()].split(" ")[2] === "AM") {
-      let openTime = parseInt(this.openingHours[date.getDay()].split(" ")[1]);
-    } else if (this.openingHours[date.getDay()].split(" ")[2] === "PM") {
-      let openTime = parseInt(this.openingHours[date.getDay()].split(" ")[1].split(":")[0]) + 12;
-    }
+    let open;
+    if (this.openingHours[date.getDay()-1].split(" ")[2] === "AM") {
+      open = parseInt(this.openingHours[date.getDay()-1].split(" ")[1]);
+    } else if (this.openingHours[date.getDay()-1].split(" ")[2] === "PM") {
+      open = parseInt(this.openingHours[date.getDay()-1].split(" ")[1].split(":")[0]) + 12;
+    };
+    let openMinutes = this.openingHours[date.getDay() - 1].split(" ")[1].split(":")[1]
+    let openTime = yearNow + "-" + monthWithZeroInFront + "-" + dayWithZeroInFront + "T" + open + ":" + openMinutes;
 
     // get the close time of this day in correct time format
+    let close;
     if (this.openingHours[date.getDay()-1].split(" ")[5] === "AM") {
-      let closeTime = parseInt(this.openingHours[date.getDay()-1].split(" ")[1]);
+      close = parseInt(this.openingHours[date.getDay()-1].split(" ")[1]);
     } else if (this.openingHours[date.getDay()-1].split(" ")[5] === "PM") {
-      let closeTime = parseInt(this.openingHours[date.getDay()-1].split(" ")[1].split(":")[0]) + 12;
-    }
+      close = parseInt(this.openingHours[date.getDay()-1].split(" ")[1].split(":")[0]) + 12;
+    };
+    let closeMinutes = this.openingHours[date.getDay() - 1].split(" ")[4].split(":")[1]
+    let closeTime = yearNow + "-" + monthWithZeroInFront + "-" + dayWithZeroInFront + "T" + close + ":" + closeMinutes;
 
-    // get the time now in correct format
+    // get all the times in correct parsed format
     let timeToCheck = Date.parse(date);
+    let openTimeParsed = Date.parse(openTime);
+    let closeTimeParsed = Date.parse(closeTime);
 
     // check if time is within range
-    if (timeToCheck > openTime && timeToCheck < closeTime) {
-      console.log("is open")
+    if (timeToCheck > openTimeParsed && timeToCheck < closeTimeParsed) {
+      this.status = "OPEN";
     } else {
-      console.log("is closed")
-    }
-
-  }
+      this.status = "CLOSED";
+    };
+  };
 
   constructor() {
     super();
@@ -163,7 +157,7 @@ export class LiistPlaceCardNew extends LitElement {
           <p class="place-title">${this.name}</p>
           <div class="card-content-details">
             <p class="place-address">${this.address},</p>
-            <p class="place-status ${this.isOpen ? "open" : "closed"}">${this.status}</p>
+            <p class="place-status ${this.status === "OPEN" ? "open" : "closed"}">${this.status}</p>
           </div>
         </div>
       </div>
