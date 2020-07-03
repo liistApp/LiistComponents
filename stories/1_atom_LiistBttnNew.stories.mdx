@@ -1,0 +1,25 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import '../src/atoms/LiistBttnNew.js';
+
+<Meta
+  title="atoms|LiistBttnNew"
+  parameters={{
+    component: "liist-bttn-new",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# `<liist-bttn-new>`
+
+Main button component without icon
+
+### Default State
+<Preview>
+  <liist-bttn-new></liist-bttn-new>
+</Preview>
+
+## Properties
+
+- **`text`**: label/text of the button.
+- **`color`**: text and icon color of the button.
+- **`bgColor`**: background color of the button.
