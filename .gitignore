@@ -22,3 +22,6 @@
 # VSCODE plugins
 .history
 .vscode
+
+# list web app repo
+liist.web.app
