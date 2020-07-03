@@ -47,6 +47,7 @@ export class LiistPlaceCardNew extends LitElement {
         height: auto;
         border-radius: 6px;
         margin-right: 16px;
+        object-fit: cover;
       }
 
       .card-content-details {
@@ -158,11 +159,10 @@ export class LiistPlaceCardNew extends LitElement {
 
   setOpeningHours(array) {
     this.openingHours = array
+    this.setStatus();
   };
 
   setStatus() {
-    this.openingHours
-
     // get current date variables
     let date = new Date();
     let yearNow = date.getFullYear();
@@ -174,20 +174,20 @@ export class LiistPlaceCardNew extends LitElement {
 
     // get the opening time of this day in correct time format
     let open;
-    if (this.openingHours[date.getDay()-1].split(" ")[2] === "AM") {
-      open = parseInt(this.openingHours[date.getDay()-1].split(" ")[1]);
-    } else if (this.openingHours[date.getDay()-1].split(" ")[2] === "PM") {
-      open = parseInt(this.openingHours[date.getDay()-1].split(" ")[1].split(":")[0]) + 12;
+    if (this.openingHours[date.getDay() - 1].split(" ")[2] === "AM") {
+      open = parseInt(this.openingHours[date.getDay() - 1].split(" ")[1]);
+    } else if (this.openingHours[date.getDay() - 1].split(" ")[2] === "PM") {
+      open = parseInt(this.openingHours[date.getDay() - 1].split(" ")[1].split(":")[0]) + 12;
     };
     let openMinutes = this.openingHours[date.getDay() - 1].split(" ")[1].split(":")[1]
     let openTime = yearNow + "-" + monthWithZeroInFront + "-" + dayWithZeroInFront + "T" + open + ":" + openMinutes;
 
     // get the close time of this day in correct time format
     let close;
-    if (this.openingHours[date.getDay()-1].split(" ")[5] === "AM") {
-      close = parseInt(this.openingHours[date.getDay()-1].split(" ")[1]);
-    } else if (this.openingHours[date.getDay()-1].split(" ")[5] === "PM") {
-      close = parseInt(this.openingHours[date.getDay()-1].split(" ")[1].split(":")[0]) + 12;
+    if (this.openingHours[date.getDay() - 1].split(" ")[5] === "AM") {
+      close = parseInt(this.openingHours[date.getDay() - 1].split(" ")[1]);
+    } else if (this.openingHours[date.getDay() - 1].split(" ")[5] === "PM") {
+      close = parseInt(this.openingHours[date.getDay() - 1].split(" ")[1].split(":")[0]) + 12;
     };
     let closeMinutes = this.openingHours[date.getDay() - 1].split(" ")[4].split(":")[1]
     let closeTime = yearNow + "-" + monthWithZeroInFront + "-" + dayWithZeroInFront + "T" + close + ":" + closeMinutes;
@@ -210,15 +210,39 @@ export class LiistPlaceCardNew extends LitElement {
     super();
   }
 
+  // after the component is first rendered in its initial state (displayed to user)
+  // this function gets executed
+  firstUpdated() {
+    this.setImage();
+  }
+
+  setImage() {
+    const placeThumbnail = this.shadowRoot.querySelector("img.place-thumbnail");
+    const loadingPlaceholder = this.shadowRoot.querySelector(".loader-placeholder");
+    placeThumbnail.onload = function () {
+      placeThumbnail.classList.remove("hide");
+      placeThumbnail.classList.add("show");
+      loadingPlaceholder.classList.remove("show");
+      loadingPlaceholder.classList.add("hide");
+    }
+    placeThumbnail.src = this.image;
+  }
+
+  isOpen() {
+    return this.status === "OPEN";
+  }
+
+  isClosed() {
+    return this.status === "CLOSED";
+  }
+
   replaceData(obj) {
-    this.name = obj.name;
-    this.address = obj.address;
-    this.itemId = obj.itemId;
-    this.status = obj.status;
-    if (obj.image !== null && obj.image !== undefined) {
-      this.image = obj.image;
-    } else {
-      this.image = "https://firebasestorage.googleapis.com/v0/b/liist-prod.appspot.com/o/placeNotFound.png?alt=media&token=a3f6cf7d-876c-45eb-a69c-1d20723c0db4";
+    this.name = obj.name || this.name;
+    this.address = obj.address || this.address;
+    this.itemId = obj.itemId || this.itemId;
+    this.status = obj.status || this.status;
+    if (obj.image) {
+      this.shadowRoot.querySelector("img.place-thumbnail").src = obj.image;
     }
   }
 
@@ -226,15 +250,15 @@ export class LiistPlaceCardNew extends LitElement {
     return html`
       <div class="card-main">
         <div class="card-wrapper">
-          <img class="place-thumbnail ${this.image === undefined || null ? "hide" : "show"}" src="${this.image}" alt="place image thumbnail">
-          <div class="loader-placeholder ${this.image === undefined || null ? "show" : "hide"}"></div>
+          <img class="place-thumbnail hide" src="" alt="place image thumbnail">
+          <div class="loader-placeholder show"></div>
           <div class="card-content">
-            <p class="place-title ${this.name === undefined || null ? "hide" : "show"}">${this.name}</p>
-            <div class="text-placeholder ${this.name === undefined || null ? "show" : "hide"}"></div>
+            <p class="place-title ${this.name ? "show" : "hide"}">${this.name}</p>
+            <div class="text-placeholder ${this.name ? "hide" : "show"}"></div>
             <div class="card-content-details">
-              <p class="place-address ${this.address === undefined || null ? "hide" : "show"}">${this.address},</p>
-              <p class="place-status ${this.status === "OPEN" ? "open" : "closed"} ${this.status === undefined || null ? "hide" : "show"}"> ${this.status}</p>
-              <div class="text-placeholder-slim ${this.address === undefined || null ? "show" : "hide"}"></div>
+              <p class="place-address ${this.address ? "show" : "hide"}">${this.address},</p>
+              <p class="place-status ${this.isOpen() ? "open show" : this.isClosed() ? "closed show" : "hide"}"> ${this.status}</p>
+              <div class="text-placeholder-slim ${this.address ? "hide" : "show"}"></div>
             </div>
           </div>
           <div class="icon-wrapper">
