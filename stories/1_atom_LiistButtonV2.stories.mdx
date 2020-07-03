@@ -1,0 +1,37 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import '../src/atoms/LiistBttnV2.js';
+
+<Meta
+  title="atoms|LiistBttnV2"
+  parameters={{
+    component: "liist-bttn-v2",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# `<liist-bttn-v2>`
+
+Main button component.
+
+### Default State
+<Preview>
+  <liist-bttn-v2></liist-bttn-v2>
+</Preview>
+
+### Customized State
+<Preview>
+  <liist-bttn-v2
+    width="55"
+    bgColor="#4F51C2"
+    color="white"
+  >
+    <span slot="text">Save this Hitlist</span>
+  </liist-bttn-v2>
+</Preview>
+
+
+## Properties
+
+- **`color`**: text color of button. Default: white
+- **`bgColor`**: background color of the button. Default: viiolet
+- **`width`**: width set in %. Default: 25%
