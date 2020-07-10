@@ -39,16 +39,13 @@ export class LiistSection extends LitElement {
 
   render() {
     return html`
-    <!-- slot with div that can be indiviaully filled; probably makes the most sense? -->
     <div class="container">
-      <!-- <slot name="title"><p id="title"></p></slot> -->
       <p><slot name="title" id="title">loading ... </slot></p>
       <div class="line"></div>
       <div class="content">
-        <slot name="fill-content">loading slot content </slot>
+        <slot name="fill-content"></slot>
       </div>
     </div>
-
     `;
   }
 }
