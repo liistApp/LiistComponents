@@ -9,6 +9,10 @@ export class LiistBttnV2 extends LitElement {
       font-size: 17px;
     }
 
+    a {
+      text-decoration: none;
+    }
+
     .container {
     }
 
@@ -35,6 +39,7 @@ export class LiistBttnV2 extends LitElement {
       color: { type: String },
       bgColor: { type: String },
       width: { type: String },
+      url: { type: String },
     };
   }
 
@@ -49,13 +54,14 @@ export class LiistBttnV2 extends LitElement {
   render() {
     return html`
       <div class="container">
-        <div class="button" style="width:${this.width}%; background-color: ${this.bgColor};">
-          <p style="color:${this.color}"><slot name="text">loading ...</slot></p>
-        </div>
+        <a href="${this.url}">
+          <div class="button" style="width:${this.width}%; background-color: ${this.bgColor};">
+            <p style="color:${this.color}"><slot name="text">loading ...</slot></p>
+          </div>
+        </a>
       </div>
     `;
   }
 }
 
 window.customElements.define('liist-bttn-v2', LiistBttnV2);
-
