@@ -1,0 +1,38 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import '../src/atoms/LiistSection.js';
+
+<Meta
+  title="atoms|LiistSection"
+  parameters={{
+    component: "liist-section",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# `<liist-section>`
+
+liist section component used to structure the web view
+
+### Default State
+<Preview>
+  <liist-section></liist-section>
+</Preview>
+
+### Customized State
+<Preview>
+  <liist-section>
+    <span slot="title">50+ Spots in this Hitlist</span>
+    <span slot="fill-content">
+      <div class="sample-class">
+        <li>This is a span with a slot <i>fill-content</i></li>
+        <li>this slot can be filled with any html and styled respectively</li>
+      </div>
+    </span>
+  </liist-section>
+</Preview>
+
+
+## Properties
+There are no properties for this component but 2 Slots of which the content can be changed
+- **`slot="title"`**: title of the section. p tag
+- **`slot="fill-content"`**: can be filled with any content
