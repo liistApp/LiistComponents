@@ -6,21 +6,30 @@ export class LiistAuthor extends LitElement {
       * {
         font-family: 'DM Sans', sans-serif;
       }
+
       .list-author-wrapper {
         display: flex;
         align-items: center;
       }
+
       img#author-avatar {
         border-radius: 50%;
         object-fit: cover;
         align-self: center;
-        width: 35px;
-        height: 35px;
+        width: 40px;
+        height: 40px;
       }
+
       p#author-name-initial {
-        margin-left: 15px;
-        margin-top: 3.5px;
-        margin-bottom: 0;
+        margin: 0;
+        margin-left: 4.6px;
+        font-size: 14px;
+        color: #3D3E6C;
+        line-height: 140%;
+      }
+
+      #author-name-initial > span {
+        font-weight: bold;
       }
     `;
   }
@@ -42,7 +51,7 @@ export class LiistAuthor extends LitElement {
     return html`
       <div class="list-author-wrapper">
         <img id="author-avatar" class="overlay-images" src="${this.userImageUrl}">
-        <p id="author-name-initial">By ${this.displayName}</p>
+        <p id="author-name-initial">By <span>${this.displayName}</span></p>
       </div>
     `;
   }
