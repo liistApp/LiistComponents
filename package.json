@@ -1,10 +1,14 @@
 {
   "name": "liist-webcomponents",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Webcomponents for liist (following open-wc recommendations)",
   "author": "dcts",
   "license": "MIT",
   "main": "index.js",
+  "files": [
+    "/src",
+    "index.js"
+  ],
   "module": "index.js",
   "scripts": {
     "start": "es-dev-server --app-index demo/index.html --node-resolve --open --watch",
