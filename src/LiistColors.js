@@ -1,7 +1,7 @@
 // How to import variable
 // import { listColors } from '../LiistColors.js';
 
-export const liistColors = {
+export const LiistColors = {
   sunii: "#F2D70B",
   skii: "#337EF8",
   viiolet: "#4F51C2",
