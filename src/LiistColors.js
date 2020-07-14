@@ -3,7 +3,7 @@
 
 export const liistColors = {
   sunii: "#F2D70B",
-  skii: "##337EF8",
+  skii: "#337EF8",
   viiolet: "#4F51C2",
   grasii: "#18943F",
   hotii: "#18943F",
