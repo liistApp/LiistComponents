@@ -4,59 +4,64 @@ import 'fa-icons';
 export class LiistBttn extends LitElement {
   static get styles() {
     return css`
-      * {
-        font-family: "Helvetica", serif;
-        cursor: pointer;
-        font-family: "DM Sans", sans-serif;
-        font-size: 12px;
-      }
-      #wrapper {
-        display: inline-block;
-      }
-      .bttn {
-        padding: 0 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 32px;
-        max-width: 165px;
-        border-radius: 8px;
-      }
-      p#text {
-        padding-right: 10px;
-        margin: 0;
-      }
+
+    p {
+      font-size: 17px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+    }
+
+    .button {
+      height: 50px;
+      width: 100%;
+      border-radius: 6px;
+      background-color: #4F51C2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .button:hover{
+      cursor: pointer;
+    }
+
     `;
   }
 
   static get properties() {
     return {
       text: { type: String },
-      faSpec: { type: String },
-      bgColor: { type: String },
       color: { type: String },
+      bgColor: { type: String },
+      width: { type: String },
+      url: { type: String },
     };
   }
 
   constructor() {
     super();
-    this.bgColor = "black";
-    this.color = "white";
-    this.text = "loading ...";
-    this.faSpec = "far fa-question-circle"
+    this.color = "grey";
+    this.bgColor = "#ccc";
+    this.width = "25";
+
   }
 
   render() {
     return html`
-      <div id="wrapper">
-        <div class="bttn" style="background-color: ${this.bgColor}; color: ${this.color}">
-          <p id="text">${this.text}</p>
-          <fa-icon class="${this.faSpec}" style="display: flex; justify-content: center; align-items: center;" size="14px"></fa-icon>
-        </div>
+      <div class="container">
+        <a href="${this.url}">
+          <div class="button" style="width:${this.width}%; background-color: ${this.bgColor};">
+            <p style="color:${this.color}"><slot name="text">loading ...</slot></p>
+          </div>
+        </a>
       </div>
     `;
   }
 }
 
 window.customElements.define('liist-bttn', LiistBttn);
-

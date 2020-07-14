@@ -11,9 +11,9 @@ import '../src/molecules/LiistPlaceCard.js';
 
 # `<liist-place-card>`
 
-A component that displays an avatar image and the name of the author.
+A component that displays a place object.
 
-### Loading (after initialization)
+### Loading State
 <Preview>
   <liist-place-card></liist-place-card>
 </Preview>
@@ -21,18 +21,19 @@ A component that displays an avatar image and the name of the author.
 ### With content
 <Preview>
   <liist-place-card
-    name="Barrio Queen - Queen Creek"
-    comment="✔️ DoorDash | ✔️ GrubHub | ✔️ Seamless"
-    tag="🌮"
-    thumbnail="https://lh3.googleusercontent.com/p/AF1QipNMRSXPYxXoHdar12LmfEuassK6Ggt_Pd7uB9U=s1600-w200"
+    name="Place Name"
+    address="Graefestraße 76, 10967 Berlin"
+    status="OPEN"
+    image="https://images.unsplash.com/photo-1593642532454-e138e28a63f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=6016&q=80"
   ></liist-place-card>
 </Preview>
+
 
 ## Properties
 
 - **`name`**: name of the place
-- **`comment`**: comment to a place given by creator.
-- **`thumbnail`**: image url
-- **`tag`**: emoticon passed as string
+- **`address`**: place as string - 1 line
+- **`image`**: image url, cropped to thumbnail
+- **`status`**: either open or closed
 - **`itemId`**: itemId of that place to be able to quickly fetch place details from firestore.
 

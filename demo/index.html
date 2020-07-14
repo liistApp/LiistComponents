@@ -13,14 +13,14 @@
 
   <script type="module">
     import { html, render } from 'lit-html';
-    import '../liist-test.js';
+    import { LiistBttnV2 } from '../src/atoms/LiistBttnV2.js';
 
     const title = 'Hello owc World!';
     render(
       html`
-        <liist-test .title=${title}>
-          some more light-dom
-        </liist-test>
+        <liist-bttn-v2 width="10" bgColor="#4F51C2" color="white" url="https://dcts.github.io/CV">
+          <span slot="text">${title}</span>
+        </liist-bttn-v2>
       `,
       document.querySelector('#demo')
     );
