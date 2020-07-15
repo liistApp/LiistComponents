@@ -1,5 +1,4 @@
 import { html, css, LitElement } from 'lit-element';
-import 'fa-icons';
 
 export class LiistBttnOld extends LitElement {
   static get styles() {

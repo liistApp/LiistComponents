@@ -162,3 +162,11 @@ document.addEventListener("liist-daad-filter-changed", (event) => {
   console.log(e.detail);
 });
 ```
+
+
+### Custom Setter and Getter Pattern
+- full reference here:
+https://lit-element.polymer-project.org/guide/properties#accessors-custom
+
+If you need to preprocess the properties (setter and getter). Usecases:
+- allow user to write `color="sunii"` and then processing this input and storing the HEX code
