@@ -1,0 +1,166 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import { LiistColors } from '../src/LiistColors.js';
+import { LiistBttn } from '../src/atoms/LiistBttn.js';
+
+<Meta
+  title="atoms|LiistColors"
+  parameters={{
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# `LiistColors`
+
+Liist brand colors. Colors are supported widely across all components. Whenever a component has a property `color` or `bgColor` then you can simply add the lowercase name of the liist brand-color. For example:
+
+### Standard Violet
+<Preview>
+  <div>
+    <h4>viiolet80</h4>
+    <div style={{ backgroundColor: `${LiistColors.get("viiolet80")}`, width: 80, height: 60, marginRight: "10px" }}></div>
+  </div>
+  <div>
+    <h4>viiolet60</h4>
+    <div style={{ backgroundColor: `${LiistColors.get("viiolet60")}`, width: 80, height: 60, marginRight: "10px" }}></div>
+  </div>
+  <div>
+    <h4>viiolet40</h4>
+    <div style={{ backgroundColor: `${LiistColors.get("viiolet40")}`, width: 80, height: 60, marginRight: "10px" }}></div>
+  </div>
+  <div>
+    <h4>viiolet20</h4>
+    <div style={{ backgroundColor: `${LiistColors.get("viiolet20")}`, width: 80, height: 60, marginRight: "10px" }}></div>
+  </div>
+</Preview>
+
+### Colors
+<Preview>
+  <div>
+    <h4 style={{ marginBottom: 0 }}>hotii</h4>
+    <p style={{ margin: 0, padding: 0, fontSize: "14px", lineHeight: "18px" }}>{LiistColors.get("hotii")}</p>
+    <div style={{ backgroundColor: `${LiistColors.get("hotii")}`, width: 80, height: 60, marginRight: "10px" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("hotii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.8" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("hotii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.6" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("hotii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.4" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("hotii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.2" }}></div>
+  </div>
+  <div>
+    <h4 style={{ marginBottom: 0 }}>sunii</h4>
+    <p style={{ margin: 0, padding: 0, fontSize: "14px", lineHeight: "18px" }}>{LiistColors.get("sunii")}</p>
+    <div style={{ backgroundColor: `${LiistColors.get("sunii")}`, width: 80, height: 60, marginRight: "10px" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("sunii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.8" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("sunii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.6" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("sunii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.4" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("sunii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.2" }}></div>
+  </div>
+  <div>
+    <h4 style={{ marginBottom: 0 }}>viiolet</h4>
+    <p style={{ margin: 0, padding: 0, fontSize: "14px", lineHeight: "18px" }}>{LiistColors.get("viiolet")}</p>
+    <div style={{ backgroundColor: `${LiistColors.get("viiolet")}`, width: 80, height: 60, marginRight: "10px" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("viiolet")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.8" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("viiolet")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.6" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("viiolet")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.4" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("viiolet")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.2" }}></div>
+  </div>
+  <div>
+    <h4 style={{ marginBottom: 0 }}>skii</h4>
+    <p style={{ margin: 0, padding: 0, fontSize: "14px", lineHeight: "18px" }}>{LiistColors.get("skii")}</p>
+    <div style={{ backgroundColor: `${LiistColors.get("skii")}`, width: 80, height: 60, marginRight: "10px" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("skii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.8" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("skii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.6" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("skii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.4" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("skii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.2" }}></div>
+  </div>
+  <div>
+    <h4 style={{ marginBottom: 0 }}>grasii</h4>
+    <p style={{ margin: 0, padding: 0, fontSize: "14px", lineHeight: "18px" }}>{LiistColors.get("grasii")}</p>
+    <div style={{ backgroundColor: `${LiistColors.get("grasii")}`, width: 80, height: 60, marginRight: "10px" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("grasii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.8" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("grasii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.6" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("grasii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.4" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("grasii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.2" }}></div>
+  </div>
+  <div>
+    <h4 style={{ marginBottom: 0 }}>piink</h4>
+    <p style={{ margin: 0, padding: 0, fontSize: "14px", lineHeight: "18px" }}>{LiistColors.get("piink")}</p>
+    <div style={{ backgroundColor: `${LiistColors.get("piink")}`, width: 80, height: 60, marginRight: "10px" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("piink")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.8" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("piink")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.6" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("piink")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.4" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("piink")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.2" }}></div>
+  </div>
+  <div>
+    <h4 style={{ marginBottom: 0 }}>creamii</h4>
+    <p style={{ margin: 0, padding: 0, fontSize: "14px", lineHeight: "18px" }}>{LiistColors.get("creamii")}</p>
+    <div style={{ backgroundColor: `${LiistColors.get("creamii")}`, width: 80, height: 60, marginRight: "10px" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("creamii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.8" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("creamii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.6" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("creamii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.4" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("creamii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.2" }}></div>
+  </div>
+  <div>
+    <h4 style={{ marginBottom: 0 }}>smokii</h4>
+    <p style={{ margin: 0, padding: 0, fontSize: "14px", lineHeight: "18px" }}>{LiistColors.get("smokii")}</p>
+    <div style={{ backgroundColor: `${LiistColors.get("smokii")}`, width: 80, height: 60, marginRight: "10px" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("smokii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.8" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("smokii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.6" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("smokii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.4" }}></div>
+    <div style={{ backgroundColor: `${LiistColors.get("smokii")}`, width: 80, height: 15, marginRight: "10px", opacity: "0.2" }}></div>
+  </div>
+</Preview>
+
+### Themes
+
+A theme is always a combination of 2 brand colors and always consists 2 properties:
+- **`bgColor`**: main color of the theme
+- **`color`**: font color
+
+Themes can be applied to the following components:
+- `<liist-bttn>`
+- `<liist-icon>`
+- `<liist-tag>`
+
+<Preview>
+  <div>
+    <h4>basic</h4>
+    <div style={{ paddingBottom: "10px"}}> <liist-bttn title="hotii" theme="hotii"></liist-bttn></div>
+    <div style={{ paddingBottom: "10px"}}> <liist-bttn title="sunii" theme="sunii"></liist-bttn></div>
+    <div style={{ paddingBottom: "10px"}}> <liist-bttn title="viiolet" theme="viiolet"></liist-bttn></div>
+    <div style={{ paddingBottom: "10px"}}> <liist-bttn title="grasii" theme="grasii"></liist-bttn></div>
+    <div style={{ paddingBottom: "10px"}}> <liist-bttn title="piink" theme="piink"></liist-bttn></div>
+    <h4>additional</h4>
+    <div style={{ paddingBottom: "10px"}}> <liist-bttn title="viiolet20" theme="viiolet20"></liist-bttn></div>
+    <div style={{ paddingBottom: "10px"}}> <liist-bttn title="viiolet80" theme="viiolet80"></liist-bttn></div>
+    <div style={{ paddingBottom: "10px"}}> <liist-bttn title="viiolet80b" theme="viiolet80b"></liist-bttn></div>
+  </div>
+</Preview>
+
+
+### Dictionaries
+```js
+LiistColors.dict = {
+  sunii:     "#F2D70B",
+  skii:      "#337EF8",
+  grasii:    "#18943F",
+  hotii:     "#E94732",
+  piink:     "#FAC8DA",
+  creamii:   "#F9DDC5",
+  smokii:    "#1A1A1A",
+  viiolet:   "#4F51C2",
+  viiolet80: "#3D3E6C",
+  viiolet60: "#8687A7",
+  viiolet40: "#DBDCEB",
+  viiolet20: "#EDEEF9",
+}
+
+LiistColors.themeDict = {
+  viiolet20:  { bgColor: "viiolet20", color: "viiolet80" },
+  viiolet80:  { bgColor: "viiolet80", color: "viiolet20" },
+  viiolet80b: { bgColor: "viiolet80", color: "creamii" },
+  sunii:      { bgColor: "sunii",     color: "viiolet80" },
+  piink:      { bgColor: "piink",     color: "hotii" },
+  grasii:     { bgColor: "grasii",    color: "piink" },
+  hotii:      { bgColor: "hotii",     color: "creamii" },
+  viiolet:    { bgColor: "viiolet",   color: "sunii" },
+}
+```

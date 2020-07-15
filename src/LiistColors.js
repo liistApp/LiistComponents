@@ -1,5 +1,5 @@
 // How to import variable
-// import { listColors } from '../LiistColors.js';
+// import { LiistColors } from '../LiistColors.js';
 
 export class LiistColors {
   static names() {
@@ -16,22 +16,27 @@ export class LiistColors {
 
   static get(name) {
     if (!LiistColors.names().includes(name)) {
-      throw new Error(`the colorname you provided is invalid. Got: ${name}. Valid: ${LiistColors.names()}`);
+      console.warn(`the colorname you provided is invalid. Got: ${name}. Valid: ${LiistColors.names()}`);
     }
     return LiistColors.dict[name];
   }
 
   /*
-   * THEMES are pairs of colors
+   * THEMES are pairs of 2 colors (color and bgColor)
    */
   static themes() {
     return Object.keys(LiistColors.themeDict);
   }
+
   static getTheme(name) {
-    if (!LiistColors.themes().includes(name)) {
-      throw new Error(`the theme you provided is invalid. Got: ${name}. Valid: ${LiistColors.themes()}`);
+    if (!LiistColors.isValidTheme(name)) {
+      console.warn(`the theme you provided is invalid. Got: ${name}. Valid: ${LiistColors.themes()}`);
     }
     return LiistColors.themeDict[name];
+  }
+
+  static isValidTheme(name) {
+    return LiistColors.themes().includes(name);
   }
 
   /*
@@ -63,11 +68,12 @@ LiistColors.dict = {
 }
 
 LiistColors.themeDict = {
-  viiolet20: { bgColor: "viiolet20", color: "viiolet80" },
-  viiolet80: { bgColor: "viiolet80", color: "creamii" },
-  sunii: { bgColor: "sunii", color: "viiolet80" },
-  piink: { bgColor: "piink", color: "hotii" },
-  grasii: { bgColor: "grasii", color: "piink" },
-  hotii: { bgColor: "hotii", color: "creamii" },
-  viiolet: { bgColor: "viiolet", color: "sunii" },
+  viiolet20:  { bgColor: "viiolet20", color: "viiolet80" },
+  viiolet80:  { bgColor: "viiolet80", color: "viiolet20" },
+  viiolet80b: { bgColor: "viiolet80", color: "creamii" },
+  sunii:      { bgColor: "sunii",     color: "viiolet80" },
+  piink:      { bgColor: "piink",     color: "hotii" },
+  grasii:     { bgColor: "grasii",    color: "piink" },
+  hotii:      { bgColor: "hotii",     color: "creamii" },
+  viiolet:    { bgColor: "viiolet",   color: "sunii" },
 }

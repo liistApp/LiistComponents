@@ -8,6 +8,7 @@ export class LiistBttn extends LitElement {
 
     p {
       font-size: 17px;
+      font-weight: bold;
     }
 
     a {
@@ -29,7 +30,7 @@ export class LiistBttn extends LitElement {
 
   static get properties() {
     return {
-      text: { type: String },
+      title: { type: String },
       color: { type: String },
       bgColor: { type: String },
       theme: { type: String },
@@ -40,26 +41,26 @@ export class LiistBttn extends LitElement {
 
   constructor() {
     super();
-    this._color = "grey"; // write custom setter and getter
-    this._bgColor = "#ccc";
-    this.text = "loading...";
+    this.color = "grey";
+    this.bgColor = "#ccc";
+    this.title = "loading...";
     this.width = "25";
     this.theme = "none";
   }
 
-  set bgColor(newVal) {
-    let oldVal = this._bgColor;
-    this._bgColor = LiistColors.transformColorInput(newVal);
-    this.requestUpdate('bgColor', oldVal);
-  }
-  get bgColor() { return this._bgColor; }
+  // set bgColor(newVal) {
+  //   let oldVal = this._bgColor;
+  //   this._bgColor = LiistColors.transformColorInput(newVal);
+  //   this.requestUpdate('bgColor', oldVal);
+  // }
+  // get bgColor() { return this._bgColor; }
 
-  set color(newVal) {
-    let oldVal = this._color;
-    this._color = LiistColors.transformColorInput(newVal);
-    this.requestUpdate('color', oldVal);
-  }
-  get color() { return this._color; }
+  // set color(newVal) {
+  //   let oldVal = this._color;
+  //   this._color = LiistColors.transformColorInput(newVal);
+  //   this.requestUpdate('color', oldVal);
+  // }
+  // get color() { return this._color; }
 
 
   // set bgColor(colorInput) {
@@ -71,26 +72,22 @@ export class LiistBttn extends LitElement {
   //   // retrieve the old property value and store the new one
   // }
 
-  // connectedCallback() {
-  //   super.connectedCallback();
-  //   this.bgColor = LiistColors.transformColorInput(this.bgColor);
-  //   this.color = LiistColors.transformColorInput(this.color);
-
-  //   // if (LiistColors.themes().includes(this.theme)) {
-  //   //   const targetTheme = LiistColors.getTheme(this.theme);
-  //   //   console.log(targetTheme);
-  //   //   this.bgColor = targetTheme.bgColor;
-  //   //   this.color = targetTheme.color;
-  //   // }
-  //   // this.requestUpdate();
-  // }
 
   render() {
+    // preprocessing the properties!
+    let bgColor = LiistColors.transformColorInput(this.bgColor);
+    let color = LiistColors.transformColorInput(this.color);;
+    // if a theme is selected, override the other properties!
+    if (LiistColors.isValidTheme(this.theme)) {
+      const targetTheme = LiistColors.getTheme(this.theme);
+      bgColor = LiistColors.transformColorInput(targetTheme.bgColor);
+      color = LiistColors.transformColorInput(targetTheme.color);
+    }
     return html`
       <div>
         <a href="${this.url || "#" }">
-          <div class="button" style="width:${this.width}%; background-color: ${this._bgColor};">
-            <p style="color:${this._color}">${this.text}</p>
+          <div class="button" style="width:${this.width}%; background-color: ${bgColor};">
+            <p style="color:${color}">${this.title}</p>
           </div>
         </a>
       </div>
