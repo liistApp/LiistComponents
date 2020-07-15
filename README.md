@@ -10,9 +10,9 @@ npm i liist-webcomponents
 ## Usage
 ```html
 <script type="module">
-  import 'liist-webcomponents/liist-bttn.js';
+  import { LiistBttn } from 'liist-webcomponents';
 </script>
-<liist-bttn text="hello button" faSpec="fas fa-envelope"></liist-bttn>
+<liist-bttn>Hello World</liist-bttn>
 ```
 
 ## Demoing with Storybook
@@ -25,6 +25,13 @@ To build a production version of Storybook, run
 ```bash
 npm run storybook:build
 ```
+
+## Development Server
+To run a local development server that serves the basic demo located in `demo/index.html`
+```bash
+npm run dev
+```
+
 ## Deployment and auto build with Netlify
 
 The storybook is automatically build and deployed with Netlify, whenever there is a new commit to master. It is hosted here: https://liist-webcomponents.netlify.app/?path=/docs/
@@ -35,8 +42,3 @@ For most of the tools, the configuration is in the `package.json` to reduce the 
 
 If you customize the configuration a lot, you can consider moving them to individual files.
 
-## Local Demo with `es-dev-server`
-```bash
-npm start
-```
-To run a local development server that serves the basic demo located in `demo/index.html`

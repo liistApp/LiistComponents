@@ -20,19 +20,16 @@ liist section component used to structure the web view
 
 ### Customized State
 <Preview>
-  <liist-section>
-    <span slot="title">50+ Spots in this Hitlist</span>
-    <span slot="fill-content">
-      <div id="sample-content">
-        <li>This is a span with a slot <i>fill-content</i></li>
-        <li>this slot can be filled with any html and styled respectively</li>
-      </div>
-    </span>
+  <liist-section title="50+ Spots in this Hitlist">
+    <li>This is a random bullet point</li>
+    <li>This is another random bullet point</li>
   </liist-section>
 </Preview>
 
 
 ## Properties
 There are no properties for this component but 2 Slots of which the content can be changed
-- **`slot="title"`**: title of the section. p tag
-- **`slot="fill-content"`**: can be filled with any content
+- **`title"`**: title of the section.
+
+## Slots
+Everything inside the slot is added as content of the section (below the horizontal line).

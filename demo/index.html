@@ -9,21 +9,25 @@
   </style>
 </head>
 <body>
-  <div id="demo"></div>
-
   <script type="module">
     import { html, render } from 'lit-html';
     import { LiistBttn } from '../src/atoms/LiistBttn.js';
-
-    const title = 'Hello owc World!';
-    render(
-      html`
-        <liist-bttn width="50" bgColor="#4F51C2" color="white" url="https://dcts.github.io/CV">
-          <span slot="text">${title}</span>
-        </liist-bttn>
-      `,
-      document.querySelector('#demo')
-    );
+    import { LiistSection } from '../src/atoms/LiistSection.js';
   </script>
+
+  <h1>LiistBttn</h1>
+  <liist-bttn
+    text="Hello World"
+    width="50"
+    bgColor="#4F51C2"
+    color="white"
+    url="https://dcts.github.io/CV"
+  ></liist-bttn>
+
+  <h1>LiistSection</h1>
+  <liist-section title="asd">
+    <li>This is a span with a slot <i>fill-content</i></li>
+    <li>this slot can be filled with any html and styled respectively</li>
+  </liist-section>
 </body>
 </html>
