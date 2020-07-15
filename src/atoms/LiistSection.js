@@ -1,5 +1,4 @@
 import { html, css, LitElement } from 'lit-element';
-import 'fa-icons';
 
 export class LiistSection extends LitElement {
   static get styles() {
@@ -14,7 +13,11 @@ export class LiistSection extends LitElement {
         line-height: 140%;
         color: #8687A7;
         /* FOR SOME REASON THE FONT FAMILY DOES NOT APPLY */
-        font-family: 'Times New Roman', Times, serif !important
+        font-family: 'Times New Roman', Times, serif !important;
+      }
+
+      slot {
+        font-family: 'Times New Roman', serif !important;
       }
 
       .line {
@@ -39,13 +42,11 @@ export class LiistSection extends LitElement {
 
   render() {
     return html`
-    <div class="container">
-      <p><slot name="title" id="title">loading ... </slot></p>
-      <div class="line"></div>
-      <div class="content">
-        <slot name="fill-content"></slot>
+      <div class="container">
+        <p id="title">${this.title}</p>
+        <div class="line"></div>
+        <slot></slot>
       </div>
-    </div>
     `;
   }
 }

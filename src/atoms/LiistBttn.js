@@ -23,10 +23,6 @@ export class LiistBttn extends LitElement {
       align-items: center;
     }
 
-    .button:hover{
-      cursor: pointer;
-    }
-
     `;
   }
 
@@ -42,6 +38,7 @@ export class LiistBttn extends LitElement {
 
   constructor() {
     super();
+    this.text = "loading...";
     this.color = "grey";
     this.bgColor = "#ccc";
     this.width = "25";
@@ -50,9 +47,9 @@ export class LiistBttn extends LitElement {
   render() {
     return html`
       <div>
-        <a href="${this.url}">
+        <a href="${this.url || "#" }">
           <div class="button" style="width:${this.width}%; background-color: ${this.bgColor};">
-            <slot style="color:${this.color}"></slot>
+            <p style="color:${this.color}">${this.text}</p>
           </div>
         </a>
       </div>
