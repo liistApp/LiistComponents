@@ -13,9 +13,6 @@ export class LiistBttn extends LitElement {
       text-decoration: none;
     }
 
-    .container {
-    }
-
     .button {
       height: 50px;
       width: 100%;
@@ -48,15 +45,14 @@ export class LiistBttn extends LitElement {
     this.color = "grey";
     this.bgColor = "#ccc";
     this.width = "25";
-
   }
 
   render() {
     return html`
-      <div class="container">
+      <div>
         <a href="${this.url}">
           <div class="button" style="width:${this.width}%; background-color: ${this.bgColor};">
-            <p style="color:${this.color}"><slot name="text">loading ...</slot></p>
+            <slot style="color:${this.color}"></slot>
           </div>
         </a>
       </div>
