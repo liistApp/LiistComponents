@@ -1,4 +1,5 @@
 # Liist Webcomponents
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bb6211a2-5bde-4b24-b205-2432d7f12177/deploy-status)](https://app.netlify.com/sites/liist-webcomponents/deploys)
 
 This webcomponent library follows the [open-wc](https://github.com/open-wc/open-wc) recommendation. Open [liist-webcomponents storyook](https://liist-webcomponents.netlify.app/?path=/docs/) for documentation.
 
