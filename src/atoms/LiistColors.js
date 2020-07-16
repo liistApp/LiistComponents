@@ -1,6 +1,3 @@
-// How to import variable
-// import { LiistColors } from '../LiistColors.js';
-
 export class LiistColors {
   static names() {
     return Object.keys(LiistColors.dict);
@@ -53,14 +50,14 @@ export class LiistColors {
 }
 
 LiistColors.dict = {
-  sunii:     "#F2D70B",
-  skii:      "#337EF8",
-  grasii:    "#18943F",
-  hotii:     "#E94732",
-  piink:     "#FAC8DA",
-  creamii:   "#F9DDC5",
-  smokii:    "#1A1A1A",
-  viiolet:   "#4F51C2",
+  sunii: "#F2D70B",
+  skii: "#337EF8",
+  grasii: "#18943F",
+  hotii: "#E94732",
+  piink: "#FAC8DA",
+  creamii: "#F9DDC5",
+  smokii: "#1A1A1A",
+  viiolet: "#4F51C2",
   viiolet80: "#3D3E6C",
   viiolet60: "#8687A7",
   viiolet40: "#DBDCEB",
@@ -68,12 +65,12 @@ LiistColors.dict = {
 }
 
 LiistColors.themeDict = {
-  viiolet20:  { bgColor: "viiolet20", color: "viiolet80" },
-  viiolet80:  { bgColor: "viiolet80", color: "viiolet20" },
+  viiolet20: { bgColor: "viiolet20", color: "viiolet80" },
+  viiolet80: { bgColor: "viiolet80", color: "viiolet20" },
   viiolet80b: { bgColor: "viiolet80", color: "creamii" },
-  sunii:      { bgColor: "sunii",     color: "viiolet80" },
-  piink:      { bgColor: "piink",     color: "hotii" },
-  grasii:     { bgColor: "grasii",    color: "piink" },
-  hotii:      { bgColor: "hotii",     color: "creamii" },
-  viiolet:    { bgColor: "viiolet",   color: "sunii" },
+  sunii: { bgColor: "sunii", color: "viiolet80" },
+  piink: { bgColor: "piink", color: "hotii" },
+  grasii: { bgColor: "grasii", color: "piink" },
+  hotii: { bgColor: "hotii", color: "creamii" },
+  viiolet: { bgColor: "viiolet", color: "sunii" },
 }

@@ -1,6 +1,6 @@
 module.exports = {
   // Globs of all the stories in your project
-  stories: ['../stories/*.stories.{js,mdx}'],
+  stories: ['../stories/*/*.stories.{js,mdx}'],
 
   // Addons to be loaded, note that you need to import
   // them from storybook-prebuilt

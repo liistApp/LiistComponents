@@ -1,9 +1,10 @@
-export { LiistColors } from './src/LiistColors.js';
 /*
- * ATOMS
- */
+* ATOMS
+*/
 // export { LiistBttnOld } from './src/atoms/LiistBttn.js';
+export { LiistColors } from './src/atoms/LiistColors.js';
 export { LiistBttn } from './src/atoms/LiistBttn.js';
+export { LiistBttnOld } from './src/atoms/LiistBttnOld.js';
 export { LiistDaadBttn } from './src/atoms/LiistDaadBttn.js';
 export { LiistSection } from './src/atoms/LiistSection.js';
 /*

@@ -2,27 +2,22 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
-  <style>
-    body {
-      background: #fafafa;
-    }
-  </style>
 </head>
 <body>
   <script type="module">
     import { html, render } from 'lit-html';
     import { LiistBttn } from '../src/atoms/LiistBttn.js';
     import { LiistSection } from '../src/atoms/LiistSection.js';
+    import '../src/atoms/LiistFonts.js';
   </script>
+  <h1 class="myfont">hello roboto</h1>
 
   <h1>LiistBttn</h1>
   <liist-bttn
-    text="Hello World"
-    width="50"
-    color="red"
-    bgColor="white"
-    theme="viiolet80b"
-    url="https://dcts.github.io/CV"
+    text="Display"
+    width="250px"
+    theme="viiolet80"
+    url="https://www.liist.cc"
   ></liist-bttn>
 
   <h1>LiistSection</h1>

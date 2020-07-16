@@ -1,14 +1,13 @@
 import { html, css, LitElement } from 'lit-element';
-// import 'fa-icons';
-import { LiistColors } from '../LiistColors';
+import { LiistColors } from './LiistColors';
+import './LiistFonts.js';
 
 export class LiistBttn extends LitElement {
   static get styles() {
     return css`
 
     p {
-      font-size: 17px;
-      font-weight: bold;
+      font-size: 15px;
     }
 
     a {
@@ -17,10 +16,11 @@ export class LiistBttn extends LitElement {
     }
 
     .button {
+      font-family: var(--display-font);
+      /* font-weight: bold; */
       height: 50px;
       width: 100%;
       border-radius: 6px;
-      background-color: #4F51C2;
       display: flex;
       justify-content: center;
       align-items: center;
