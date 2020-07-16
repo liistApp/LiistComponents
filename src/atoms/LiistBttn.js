@@ -4,35 +4,33 @@ import { LiistColors } from './LiistColors';
 export class LiistBttn extends LitElement {
   static get styles() {
     return css`
+      p {
+        font-size: 15px;
+      }
 
-    p {
-      font-size: 15px;
-    }
+      a {
+        text-decoration: none;
+        cursor: default;
+      }
 
-    a {
-      text-decoration: none;
-      cursor: default;
-    }
+      .button {
+        font-family: var(--display-font);
+        /* font-weight: bold; */
+        height: 50px;
+        width: 100%;
+        border-radius: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-    .button {
-      font-family: var(--display-font);
-      /* font-weight: bold; */
-      height: 50px;
-      width: 100%;
-      border-radius: 6px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .loading {
-      cursor: wait;
-      text-decoration: none;
-    }
-    .pointer {
-      cursor: pointer;
-    }
-
+      .loading {
+        cursor: wait;
+        text-decoration: none;
+      }
+      .pointer {
+        cursor: pointer;
+      }
     `;
   }
 
@@ -55,8 +53,6 @@ export class LiistBttn extends LitElement {
     this.theme = "viiolet80";
     this.loading = false;
     this.openInNewTab = false;
-    console.log("CONSTRUCTOR -> this.loading");
-    console.log(this.loading);
   }
 
   render() {
@@ -86,9 +82,6 @@ export class LiistBttn extends LitElement {
   }
 
   renderBttn(text, bgColor, color) {
-    console.log("redering bttn without url");
-    console.log("this.loadting");
-    console.log(this.loading);
     return html`
       <div class="button ${this.loading ? "loading" : ""} ${this.url ? "pointer" : ""}" style="width:${this.width}; background-color: ${bgColor};">
         <p style="color:${color}">${text}</p>
@@ -97,7 +90,6 @@ export class LiistBttn extends LitElement {
   }
 
   renderBttnWithUrl(text, bgColor, color) {
-    console.log("redering bttn with url");
     return html`
       ${this.openInNewTab ?
         html`<a href="${this.url}" target="_blank">${this.renderBttn(text, bgColor, color)}</a>` :

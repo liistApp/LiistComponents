@@ -12,6 +12,9 @@ import { LiistBttn } from '../../src/atoms/LiistBttn.js';
 # `LiistColors`
 
 Liist brand colors. Colors are supported widely across all components. Whenever a component has a property `color` or `bgColor` then you can simply add the lowercase name of the liist brand-color. For example:
+```html
+<liist-component color="sunii" bgColor="hotii"><liist-component>
+```
 
 ### Colors
 <Preview>
@@ -217,10 +220,8 @@ A theme is always a combination of 2 brand colors and always consists 2 properti
 - **`bgColor`**: main color of the theme
 - **`color`**: font color
 
-Themes can be applied to the following components:
+Themes are supported among these components:
 - `<liist-bttn>`
-- `<liist-icon>`
-- `<liist-tag>`
 
 <Preview>
   <div>
@@ -236,7 +237,6 @@ Themes can be applied to the following components:
     <div style={{ paddingBottom: "10px"}}> <liist-bttn text="piink" theme="piink"></liist-bttn></div>
   </div>
 </Preview>
-
 
 ### Dictionaries
 ```js
