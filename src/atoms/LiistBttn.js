@@ -1,6 +1,5 @@
 import { html, css, LitElement } from 'lit-element';
 import { LiistColors } from './LiistColors';
-import './LiistFonts.js';
 
 export class LiistBttn extends LitElement {
   static get styles() {
