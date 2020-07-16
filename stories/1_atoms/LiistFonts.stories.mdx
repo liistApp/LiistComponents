@@ -1,0 +1,95 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import '../../src/atoms/LiistFonts.js';
+
+<Meta
+  title="atoms|LiistFonts"
+  parameters={{
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# LiistFonts
+
+Liist uses 2 brand fonts: [**Sporting Grotesque**](https://velvetyne.fr/fonts/sporting-grotesque/) and [**IBM Plex Sans**](https://fonts.google.com/specimen/IBM+Plex+Sans?selection.family=IBM+Plex+Sans:wght@700#standard-styles). They are loaded and stored as **`global CSS variables`**:
+
+| font                   | css variable          | styles        |
+| ---------------------- | --------------------- | ------------- |
+| **Sporting Grotesque** | `var(--display-font)` | regular       |
+| **IBM Plex Sams**      | `var(--main-font)`    | regular, bold |
+
+<Preview>
+  <p style={{ fontFamily: "monospace", fontSize: "20px" }}>var(--display-font)</p>
+  <div>
+    <p style={{ fontFamily: "var(--display-font)", margin: 0, marginBottom: "12px", lineHeight: "36px", fontSize: "36px", fontWeight: "bold" }}>Display</p>
+    <p style={{ fontFamily: "var(--display-font)", margin: 0, marginBottom: "12px", lineHeight: "24px", fontSize: "24px", fontWeight: "bold" }}>Display</p>
+    <p style={{ fontFamily: "var(--display-font)", margin: 0, marginBottom: "12px", lineHeight: "20px", fontSize: "20px", fontWeight: "bold" }}>Display</p>
+    <p style={{ fontFamily: "var(--display-font)", margin: 0, marginBottom: "12px", lineHeight: "12px", fontSize: "12px", fontWeight: "bold" }}>Display</p>
+  </div>
+</Preview>
+
+<Preview>
+  <p style={{ fontFamily: "monospace", fontSize: "20px" }}>var(--main-font)</p>
+  <div>
+    <p style={{ fontFamily: "var(--main-font)", margin: 0, marginBottom: "12px", lineHeight: "36px", fontSize: "36px", fontWeight: "bold" }}>Body & Title (bold)</p>
+    <p style={{ fontFamily: "var(--main-font)", margin: 0, marginBottom: "12px", lineHeight: "24px", fontSize: "24px", fontWeight: "bold" }}>Body & Title (bold)</p>
+    <p style={{ fontFamily: "var(--main-font)", margin: 0, marginBottom: "12px", lineHeight: "20px", fontSize: "20px", fontWeight: "bold" }}>Body & Title (bold)</p>
+    <p style={{ fontFamily: "var(--main-font)", margin: 0, marginBottom: "12px", lineHeight: "12px", fontSize: "12px", fontWeight: "bold" }}>Body & Title (bold)</p>
+  </div>
+</Preview>
+
+<Preview>
+  <p style={{ fontFamily: "monospace", fontSize: "20px" }}>var(--main-font)</p>
+  <div>
+    <p style={{ fontFamily: "var(--main-font)", margin: 0, marginBottom: "12px", lineHeight: "36px", fontSize: "36px" }}>Body & Title (bold)</p>
+    <p style={{ fontFamily: "var(--main-font)", margin: 0, marginBottom: "12px", lineHeight: "24px", fontSize: "24px" }}>Body & Title (bold)</p>
+    <p style={{ fontFamily: "var(--main-font)", margin: 0, marginBottom: "12px", lineHeight: "20px", fontSize: "20px" }}>Body & Title (bold)</p>
+    <p style={{ fontFamily: "var(--main-font)", margin: 0, marginBottom: "12px", lineHeight: "12px", fontSize: "12px" }}>Body & Title (bold)</p>
+  </div>
+</Preview>
+
+
+## Usage (with components library)
+The fonts need to be loaded once, this is best achieved with an injected script tag inside the HEAD of the HTML:
+```html
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="module">
+    import 'liist-webcomponents/src/atoms/LiistFonts.js';
+    import { LiistBttn } from 'liist-webcomponents/src/atoms/LiistBttn.js';
+  </script>
+</head>
+<body>
+  <liist-bttn text="works?"></liist-bttn>
+</body>
+</html>
+```
+
+## Usage (with HTML)
+You can import the fonts and the global CSS variables in any webproject by adding the following two `link` tags in the HEAD of your HTML:
+```html
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="https://liistwebfonts.imfast.io/css/import-fonts.css" rel="stylesheet" type="text/css"
+    crossorigin="anonymous">
+  <link href="https://liistwebfonts.imfast.io/css/define-fonts.css" rel="stylesheet" type="text/css"
+    crossorigin="anonymous">
+</head>
+<body>
+  <style>
+    /* styling for demopage */
+    .test { font-size: 40px; }
+  </style>
+  <p style="font-family: var(--display-font);" class="test">Sporting Grotesque</p>
+  <p style="font-family: var(--main-font); font-weight: bold;" class="test">IBM Plex Sans (bold)</p>
+  <p style="font-family: var(--main-font);" class="test">IBM Plex Sans</p>
+</body>
+</html>
+```
+
+## Hosting
+All Fonts are hosted on our own Fast.io CDN as `ttf` files.
+- [**Sporting Grotesque** hosted on Fast.io CDN](https://liistwebfonts.imfast.io/SportingGrotesque-Bold.woff)
+- [**IBM Plex Sans Regular** hosted on Fast.io CDN](https://liistwebfonts.imfast.io/IBMPlexSans-Regular.ttf)
+- [**IBM Plex Sans Bold** hosted on Fast.io CDN](https://liistwebfonts.imfast.io/IBMPlexSans-Bold.ttf)
