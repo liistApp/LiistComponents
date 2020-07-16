@@ -1,5 +1,5 @@
 import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
-import '../src/atoms/LiistBttn.js';
+import '../../src/atoms/LiistBttn.js';
 
 <Meta
   title="atoms|LiistBttn"
@@ -108,24 +108,37 @@ Main button component.
 **IMPORTANT**: to specify your own `bgColor` and `color` you have to also set `theme="custom"`.
 
 <Preview>
-  <div style={{ display: "flex", width: "100%"}} >
-    <div style={{ marginRight: "10px" }}>
-      <liist-bttn
-        text="SAVE"
-        width="100px"
-        theme="custom"
-        bgColor="green"
-        color="white"
-      ></liist-bttn>
-    </div>
-    <div style={{ marginRight: "10px" }}>
-      <liist-bttn
-        text="CANCEL"
-        width="250px"
-        theme="custom"
-        bgColor="red"
-        color="white"
-      ></liist-bttn>
-    </div>
-  </div>
+  <liist-bttn
+    text="Save"
+    width="100px"
+    theme="custom"
+    bgColor="green"
+    color="white"
+  ></liist-bttn>
+  <liist-bttn
+    text="Cancel"
+    width="250px"
+    theme="custom"
+    bgColor="red"
+    color="white"
+  ></liist-bttn>
+</Preview>
+
+## Javascript OnClick Event
+Instead of using the `url` property, you can also perform a javascript action onclick by adding an onclick attribute in the root component. <br></br> **Important**: you have to manually set the cursor to pointer (for now, can be fixed later).
+
+```html
+<liist-bttn
+  onclick="alert('Hello, Friend!')"
+  style="cursor: pointer"
+  text="Say Hi"
+></liist-bttn>
+```
+
+<Preview>
+  <liist-bttn
+    onclick="alert('Hello, Friend!')"
+    style={{ cursor: "pointer"}}
+    text="Say Hi"
+  ></liist-bttn>
 </Preview>
