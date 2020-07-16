@@ -13,27 +13,30 @@ import { LiistBttn } from '../src/atoms/LiistBttn.js';
 
 Liist brand colors. Colors are supported widely across all components. Whenever a component has a property `color` or `bgColor` then you can simply add the lowercase name of the liist brand-color. For example:
 
-### Standard Violet
+### Colors
 <Preview>
   <div>
-    <h4>viiolet80</h4>
+    <h4 style={{ marginBottom: 0 }}>viiolet80</h4>
+    <p style={{ margin: 0, padding: 0, fontSize: "14px", lineHeight: "18px" }}>{LiistColors.get("viiolet80")}</p>
     <div style={{ backgroundColor: `${LiistColors.get("viiolet80")}`, width: 80, height: 60, marginRight: "10px" }}></div>
   </div>
   <div>
-    <h4>viiolet60</h4>
+    <h4 style={{ marginBottom: 0 }}>viiolet60</h4>
+    <p style={{ margin: 0, padding: 0, fontSize: "14px", lineHeight: "18px" }}>{LiistColors.get("viiolet60")}</p>
     <div style={{ backgroundColor: `${LiistColors.get("viiolet60")}`, width: 80, height: 60, marginRight: "10px" }}></div>
   </div>
   <div>
-    <h4>viiolet40</h4>
+    <h4 style={{ marginBottom: 0 }}>viiolet40</h4>
+    <p style={{ margin: 0, padding: 0, fontSize: "14px", lineHeight: "18px" }}>{LiistColors.get("viiolet40")}</p>
     <div style={{ backgroundColor: `${LiistColors.get("viiolet40")}`, width: 80, height: 60, marginRight: "10px" }}></div>
   </div>
   <div>
-    <h4>viiolet20</h4>
+    <h4 style={{ marginBottom: 0 }}>viiolet20</h4>
+    <p style={{ margin: 0, padding: 0, fontSize: "14px", lineHeight: "18px" }}>{LiistColors.get("viiolet20")}</p>
     <div style={{ backgroundColor: `${LiistColors.get("viiolet20")}`, width: 80, height: 60, marginRight: "10px" }}></div>
   </div>
 </Preview>
 
-### Colors
 <Preview>
   <div>
     <h4 style={{ marginBottom: 0 }}>hotii</h4>
@@ -122,16 +125,16 @@ Themes can be applied to the following components:
 
 <Preview>
   <div>
-    <h4>basic</h4>
-    <div style={{ paddingBottom: "10px"}}> <liist-bttn title="hotii" theme="hotii"></liist-bttn></div>
-    <div style={{ paddingBottom: "10px"}}> <liist-bttn title="sunii" theme="sunii"></liist-bttn></div>
-    <div style={{ paddingBottom: "10px"}}> <liist-bttn title="viiolet" theme="viiolet"></liist-bttn></div>
-    <div style={{ paddingBottom: "10px"}}> <liist-bttn title="grasii" theme="grasii"></liist-bttn></div>
-    <div style={{ paddingBottom: "10px"}}> <liist-bttn title="piink" theme="piink"></liist-bttn></div>
-    <h4>additional</h4>
-    <div style={{ paddingBottom: "10px"}}> <liist-bttn title="viiolet20" theme="viiolet20"></liist-bttn></div>
-    <div style={{ paddingBottom: "10px"}}> <liist-bttn title="viiolet80" theme="viiolet80"></liist-bttn></div>
-    <div style={{ paddingBottom: "10px"}}> <liist-bttn title="viiolet80b" theme="viiolet80b"></liist-bttn></div>
+    <h4>basic UI</h4>
+    <div style={{ paddingBottom: "10px"}}> <liist-bttn text="viiolet20" theme="viiolet20"></liist-bttn></div>
+    <div style={{ paddingBottom: "10px"}}> <liist-bttn text="viiolet80" theme="viiolet80"></liist-bttn></div>
+    <h4>colorfull</h4>
+    <div style={{ paddingBottom: "10px"}}> <liist-bttn text="hotii" theme="hotii"></liist-bttn></div>
+    <div style={{ paddingBottom: "10px"}}> <liist-bttn text="sunii" theme="sunii"></liist-bttn></div>
+    <div style={{ paddingBottom: "10px"}}> <liist-bttn text="viiolet" theme="viiolet"></liist-bttn></div>
+    <div style={{ paddingBottom: "10px"}}> <liist-bttn text="viiolet80b" theme="viiolet80b"></liist-bttn></div>
+    <div style={{ paddingBottom: "10px"}}> <liist-bttn text="grasii" theme="grasii"></liist-bttn></div>
+    <div style={{ paddingBottom: "10px"}}> <liist-bttn text="piink" theme="piink"></liist-bttn></div>
   </div>
 </Preview>
 

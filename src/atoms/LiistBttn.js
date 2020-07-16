@@ -13,6 +13,7 @@ export class LiistBttn extends LitElement {
 
     a {
       text-decoration: none;
+      cursor: default;
     }
 
     .button {
@@ -25,72 +26,84 @@ export class LiistBttn extends LitElement {
       align-items: center;
     }
 
+    .loading {
+      cursor: wait;
+      text-decoration: none;
+    }
+    .pointer {
+      cursor: pointer;
+    }
+
     `;
   }
 
   static get properties() {
     return {
-      title: { type: String },
+      text: { type: String },
       color: { type: String },
       bgColor: { type: String },
       theme: { type: String },
       width: { type: String },
       url: { type: String },
+      openInNewTab: { type: Boolean },
+      loading: { type: Boolean }
     };
   }
 
   constructor() {
     super();
-    this.color = "grey";
-    this.bgColor = "#ccc";
-    this.title = "loading...";
-    this.width = "25";
-    this.theme = "none";
+    this.width = "250px";
+    this.theme = "viiolet80";
+    this.loading = false;
+    this.openInNewTab = false;
+    console.log("CONSTRUCTOR -> this.loading");
+    console.log(this.loading);
   }
 
-  // set bgColor(newVal) {
-  //   let oldVal = this._bgColor;
-  //   this._bgColor = LiistColors.transformColorInput(newVal);
-  //   this.requestUpdate('bgColor', oldVal);
-  // }
-  // get bgColor() { return this._bgColor; }
-
-  // set color(newVal) {
-  //   let oldVal = this._color;
-  //   this._color = LiistColors.transformColorInput(newVal);
-  //   this.requestUpdate('color', oldVal);
-  // }
-  // get color() { return this._color; }
-
-
-  // set bgColor(colorInput) {
-  //   // Implement setter logic here...
-  //   console.log("hi");
-  //   console.log(colorInput);
-  //   // const newBgColor = LiistColors.transformColorInput(colorInput);
-  //   // this.requestUpdate('bgColor', newBgColor);
-  //   // retrieve the old property value and store the new one
-  // }
-
-
   render() {
-    // preprocessing the properties!
-    let bgColor = LiistColors.transformColorInput(this.bgColor);
-    let color = LiistColors.transformColorInput(this.color);;
-    // if a theme is selected, override the other properties!
-    if (LiistColors.isValidTheme(this.theme)) {
+    // INIT VARIABLES TO CONSTRUCT
+    let bgColor, color;
+    let text = this.text;
+
+    // PREPROCESS: color + bgColor
+    bgColor = LiistColors.transformColorInput(this.bgColor);
+    color = LiistColors.transformColorInput(this.color);;
+    // PREPROCESS THEME: if a theme is selected, override the color + bgColor
+    if (LiistColors.isValidTheme(this.theme) && this.theme !== "custom") {
       const targetTheme = LiistColors.getTheme(this.theme);
       bgColor = LiistColors.transformColorInput(targetTheme.bgColor);
       color = LiistColors.transformColorInput(targetTheme.color);
     }
+
+    // PREPROCESS: loading state
+    if (this.loading) {
+      text = "loading...";
+      bgColor = "grey";
+      color = "#ccc";
+    }
+
+    // CONDITIONAL RENDERING
+    return this.url ? this.renderBttnWithUrl(text, bgColor, color) : this.renderBttn(text, bgColor, color);
+  }
+
+  renderBttn(text, bgColor, color) {
+    console.log("redering bttn without url");
+    console.log("this.loadting");
+    console.log(this.loading);
     return html`
-      <div>
-        <a href="${this.url || "#" }">
-          <div class="button" style="width:${this.width}%; background-color: ${bgColor};">
-            <p style="color:${color}">${this.title}</p>
-          </div>
-        </a>
+      <div class="button ${this.loading ? "loading" : ""} ${this.url ? "pointer" : ""}" style="width:${this.width}; background-color: ${bgColor};">
+        <p style="color:${color}">${text}</p>
       </div>
+    `;
+  }
+
+  renderBttnWithUrl(text, bgColor, color) {
+    console.log("redering bttn with url");
+    return html`
+      ${this.openInNewTab ?
+        html`<a href="${this.url}" target="_blank">${this.renderBttn(text, bgColor, color)}</a>` :
+        html`<a href="${this.url}"                >${this.renderBttn(text, bgColor, color)}</a>`}
+      </a>
     `;
   }
 }
