@@ -3,15 +3,6 @@ import { html, css, LitElement } from 'lit-element';
 export class LiistPlaceCard extends LitElement {
   static get styles() {
     return css`
-      .card-main {
-        min-height: 105px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        border-bottom: 1px solid #EDEEF9;
-        max-width: 359px;
-      }
-
       .card-wrapper {
         width: 100%;
         max-width: 359px;
@@ -39,13 +30,13 @@ export class LiistPlaceCard extends LitElement {
         background-repeat: no-repeat;
         background-position: center;
         display: block;
-        max-width: 60px;
-        max-height: 60px;
-        min-width: 60px;
-        min-height: 60px;
+        max-width: 70px;
+        max-height: 70px;
+        min-width: 70px;
+        min-height: 70px;
         width: auto;
         height: auto;
-        border-radius: 6px;
+        border-radius: 7px;
         margin-right: 16px;
         object-fit: cover;
       }
@@ -105,10 +96,10 @@ export class LiistPlaceCard extends LitElement {
 
       .loader-placeholder {
         float: left;
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
         background-color: #ccc;
-        border-radius: 6px;
+        border-radius: 7px;
         /* margin: 8px; */
         background-image: linear-gradient(90deg, #F4F4F4 0px, rgba(229,229,229,0.8) 40px, #F4F4F4 80px);
         background-size: 600px;
@@ -120,7 +111,7 @@ export class LiistPlaceCard extends LitElement {
         float: left;
         width: 100%;
         height: 24px;
-        border-radius: 6px;
+        border-radius: 7px;
         background-image: linear-gradient(90deg, #F4F4F4 0px, rgba(229,229,229,0.8) 40px, #F4F4F4 80px);
         animation: shine-text-placeholder 2.1s infinite ease-out;
       }
@@ -129,7 +120,7 @@ export class LiistPlaceCard extends LitElement {
         float: left;
         width: 100%;
         height: 13.5px;
-        border-radius: 6px;
+        border-radius: 7px;
         background-image: linear-gradient(90deg, #F4F4F4 0px, rgba(229,229,229,0.8) 40px, #F4F4F4 80px);
         animation: shine-text-placeholder 2.1s infinite ease-out;
       }
@@ -170,7 +161,6 @@ export class LiistPlaceCard extends LitElement {
     let monthWithZeroInFront = ('0' + monthNow).slice(-2);
     let dayNow = parseInt(date.getDate());
     let dayWithZeroInFront = ('0' + dayNow).slice(-2);
-    let minutesNow = date.getMinutes();
 
     // get the opening time of this day in correct time format
     let open;
@@ -208,6 +198,7 @@ export class LiistPlaceCard extends LitElement {
   // not sure if needed? in current setup need to be empty for loader to show
   constructor() {
     super();
+    this.chevron = false;
   }
 
   // after the component is first rendered in its initial state (displayed to user)
@@ -248,23 +239,26 @@ export class LiistPlaceCard extends LitElement {
 
   render() {
     return html`
-      <div class="card-main">
-        <div class="card-wrapper">
-          <img class="place-thumbnail hide" src="" alt="place image thumbnail">
-          <div class="loader-placeholder show"></div>
-          <div class="card-content">
-            <p class="place-title ${this.name ? "show" : "hide"}">${this.name}</p>
-            <div class="text-placeholder ${this.name ? "hide" : "show"}"></div>
-            <div class="card-content-details">
-              <p class="place-address ${this.address ? "show" : "hide"}">${this.address},</p>
-              <p class="place-status ${this.isOpen() ? "open show" : this.isClosed() ? "closed show" : "hide"}"> ${this.status}</p>
-              <div class="text-placeholder-slim ${this.address ? "hide" : "show"}"></div>
-            </div>
-          </div>
-          <div class="icon-wrapper">
-            <img class="chivron" src="https://firebasestorage.googleapis.com/v0/b/liist-prod.appspot.com/o/listIcons%2Fchev%20right.png?alt=media&token=05d4e0a4-1d5f-4fa2-ab1d-cdd4b7bd4459" alt="chivron right">
+      <div class="card-wrapper">
+        <img class="place-thumbnail hide" src="" alt="place image thumbnail">
+        <div class="loader-placeholder show"></div>
+        <div class="card-content">
+          <p class="place-title ${this.name ? "show" : "hide"}">${this.name}</p>
+          <div class="text-placeholder ${this.name ? "hide" : "show"}"></div>
+          <div class="card-content-details">
+            <p class="place-address ${this.address ? "show" : "hide"}">${this.address},</p>
+            <p class="place-status ${this.isOpen() ? "open show" : this.isClosed() ? "closed show" : "hide"}"> ${this.status}</p>
+            <div class="text-placeholder-slim ${this.address ? "hide" : "show"}"></div>
           </div>
         </div>
+        ${this.chevron ? this.renderChevron() : ""}
+      </div>
+    `;
+  }
+  renderChevron() {
+    return html`
+      <div class="icon-wrapper">
+        <img class="chivron" src="https://firebasestorage.googleapis.com/v0/b/liist-prod.appspot.com/o/listIcons%2Fchev%20right.png?alt=media&token=05d4e0a4-1d5f-4fa2-ab1d-cdd4b7bd4459" alt="chivron right">
       </div>
     `;
   }
