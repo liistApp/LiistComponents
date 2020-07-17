@@ -13,6 +13,20 @@ import '../../src/molecules/LiistPlaceCard.js';
 
 A component that displays a place object.
 
+## Properties
+
+| Property       | Description | Default |
+| -------------- | ----------- | ------- |
+| `name`         | name of the place. | - |
+| `address`      | place as string - 1 line. | - |
+| `openingHours` | **Array** => has to be loaded after initialization. Opening hours as fetched from google place details api (`GMSPlaceField.opening_hours.weekday_text`) | - |
+| `image`        | image url, cropped to thumbnail. | - |
+| `status`       | String, can be either `OPEN` or `CLOSED` | - |
+| `itemId`       | itemId of that place to be able to quickly fetch place details from firestore. | - |
+
+<br></br>
+<br></br>
+
 ### Loading State
 <Preview>
   <liist-place-card></liist-place-card>
@@ -28,12 +42,11 @@ A component that displays a place object.
   ></liist-place-card>
 </Preview>
 
+### API (functions)
 
-## Properties
-
-- **`name`**: name of the place
-- **`address`**: place as string - 1 line
-- **`image`**: image url, cropped to thumbnail
-- **`status`**: either open or closed
-- **`itemId`**: itemId of that place to be able to quickly fetch place details from firestore.
-
+| Function                   | Description |
+| -------------------------- | ----------- |
+| `setOpeningHours(<Array>)` | input `weekday_text` array from google place details API and the component automatically computes if place is open or not. |
+| `isOpen()`                 | returns boolean. Checks if place is currently open (using local time). |
+| `isClosed()`               | returns boolean. Checks if place is currently closed (using local time). |
+| `replaceData(<Object>)`    | inputtet Object with keys `name`, `address`, `itemId`, `status`, `image` (optional) |
