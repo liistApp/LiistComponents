@@ -13,6 +13,10 @@ export class LiistAuthor extends LitElement {
         align-items: center;
       }
 
+      .darkmode > img#author-avatar {
+        border: 2px solid #F9DDC5;
+      }
+
       img#author-avatar {
         border-radius: 50%;
         object-fit: cover;
@@ -38,6 +42,8 @@ export class LiistAuthor extends LitElement {
     return {
       displayName: { type: String },
       userImageUrl: { type: String },
+      color: { type: String },
+      darkmode: { type: Boolean },
     };
   }
 
@@ -46,12 +52,16 @@ export class LiistAuthor extends LitElement {
     this.displayName = "LIIST Bot";
     this.userImageUrl = "https://firebasestorage.googleapis.com/v0/b/liist-prod.appspot.com/o/profilepic.png?alt=media&token=fae54920-44f4-4101-9509-7e5fdff08af1";
     this.color = "smokii";
+    this.darkmode = false;
   }
 
   render() {
-    const color = LiistColors.transformColorInput(this.color);
+    console.log("rendering liistAuthor " + this.displayName);
+    console.log(this.color);
+    let color = this.darkmode ? "creamii" : this.color;
+    color = LiistColors.transformColorInput(color);
     return html`
-      <div class="list-author-wrapper">
+      <div class="list-author-wrapper ${this.darkmode ? "darkmode" : ""}">
         <img id="author-avatar" class="overlay-images" src="${this.userImageUrl}">
         <p id="author-name-initial" style="color: ${color}">By <span>${this.displayName}</span></p>
       </div>
