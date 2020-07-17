@@ -13,6 +13,17 @@ import '../../src/molecules/LiistAuthor.js';
 
 A component that displays an avatar image and the name of the author.
 
+## Properties
+
+| property               | description                                                    | default     |
+| ---------------------- | -------------------------------------------------------------- | ----------- |
+| **`displayName`**      | Name of the User. Inputtet text will be displayed after `By`.  | `LIIST Bot` |
+| **`userImageUrl`**     | URL to avatar image of user.                                   | see below (# Default User) |
+| **`color`**            | Color of the font. Supports LiistColors.                       | `smokii`    |
+
+<br></br>
+<br></br>
+
 ### Default User
 <Preview>
   <liist-author></liist-author>
@@ -24,10 +35,68 @@ A component that displays an avatar image and the name of the author.
     displayName="Thomas S."
     userImageUrl="https://avatars0.githubusercontent.com/u/44790691?s=460&u=2a44ea33f69d6cf02bc659381a70ea4fedf62ffb&v=4"
   ></liist-author>
+  <liist-author
+    displayName="Leon S."
+    userImageUrl="https://avatars0.githubusercontent.com/u/22572972?s=460&u=b1db6689b8ed64b2589b40b764749f4831e88922&v=4"
+  ></liist-author>
+  <liist-author
+    displayName="David F."
+    userImageUrl="https://avatars1.githubusercontent.com/u/48216591?s=400&u=51144f6e1818657d89253a3274b4ca69b263c099&v=4"
+  ></liist-author>
+  <liist-author
+    displayName="Allan H."
+    userImageUrl="https://avatars1.githubusercontent.com/u/4623868?s=460&u=f3b120aa161569f166c772bde96ef2ddafd137fc&v=4"
+  ></liist-author>
 </Preview>
 
-## Properties
 
-- **`displayName`**: Full name of the user.
-- **`userImageUrl`**: URL to avatar image of user.
+### Custom Colors
+In case you need to control the color of the font, all valid color input (HEX, rgb, rgba, ...) and all liist brand colors are supported.
+<Preview>
+  <liist-author
+    displayName="Thomas S."
+    userImageUrl="https://avatars0.githubusercontent.com/u/44790691?s=460&u=2a44ea33f69d6cf02bc659381a70ea4fedf62ffb&v=4"
+    color="hotii"
+  ></liist-author>
+  <liist-author
+    displayName="Leon S."
+    userImageUrl="https://avatars0.githubusercontent.com/u/22572972?s=460&u=b1db6689b8ed64b2589b40b764749f4831e88922&v=4"
+    color="sunii"
+  ></liist-author>
+  <liist-author
+    displayName="David F."
+    userImageUrl="https://avatars1.githubusercontent.com/u/48216591?s=400&u=51144f6e1818657d89253a3274b4ca69b263c099&v=4"
+    color="grasii"
+  ></liist-author>
+  <liist-author
+    displayName="Allan H."
+    userImageUrl="https://avatars1.githubusercontent.com/u/4623868?s=460&u=f3b120aa161569f166c772bde96ef2ddafd137fc&v=4"
+    color="rgba(0,0,0,0.12)"
+  ></liist-author>
+</Preview>
 
+### Darkmode (experimental)
+Lol
+
+<Preview style={{ backgroundColor: "black" }}>
+  <liist-author
+    displayName="Thomas S."
+    userImageUrl="https://avatars0.githubusercontent.com/u/44790691?s=460&u=2a44ea33f69d6cf02bc659381a70ea4fedf62ffb&v=4"
+    darkmode
+  ></liist-author>
+  <liist-author
+    displayName="Leon S."
+    userImageUrl="https://avatars0.githubusercontent.com/u/22572972?s=460&u=b1db6689b8ed64b2589b40b764749f4831e88922&v=4"
+    darkmode
+  ></liist-author>
+  <liist-author
+    displayName="David F."
+    userImageUrl="https://avatars1.githubusercontent.com/u/48216591?s=400&u=51144f6e1818657d89253a3274b4ca69b263c099&v=4"
+    darkmode
+  ></liist-author>
+  <liist-author
+    displayName="Allan H."
+    userImageUrl="https://avatars1.githubusercontent.com/u/4623868?s=460&u=f3b120aa161569f166c772bde96ef2ddafd137fc&v=4"
+    darkmode
+  ></liist-author>
+</Preview>
