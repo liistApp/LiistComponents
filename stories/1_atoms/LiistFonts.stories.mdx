@@ -18,35 +18,21 @@ Liist uses 2 fonts: [**Sporting Grotesque**](https://velvetyne.fr/fonts/sporting
 | **IBM Plex Sams**      | `var(--liist-main-font)`    | 400 regular<br></br>500 medium<br></br>600 semi-bold<br></br>700 bold |
 
 <Preview>
-  <p style={{ fontFamily: "monospace", fontSize: "20px" }}>var(--liist-display-font)</p>
+  <p style={{ fontFamily: "monospace", fontSize: "20px", margin: 0 }}>var(--liist-display-font)</p>
   <div>
     <p style={{ fontFamily: "var(--liist-display-font)", margin: 0, marginBottom: "12px", lineHeight: "36px", fontSize: "36px", fontWeight: "bold" }}>Display</p>
-    <p style={{ fontFamily: "var(--liist-display-font)", margin: 0, marginBottom: "12px", lineHeight: "24px", fontSize: "24px", fontWeight: "bold" }}>Display</p>
-    <p style={{ fontFamily: "var(--liist-display-font)", margin: 0, marginBottom: "12px", lineHeight: "20px", fontSize: "20px", fontWeight: "bold" }}>Display</p>
-    <p style={{ fontFamily: "var(--liist-display-font)", margin: 0, marginBottom: "12px", lineHeight: "12px", fontSize: "12px", fontWeight: "bold" }}>Display</p>
   </div>
 </Preview>
 
 <Preview>
-  <p style={{ fontFamily: "monospace", fontSize: "20px" }}>var(--liist-main-font)</p>
+  <p style={{ fontFamily: "monospace", fontSize: "20px" }}>var(--liist-main-font)<br></br>36 px</p>
   <div>
-    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "36px", fontSize: "36px", fontWeight: "bold" }}>Body & Title (bold)</p>
-    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "24px", fontSize: "24px", fontWeight: "bold" }}>Body & Title (bold)</p>
-    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "20px", fontSize: "20px", fontWeight: "bold" }}>Body & Title (bold)</p>
-    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "12px", fontSize: "12px", fontWeight: "bold" }}>Body & Title (bold)</p>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "36px", fontSize: "36px", fontWeight: "700" }}>Body & Title (700 bold)</p>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "36px", fontSize: "36px", fontWeight: "600" }}>Body & Title (600 semi-bold)</p>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "36px", fontSize: "36px", fontWeight: "500" }}>Body & Title (500 medium)</p>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "36px", fontSize: "36px", fontWeight: "400" }}>Body & Title (400 regular)</p>
   </div>
 </Preview>
-
-<Preview>
-  <p style={{ fontFamily: "monospace", fontSize: "20px" }}>var(--liist-main-font)</p>
-  <div>
-    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "36px", fontSize: "36px" }}>Body & Title (bold)</p>
-    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "24px", fontSize: "24px" }}>Body & Title (bold)</p>
-    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "20px", fontSize: "20px" }}>Body & Title (bold)</p>
-    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "12px", fontSize: "12px" }}>Body & Title (bold)</p>
-  </div>
-</Preview>
-
 
 ## Usage (with components library)
 The fonts need to be loaded once, this is best achieved with an injected script tag inside the HEAD of the HTML:
