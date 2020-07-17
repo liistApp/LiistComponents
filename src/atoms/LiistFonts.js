@@ -8,11 +8,11 @@ export { }; // ensure this file can only be parsed as a module.
 
 /*
  * IMPORT ALL FONTS + DEFINE GLOBAL CSS VARIABLES
- * source: https://cdn.jsdelivr.net/gh/dcts/LiistComponents@master/src/atoms/fonts/css/load-liist-fonts.css
+ * source: https://cdn.jsdelivr.net/npm/liist-webcomponents@0.4/src/atoms/fonts/css/load-liist-fonts.css
  */
 const link = document.createElement('link');
 link.rel = 'stylesheet';
 link.type = 'text/css';
 link.crossOrigin = 'anonymous';
-link.href = 'https://cdn.jsdelivr.net/gh/dcts/LiistComponents@5c4e84e/src/atoms/fonts/css/load-liist-fonts.css';
+link.href = 'https://cdn.jsdelivr.net/npm/liist-webcomponents@0.4/src/atoms/fonts/css/load-liist-fonts.css';
 document.head.appendChild(link);
