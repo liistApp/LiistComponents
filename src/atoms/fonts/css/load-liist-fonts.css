@@ -27,6 +27,7 @@
   font-display: swap;
 } */
 
+/* store global css variables */
 :root {
   --liist-display-font: "Sporting Grotesque", sans-serif;
   --liist-main-font: "IBM Plex Sans", sans-serif;
