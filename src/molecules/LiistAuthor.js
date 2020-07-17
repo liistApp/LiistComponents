@@ -5,7 +5,7 @@ export class LiistAuthor extends LitElement {
   static get styles() {
     return css`
       * {
-        font-family: var(--main-font);
+        font-family: var(--liist-main-font);
       }
 
       .list-author-wrapper {

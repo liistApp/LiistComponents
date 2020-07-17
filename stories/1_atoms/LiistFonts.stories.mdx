@@ -12,38 +12,38 @@ import '../../src/atoms/LiistFonts.js';
 
 Liist uses 2 fonts: [**Sporting Grotesque**](https://velvetyne.fr/fonts/sporting-grotesque/) and [**IBM Plex Sans**](https://fonts.google.com/specimen/IBM+Plex+Sans?selection.family=IBM+Plex+Sans:wght@700#standard-styles). They are loaded and stored as **`global CSS variables`**:
 
-| font                   | css variable          | styles        |
-| ---------------------- | --------------------- | ------------- |
-| **Sporting Grotesque** | `var(--display-font)` | regular       |
-| **IBM Plex Sams**      | `var(--main-font)`    | regular, bold |
+| font                   | css variable                | font-weight |
+| ---------------------- | --------------------------- | ----------- |
+| **Sporting Grotesque** | `var(--liist-display-font)` | 400 regular |
+| **IBM Plex Sams**      | `var(--liist-main-font)`    | 400 regular<br></br>500 medium<br></br>600 semi-bold<br></br>700 bold |
 
 <Preview>
-  <p style={{ fontFamily: "monospace", fontSize: "20px" }}>var(--display-font)</p>
+  <p style={{ fontFamily: "monospace", fontSize: "20px" }}>var(--liist-display-font)</p>
   <div>
-    <p style={{ fontFamily: "var(--display-font)", margin: 0, marginBottom: "12px", lineHeight: "36px", fontSize: "36px", fontWeight: "bold" }}>Display</p>
-    <p style={{ fontFamily: "var(--display-font)", margin: 0, marginBottom: "12px", lineHeight: "24px", fontSize: "24px", fontWeight: "bold" }}>Display</p>
-    <p style={{ fontFamily: "var(--display-font)", margin: 0, marginBottom: "12px", lineHeight: "20px", fontSize: "20px", fontWeight: "bold" }}>Display</p>
-    <p style={{ fontFamily: "var(--display-font)", margin: 0, marginBottom: "12px", lineHeight: "12px", fontSize: "12px", fontWeight: "bold" }}>Display</p>
+    <p style={{ fontFamily: "var(--liist-display-font)", margin: 0, marginBottom: "12px", lineHeight: "36px", fontSize: "36px", fontWeight: "bold" }}>Display</p>
+    <p style={{ fontFamily: "var(--liist-display-font)", margin: 0, marginBottom: "12px", lineHeight: "24px", fontSize: "24px", fontWeight: "bold" }}>Display</p>
+    <p style={{ fontFamily: "var(--liist-display-font)", margin: 0, marginBottom: "12px", lineHeight: "20px", fontSize: "20px", fontWeight: "bold" }}>Display</p>
+    <p style={{ fontFamily: "var(--liist-display-font)", margin: 0, marginBottom: "12px", lineHeight: "12px", fontSize: "12px", fontWeight: "bold" }}>Display</p>
   </div>
 </Preview>
 
 <Preview>
-  <p style={{ fontFamily: "monospace", fontSize: "20px" }}>var(--main-font)</p>
+  <p style={{ fontFamily: "monospace", fontSize: "20px" }}>var(--liist-main-font)</p>
   <div>
-    <p style={{ fontFamily: "var(--main-font)", margin: 0, marginBottom: "12px", lineHeight: "36px", fontSize: "36px", fontWeight: "bold" }}>Body & Title (bold)</p>
-    <p style={{ fontFamily: "var(--main-font)", margin: 0, marginBottom: "12px", lineHeight: "24px", fontSize: "24px", fontWeight: "bold" }}>Body & Title (bold)</p>
-    <p style={{ fontFamily: "var(--main-font)", margin: 0, marginBottom: "12px", lineHeight: "20px", fontSize: "20px", fontWeight: "bold" }}>Body & Title (bold)</p>
-    <p style={{ fontFamily: "var(--main-font)", margin: 0, marginBottom: "12px", lineHeight: "12px", fontSize: "12px", fontWeight: "bold" }}>Body & Title (bold)</p>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "36px", fontSize: "36px", fontWeight: "bold" }}>Body & Title (bold)</p>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "24px", fontSize: "24px", fontWeight: "bold" }}>Body & Title (bold)</p>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "20px", fontSize: "20px", fontWeight: "bold" }}>Body & Title (bold)</p>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "12px", fontSize: "12px", fontWeight: "bold" }}>Body & Title (bold)</p>
   </div>
 </Preview>
 
 <Preview>
-  <p style={{ fontFamily: "monospace", fontSize: "20px" }}>var(--main-font)</p>
+  <p style={{ fontFamily: "monospace", fontSize: "20px" }}>var(--liist-main-font)</p>
   <div>
-    <p style={{ fontFamily: "var(--main-font)", margin: 0, marginBottom: "12px", lineHeight: "36px", fontSize: "36px" }}>Body & Title (bold)</p>
-    <p style={{ fontFamily: "var(--main-font)", margin: 0, marginBottom: "12px", lineHeight: "24px", fontSize: "24px" }}>Body & Title (bold)</p>
-    <p style={{ fontFamily: "var(--main-font)", margin: 0, marginBottom: "12px", lineHeight: "20px", fontSize: "20px" }}>Body & Title (bold)</p>
-    <p style={{ fontFamily: "var(--main-font)", margin: 0, marginBottom: "12px", lineHeight: "12px", fontSize: "12px" }}>Body & Title (bold)</p>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "36px", fontSize: "36px" }}>Body & Title (bold)</p>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "24px", fontSize: "24px" }}>Body & Title (bold)</p>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "20px", fontSize: "20px" }}>Body & Title (bold)</p>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "12px", fontSize: "12px" }}>Body & Title (bold)</p>
   </div>
 </Preview>
 
@@ -81,9 +81,9 @@ You can import the fonts and the global CSS variables in any webproject by addin
     /* styling for demopage */
     .test { font-size: 40px; }
   </style>
-  <p style="font-family: var(--display-font);" class="test">Sporting Grotesque</p>
-  <p style="font-family: var(--main-font); font-weight: bold;" class="test">IBM Plex Sans (bold)</p>
-  <p style="font-family: var(--main-font);" class="test">IBM Plex Sans</p>
+  <p style="font-family: var(--liist-display-font);" class="test">Sporting Grotesque</p>
+  <p style="font-family: var(--liist-main-font); font-weight: bold;" class="test">IBM Plex Sans (bold)</p>
+  <p style="font-family: var(--liist-main-font);" class="test">IBM Plex Sans</p>
 </body>
 </html>
 ```

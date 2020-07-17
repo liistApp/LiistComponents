@@ -14,7 +14,7 @@ export class LiistBttn extends LitElement {
       }
 
       .button {
-        font-family: var(--main-font);
+        font-family: var(--liist-main-font);
         font-weight: bold;
         height: 50px;
         width: 100%;
