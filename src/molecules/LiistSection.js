@@ -11,7 +11,7 @@ export class LiistSection extends LitElement {
       }
 
       #title {
-        font-family: var(--main-font);
+        font-family: var(--liist-main-font);
         font-weight: 500;
         font-size: 15px;
         line-height: 140%;

@@ -159,10 +159,10 @@ export class LiistPlaceCard extends LitElement {
 
   setOpeningHours(array) {
     this.openingHours = array
-    this.setStatus();
+    this._setStatus();
   };
 
-  setStatus() {
+  _setStatus() {
     // get current date variables
     let date = new Date();
     let yearNow = date.getFullYear();
@@ -213,10 +213,10 @@ export class LiistPlaceCard extends LitElement {
   // after the component is first rendered in its initial state (displayed to user)
   // this function gets executed
   firstUpdated() {
-    this.setImage();
+    this._setImage();
   }
 
-  setImage() {
+  _setImage() {
     const placeThumbnail = this.shadowRoot.querySelector("img.place-thumbnail");
     const loadingPlaceholder = this.shadowRoot.querySelector(".loader-placeholder");
     placeThumbnail.onload = function () {
