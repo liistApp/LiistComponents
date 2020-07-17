@@ -21,7 +21,7 @@ A component that displays a place object.
 | `address`      | place as string - 1 line. | - |
 | `openingHours` | **Array** => has to be loaded after initialization. Opening hours as fetched from google place details api (`GMSPlaceField.opening_hours.weekday_text`) | - |
 | `image`        | image url, cropped to thumbnail. | - |
-| `status`       | String, can be either `OPEN` or `CLOSED` | - |
+| `status`       | String, can be either "`OPEN`" or "`CLOSED`" | - |
 | `itemId`       | itemId of that place to be able to quickly fetch place details from firestore. | - |
 
 <br></br>
@@ -32,13 +32,24 @@ A component that displays a place object.
   <liist-place-card></liist-place-card>
 </Preview>
 
-### With content
+### With Content
 <Preview>
   <liist-place-card
-    name="Place Name"
+    name="Zola Co-Working"
     address="Graefestraße 76, 10967 Berlin"
     status="OPEN"
     image="https://images.unsplash.com/photo-1593642532454-e138e28a63f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=6016&q=80"
+  ></liist-place-card>
+</Preview>
+
+### With Chevron
+<Preview>
+  <liist-place-card
+    name="Pizza Place"
+    address="Union Square, 30E 14th Street"
+    status="CLOSED"
+    chevron
+    image="https://lh5.googleusercontent.com/p/AF1QipPk-jVVOQ8FbzsIbwhUDkiXeWXh7RA3EQSNOoQo=w203-h135-k-no"
   ></liist-place-card>
 </Preview>
 
@@ -50,3 +61,32 @@ A component that displays a place object.
 | `isOpen()`                 | returns boolean. Checks if place is currently open (using local time). |
 | `isClosed()`               | returns boolean. Checks if place is currently closed (using local time). |
 | `replaceData(<Object>)`    | inputtet Object with keys `name`, `address`, `itemId`, `status`, `image` (optional) |
+
+
+## Usage
+```html
+<liist-place-card id="my-place-card"></liist-place-card>
+```
+```js
+// get place card DOM element
+const placeCard = document.querySelector("#my-place-card");
+
+// set data
+placeCard.setData({
+  name: "Pizza Place",
+  address: "Union Square, 30E 14th Street",
+  itemId: "ChJ0sWaxu37c9qs8v7d9axs12",
+  image: "https://lh5.googleusercontent.com/p/AF1QipPk-jVVOQ8FbzsIbwhUDkiXeWXh7RA3EQSNOoQo=w203-h135-k-no"
+});
+
+// set opening hours: this automatically updates the status!
+placeCard.setOpeningHours([
+  "Monday: 11:00 AM – 12:00 AM",
+  "Tuesday: 11:00 AM – 12:00 AM",
+  "Wednesday: 11:00 AM – 12:00 AM",
+  "Thursday: 11:00 AM – 12:00 AM",
+  "Friday: 11:00 AM – 2:00 AM",
+  "Saturday: 11:00 AM – 2:00 AM",
+  "Sunday: 11:00 AM – 12:00 AM",
+])
+```

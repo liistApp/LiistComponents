@@ -3,6 +3,10 @@ import { html, css, LitElement } from 'lit-element';
 export class LiistPlaceCard extends LitElement {
   static get styles() {
     return css`
+      * {
+        font-family: var(--liist-main-font);
+      }
+
       .card-wrapper {
         width: 100%;
         max-width: 359px;
@@ -16,6 +20,7 @@ export class LiistPlaceCard extends LitElement {
 
       .card-content {
         display: flex;
+        height: 70px;
         justify-content: space-around;
         display: flex;
         flex-direction: column;
@@ -24,6 +29,8 @@ export class LiistPlaceCard extends LitElement {
 
       .card-content > p {
         margin: 0;
+        font-size: 21px;
+        font-weight: 600;
       }
 
       .place-thumbnail {
@@ -43,9 +50,10 @@ export class LiistPlaceCard extends LitElement {
 
       .card-content-details {
         display: flex;
-        line-height: 18px;
         font-size: 13px;
+        font-weight: 400;
         color: var(--liist-viiolet80);
+        margin-bottom: 6px;
       }
 
       .place-title {
@@ -53,6 +61,7 @@ export class LiistPlaceCard extends LitElement {
         line-height: 24px;
         color: var(--liist-viiolet80);
         line-height: 23px;
+        margin-top: 6px !important;
       }
 
       .place-address {
@@ -61,7 +70,7 @@ export class LiistPlaceCard extends LitElement {
       }
 
       .place-status {
-        margin: 0
+        margin: 0;
       }
 
       .open {
@@ -100,7 +109,6 @@ export class LiistPlaceCard extends LitElement {
         height: 70px;
         background-color: #ccc;
         border-radius: 7px;
-        /* margin: 8px; */
         background-image: linear-gradient(90deg, #F4F4F4 0px, rgba(229,229,229,0.8) 40px, #F4F4F4 80px);
         background-size: 600px;
         animation: shine-placeholder 2.1s infinite ease-out;
@@ -110,16 +118,18 @@ export class LiistPlaceCard extends LitElement {
       .text-placeholder {
         float: left;
         width: 100%;
-        height: 24px;
+        height: 27px;
         border-radius: 7px;
         background-image: linear-gradient(90deg, #F4F4F4 0px, rgba(229,229,229,0.8) 40px, #F4F4F4 80px);
         animation: shine-text-placeholder 2.1s infinite ease-out;
+        margin-top: 6px;
+        margin-bottom: 3px;
       }
 
       .text-placeholder-slim {
         float: left;
         width: 100%;
-        height: 13.5px;
+        height: 16px;
         border-radius: 7px;
         background-image: linear-gradient(90deg, #F4F4F4 0px, rgba(229,229,229,0.8) 40px, #F4F4F4 80px);
         animation: shine-text-placeholder 2.1s infinite ease-out;
@@ -144,7 +154,8 @@ export class LiistPlaceCard extends LitElement {
       image: { type: String },
       status: { type: String },
       itemId: { type: String },
-      openingHours: { type: Array }
+      openingHours: { type: Array },
+      chevron: { type: Boolean }
     };
   }
 
@@ -227,7 +238,7 @@ export class LiistPlaceCard extends LitElement {
     return this.status === "CLOSED";
   }
 
-  replaceData(obj) {
+  setData(obj) {
     this.name = obj.name || this.name;
     this.address = obj.address || this.address;
     this.itemId = obj.itemId || this.itemId;
@@ -251,7 +262,7 @@ export class LiistPlaceCard extends LitElement {
             <div class="text-placeholder-slim ${this.address ? "hide" : "show"}"></div>
           </div>
         </div>
-        ${this.chevron ? this.renderChevron() : ""}
+        ${this.chevron && this.name && this.address ? this.renderChevron() : ""}
       </div>
     `;
   }
