@@ -81,7 +81,7 @@ export class LiistPlaceCard extends LitElement {
         flex-grow: 1;
       }
 
-      .chivron {
+      .chevron {
         width: 18px;
         height: 18px;
       }
@@ -258,7 +258,7 @@ export class LiistPlaceCard extends LitElement {
   renderChevron() {
     return html`
       <div class="icon-wrapper">
-        <img class="chivron" src="https://firebasestorage.googleapis.com/v0/b/liist-prod.appspot.com/o/listIcons%2Fchev%20right.png?alt=media&token=05d4e0a4-1d5f-4fa2-ab1d-cdd4b7bd4459" alt="chivron right">
+        <img class="chevron" src="https://firebasestorage.googleapis.com/v0/b/liist-prod.appspot.com/o/listIcons%2Fchev%20right.png?alt=media&token=05d4e0a4-1d5f-4fa2-ab1d-cdd4b7bd4459" alt="chevron right">
       </div>
     `;
   }
