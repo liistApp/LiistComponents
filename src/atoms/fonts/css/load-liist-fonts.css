@@ -13,7 +13,7 @@
 /* sporting grotesque bold */
 @font-face {
   font-family: 'Sporting Grotesque';
-  src: url('https://cdn.jsdelivr.net/npm/liist-webcomponents@0.4/src/atoms/fonts/SportingGrotesque-Bold.woff') format("woff");
+  src: url('https://liist-fonts.imfast.io/SportingGrotesque-Bold.woff') format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -21,7 +21,7 @@
 /* sporting grotesque regular */
 /* @font-face {
   font-family: 'Sporting Grotesque';
-  src: url('https://cdn.jsdelivr.net/npm/liist-webcomponents@0.4/src/atoms/fonts/SportingGrotesque-Regular.woff') format("woff");
+  src: url('https://liist-fonts.imfast.io/SportingGrotesque-Regular.woff') format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;

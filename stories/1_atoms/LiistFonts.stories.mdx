@@ -17,6 +17,11 @@ Liist uses 2 fonts: [**Sporting Grotesque**](https://velvetyne.fr/fonts/sporting
 | **Sporting Grotesque** | `var(--liist-display-font)` | 400 regular |
 | **IBM Plex Sams**      | `var(--liist-main-font)`    | 400 regular<br></br>500 medium<br></br>600 semi-bold<br></br>700 bold |
 
+<br></br>
+<br></br>
+
+## Demo
+
 <Preview>
   <p style={{ fontFamily: "monospace", fontSize: "20px", margin: 0 }}>var(--liist-display-font)</p>
   <div>
@@ -33,6 +38,29 @@ Liist uses 2 fonts: [**Sporting Grotesque**](https://velvetyne.fr/fonts/sporting
     <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "36px", fontSize: "36px", fontWeight: "400" }}>Body & Title (400 regular)</p>
   </div>
 </Preview>
+
+<Preview>
+  <p style={{ fontFamily: "monospace", fontSize: "20px" }}>var(--liist-main-font)<br></br>24 px</p>
+  <div>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "24px", fontSize: "24px", fontWeight: "700" }}>Body & Title (700 bold)</p>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "24px", fontSize: "24px", fontWeight: "600" }}>Body & Title (600 semi-bold)</p>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "24px", fontSize: "24px", fontWeight: "500" }}>Body & Title (500 medium)</p>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "24px", fontSize: "24px", fontWeight: "400" }}>Body & Title (400 regular)</p>
+  </div>
+</Preview>
+
+<Preview>
+  <p style={{ fontFamily: "monospace", fontSize: "20px" }}>var(--liist-main-font)<br></br>16 px</p>
+  <div>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "16px", fontSize: "16px", fontWeight: "700" }}>Body & Title (700 bold)</p>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "16px", fontSize: "16px", fontWeight: "600" }}>Body & Title (600 semi-bold)</p>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "16px", fontSize: "16px", fontWeight: "500" }}>Body & Title (500 medium)</p>
+    <p style={{ fontFamily: "var(--liist-main-font)", margin: 0, marginBottom: "12px", lineHeight: "16px", fontSize: "16px", fontWeight: "400" }}>Body & Title (400 regular)</p>
+  </div>
+</Preview>
+
+<br></br>
+<br></br>
 
 ## Usage (with components library)
 The fonts need to be loaded once, this is best achieved with an injected script tag inside the HEAD of the HTML:
@@ -57,15 +85,15 @@ You can import the fonts and the global CSS variables in any webproject by addin
 <html>
 <head>
   <meta charset="utf-8">
-  <link href="https://liistwebfonts.imfast.io/css/import-fonts.css" rel="stylesheet" type="text/css"
-    crossorigin="anonymous">
-  <link href="https://liistwebfonts.imfast.io/css/define-fonts.css" rel="stylesheet" type="text/css"
-    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" crossorigin="anonymous"
+    href="https://liist-fonts.imfast.io/css/load-liist-fonts.css">
 </head>
 <body>
   <style>
     /* styling for demopage */
-    .test { font-size: 40px; }
+    .test {
+      font-size: 40px;
+    }
   </style>
   <p style="font-family: var(--liist-display-font);" class="test">Sporting Grotesque</p>
   <p style="font-family: var(--liist-main-font); font-weight: bold;" class="test">IBM Plex Sans (bold)</p>
@@ -75,7 +103,5 @@ You can import the fonts and the global CSS variables in any webproject by addin
 ```
 
 ## Hosting
-All Fonts are hosted on our own Fast.io CDN as `ttf` files.
-- [**Sporting Grotesque** hosted on Fast.io CDN](https://liistwebfonts.imfast.io/SportingGrotesque-Bold.woff)
-- [**IBM Plex Sans Regular** hosted on Fast.io CDN](https://liistwebfonts.imfast.io/IBMPlexSans-Regular.ttf)
-- [**IBM Plex Sans Bold** hosted on Fast.io CDN](https://liistwebfonts.imfast.io/IBMPlexSans-Bold.ttf)
+- [**IBM Plex Sans** loaded from google fonts](https://fonts.google.com/specimen/IBM+Plex+Sans?query=IBM+P)
+- [**Sporting Grotesque Bold** hosted on Fast.io CDN](https://liist-fonts.imfast.io/SportingGrotesque-Bold.woff): Fast.io CDN is connected to this github repo! Heres the [direct link](https://liist-fonts.imfast.io)!
