@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
-import { LiistCheckItem } from '../molecules/LiistCheckItem.js';
-import { LiistToggleBttn } from '../molecules/LiistToggleBttn.js';
+import '../molecules/LiistCheckItem.js';
+import '../molecules/LiistToggleBttn.js';
 
 export class LiistDaadFilter extends LitElement {
   static get properties() {
