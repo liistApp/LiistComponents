@@ -1,0 +1,32 @@
+/*
+ * IBM Plex Sans
+ * => Title and Body Font
+ * => syles: regular, medium, semi-bold, bold
+ */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+/*
+ * Sporting Grotesque
+ * => Display Font (fancy)
+ * => styles: bold only
+ */
+/* sporting grotesque bold */
+@font-face {
+  font-family: 'Sporting Grotesque';
+  src: url('https://liistwebfonts.imfast.io/SportingGrotesque-Bold.woff') format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+/* sporting grotesque regular */
+/* @font-face {
+  font-family: 'Sporting Grotesque';
+  src: url('https://liistwebfonts.imfast.io/SportingGrotesque-Regular.woff') format("woff");
+  font-weight: normal;
+  font-style: normal;
+} */
+
+:root {
+  --display-font: "Sporting Grotesque", sans-serif;
+  --main-font: "IBM Plex Sans", sans-serif;
+}
