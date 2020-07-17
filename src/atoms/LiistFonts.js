@@ -7,23 +7,12 @@
 export { }; // ensure this file can only be parsed as a module.
 
 /*
- * IMPORT ALL FONTS
- * source: https://liistwebfonts.imfast.io/css/import-fonts.css
+ * IMPORT ALL FONTS + DEFINE GLOBAL CSS VARIABLES
+ * source: https://cdn.jsdelivr.net/gh/dcts/LiistComponents@master/src/atoms/fonts/css/load-liist-fonts.css
  */
 const link = document.createElement('link');
 link.rel = 'stylesheet';
 link.type = 'text/css';
 link.crossOrigin = 'anonymous';
-link.href = 'https://liistwebfonts.imfast.io/css/import-fonts.css';
+link.href = 'https://cdn.jsdelivr.net/gh/dcts/LiistComponents@master/src/atoms/fonts/css/load-liist-fonts.css';
 document.head.appendChild(link);
-
-/*
- * DEFINE FONTS AS CSS VARIABLES
- * source: https://liistwebfonts.imfast.io/css/define-fonts.css
- */
-const link2 = document.createElement('link');
-link2.rel = 'stylesheet';
-link2.type = 'text/css';
-link2.crossOrigin = 'anonymous';
-link2.href = 'https://liistwebfonts.imfast.io/css/define-fonts.css';
-document.head.appendChild(link2);
