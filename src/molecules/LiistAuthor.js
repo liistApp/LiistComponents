@@ -14,7 +14,7 @@ export class LiistAuthor extends LitElement {
       }
 
       .darkmode > img#author-avatar {
-        border: 2px solid #F9DDC5;
+        border: 2px solid var(--liist-creamii);
       }
 
       img#author-avatar {

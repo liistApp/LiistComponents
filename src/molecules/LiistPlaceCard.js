@@ -54,13 +54,13 @@ export class LiistPlaceCard extends LitElement {
         display: flex;
         line-height: 18px;
         font-size: 13px;
-        color: #3D3E6C;
+        color: var(--liist-viiolet80);
       }
 
       .place-title {
         font-size: 19px;
         line-height: 24px;
-        color: #3D3E6C;
+        color: var(--liist-viiolet80);
         line-height: 23px;
       }
 
@@ -74,12 +74,12 @@ export class LiistPlaceCard extends LitElement {
       }
 
       .open {
-        color: #168A3B;
+        color: var(--liist-grasii);
         font-weight: bold;
       }
 
       .closed {
-        color: #3D3E6C;
+        color: var(--liist-viiolet80);
         font-weight: bold;
       }
 
