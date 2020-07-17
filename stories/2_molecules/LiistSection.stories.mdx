@@ -1,5 +1,18 @@
 import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
 import '../../src/molecules/LiistSection.js';
+import '../../src/molecules/LiistPlaceCard.js';
+/*
+ * LEAVE THIS SHORT SCRIPT IN HERE
+ * BUGFIX -> Storybook adds sb-classes to slots somehow
+ */
+window.addEventListener("load", () => {
+  const slots = Array.prototype.slice.call(document.querySelectorAll(".css-gnhv4i .css-1ta8r1d"));
+  slots.forEach(slot => {
+    slot.classList.remove("sbdocs");
+    slot.classList.remove("sbdocs-li");
+    slot.classList.remove("css-1ta8r1d");
+  })
+})
 
 <Meta
   title="molecules|LiistSection"
@@ -13,23 +26,36 @@ import '../../src/molecules/LiistSection.js';
 
 liist section component used to structure the web view
 
+
+## Properties
+
+| property     | description            | default     |
+| ------------ | ---------------------- | ----------- |
+| **`title`**  | title of the section.  | `loading...`|
+| **`width`**  | width of the component, can be specified as pixels (e.g. `250px`) or percentage (e.g. `50%`). | `100%`|
+
+<br></br>
+<br></br>
+
 ### Default State
 <Preview>
   <liist-section></liist-section>
 </Preview>
 
-### Customized State
+### With Content
+All content that is put inside the component, is rendered in the content section (**slot**) of the component.
 <Preview>
   <liist-section title="50+ Spots in this Hitlist">
-    <li>This is a random bullet point</li>
-    <li>This is another random bullet point</li>
+    <liist-place-card></liist-place-card>
+    <liist-place-card></liist-place-card>
   </liist-section>
 </Preview>
 
-
-## Properties
-There are no properties for this component but 2 Slots of which the content can be changed
-- **`title"`**: title of the section.
-
-## Slots
-Everything inside the slot is added as content of the section (below the horizontal line).
+### With Custom Size (in px or %)
+Custom size caps the overall size of the component. Is either specified as **pixel** or **percentage**. For example `width="250px"` or `width="100%"`. Default is 100%.
+<Preview>
+  <liist-section width="250px" title="50+ Spots in this Hitlist">
+    <liist-place-card></liist-place-card>
+    <liist-place-card></liist-place-card>
+  </liist-section>
+</Preview>

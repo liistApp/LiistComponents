@@ -7,26 +7,21 @@ export class LiistSection extends LitElement {
 
       p {
         margin: 0;
+        margin-bottom: 3px;
       }
 
       #title {
-        font-size: 16px;
+        font-family: var(--main-font);
+        font-weight: 500;
+        font-size: 15px;
         line-height: 140%;
-        color: var(--liist-violet60);
-        color: var(--liist-hotii);
-        /* FOR SOME REASON THE FONT FAMILY DOES NOT APPLY */
-        font-family: 'Times New Roman', Times, serif !important;
-      }
-
-      slot {
-        font-family: 'Times New Roman', serif !important;
+        color: var(--liist-viiolet60);
       }
 
       .line {
         width: 100%;
-        height: 1.5px;
-        /* background-color: var(--liist-violet40); */
-        color: red;
+        height: 1px;
+        background-color: var(--liist-viiolet40);
         margin-bottom: 15px;
       }
     `;
@@ -35,18 +30,19 @@ export class LiistSection extends LitElement {
   static get properties() {
     return {
       title: { type: String },
+      width: { type: String },
     };
   }
 
   constructor() {
     super();
     this.title = "loading ...";
-    LiistColors.initCssVariables();
+    this.width = "100%";
   }
 
   render() {
     return html`
-      <div class="container">
+      <div class="container" style="width: ${this.width}">
         <p id="title">${this.title}</p>
         <div class="line"></div>
         <slot></slot>
