@@ -47,8 +47,43 @@ export class LiistColors {
     }
     return input;
   }
+
+  /*
+   * loads CSS variables if they are not yet loaded
+   * => conditional!
+   */
+  static initCssVariables() {
+    console.log("!LiistColors._cssVariablesExist()");
+    console.log(!LiistColors._cssVariablesExist());
+    if (!LiistColors._cssVariablesExist()) {
+      let root = document.documentElement;
+      Object.keys(LiistColors.dict).forEach(key => {
+        root.style.setProperty(`--liist-${key}`, LiistColors.get(key));
+      })
+    }
+  }
+
+  static _cssVariablesExist() {
+    try {
+      const root = document.documentElement;
+      const liistColorNames = LiistColors.names();
+      for (let i = 0; i < liistColorNames.length; i++) {
+        if (root.style.getPropertyValue(`--liist-${liistColorNames[i]}`) === "") {
+          return false;
+        }
+      }
+      return true;
+    } catch(error) {
+      console.warn("ERROR: this can happen when 'document.documentElement' is not accessible");
+      console.log(error);
+      return false;
+    }
+  }
 }
 
+/*
+ * Define Dictionaries!
+ */
 LiistColors.dict = {
   sunii: "#F2D70B",
   skii: "#337EF8",
@@ -63,7 +98,6 @@ LiistColors.dict = {
   viiolet40: "#DBDCEB",
   viiolet20: "#EDEEF9",
 }
-
 LiistColors.themeDict = {
   viiolet20: { bgColor: "viiolet20", color: "viiolet80" },
   viiolet80: { bgColor: "viiolet80", color: "viiolet20" },
@@ -73,4 +107,14 @@ LiistColors.themeDict = {
   grasii: { bgColor: "grasii", color: "piink" },
   hotii: { bgColor: "hotii", color: "creamii" },
   viiolet: { bgColor: "viiolet", color: "sunii" },
+}
+
+/*
+ * when file is loaded, try to reate global css variables
+ */
+try {
+  LiistColors.initCssVariables();
+} catch(error) {
+  console.warn("Initializing Global CSS Variables on loading of LiistColors.js did not work. You can still run 'LiistColors.initCssVariables()'");
+  console.warn(error.message);
 }

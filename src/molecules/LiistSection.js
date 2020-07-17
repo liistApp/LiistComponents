@@ -1,4 +1,5 @@
 import { html, css, LitElement } from 'lit-element';
+import { LiistColors } from '../atoms/LiistColors.js'
 
 export class LiistSection extends LitElement {
   static get styles() {
@@ -11,7 +12,8 @@ export class LiistSection extends LitElement {
       #title {
         font-size: 16px;
         line-height: 140%;
-        color: #8687A7;
+        color: var(--liist-violet60);
+        color: var(--liist-hotii);
         /* FOR SOME REASON THE FONT FAMILY DOES NOT APPLY */
         font-family: 'Times New Roman', Times, serif !important;
       }
@@ -23,7 +25,8 @@ export class LiistSection extends LitElement {
       .line {
         width: 100%;
         height: 1.5px;
-        background-color: #DBDCEB;
+        /* background-color: var(--liist-violet40); */
+        color: red;
         margin-bottom: 15px;
       }
     `;
@@ -38,6 +41,7 @@ export class LiistSection extends LitElement {
   constructor() {
     super();
     this.title = "loading ...";
+    LiistColors.initCssVariables();
   }
 
   render() {
