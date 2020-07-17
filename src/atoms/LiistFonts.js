@@ -14,5 +14,5 @@ const link = document.createElement('link');
 link.rel = 'stylesheet';
 link.type = 'text/css';
 link.crossOrigin = 'anonymous';
-link.href = 'https://cdn.jsdelivr.net/gh/dcts/LiistComponents@master/src/atoms/fonts/css/load-liist-fonts.css';
+link.href = 'https://cdn.jsdelivr.net/gh/dcts/LiistComponents/src/atoms/fonts/css/load-liist-fonts.css';
 document.head.appendChild(link);
