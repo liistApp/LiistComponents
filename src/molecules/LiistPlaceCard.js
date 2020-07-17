@@ -212,12 +212,13 @@ export class LiistPlaceCard extends LitElement {
     this.chevron = false;
   }
 
-  // after the component is first rendered in its initial state (displayed to user)
-  // this function gets executed
+  /*
+   * after the component is first rendered in its initial state (displayed to user)
+   * this function gets executed
+   */
   firstUpdated() {
     this._setImage();
   }
-
   _setImage() {
     const placeThumbnail = this.shadowRoot.querySelector("img.place-thumbnail");
     const loadingPlaceholder = this.shadowRoot.querySelector(".loader-placeholder");

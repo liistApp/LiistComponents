@@ -53,8 +53,6 @@ export class LiistColors {
    * => conditional!
    */
   static initCssVariables() {
-    console.log("!LiistColors._cssVariablesExist()");
-    console.log(!LiistColors._cssVariablesExist());
     if (!LiistColors._cssVariablesExist()) {
       let root = document.documentElement;
       Object.keys(LiistColors.dict).forEach(key => {
