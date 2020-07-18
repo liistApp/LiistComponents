@@ -6,6 +6,7 @@ export { LiistColors } from './src/atoms/LiistColors.js';
 export { LiistBttn } from './src/atoms/LiistBttn.js';
 export { LiistBttnOld } from './src/atoms/LiistBttnOld.js';
 export { LiistDaadBttn } from './src/atoms/LiistDaadBttn.js';
+export { LiistIcon } from './src/atoms/LiistIcon.js';
 /*
 * MOLECULES
 */
