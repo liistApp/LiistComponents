@@ -11,9 +11,9 @@
   ],
   "module": "index.js",
   "scripts": {
-    "dev": "es-dev-server --app-index demo/demo.html --node-resolve --open --watch --port 3000",
-    "storybook": "start-storybook --node-resolve --watch --open --port 3030",
-    "storybook:build": "build-storybook"
+    "dev": "gulp buildIcons && es-dev-server --app-index demo/demo.html --node-resolve --open --watch --port 3000",
+    "storybook": "gulp buildIcons && start-storybook --node-resolve --watch --open --port 3030",
+    "storybook:build": "gulp buildIcons && build-storybook"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,8 @@
     "lit-html": "^1.1.2"
   },
   "devDependencies": {
+    "@open-wc/demoing-storybook": "^1.0.1",
     "es-dev-server": "^1.23.0",
-    "@open-wc/demoing-storybook": "^1.0.1"
+    "gulp": "^4.0.2"
   }
 }
