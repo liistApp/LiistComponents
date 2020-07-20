@@ -6,8 +6,9 @@ export class LiistIcon extends LitElement {
   static get styles() {
     return css`
       #icon-container {
-        display: inline-block;
-        /* border: 1px solid rgba(0,0,0,0.1); */
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
       }
     `;
   }
@@ -24,14 +25,14 @@ export class LiistIcon extends LitElement {
     super();
     this.icon = "pin";
     this.color = "smokii";
-    this.size = "35"
+    this.size = "35px";
   }
 
   connectedCallback() {
     super.connectedCallback();
   }
 
-  firstUpdated() {
+  updated() {
     this.getIconContainer().innerHTML = LiistSVGIcons[this.icon];
     this.setColor(this.color);
     this.setSize(this.size);
@@ -57,8 +58,8 @@ export class LiistIcon extends LitElement {
   }
 
   setSize(size) {
-    this.getIconContainer().style.width = `${size}px`;
-    this.getIconContainer().style.height = `${size}px`;
+    this.getIconContainer().style.width = size;
+    this.getIconContainer().style.height = size;
     this.getSVG().setAttribute("width", size);
     this.getSVG().setAttribute("height", size);
   }
