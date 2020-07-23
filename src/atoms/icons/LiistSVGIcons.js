@@ -74,34 +74,34 @@ export const LiistSVGIcons = {
 `, 
 'dm': `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0)">
-<rect width="24" height="24" fill="#C0C0C0"/>
+<rect width="24" height="24"/>
 <path d="M21.636 2.3674C21.2941 2.02482 20.7849 1.91034 20.3284 2.07269L2.83332 8.27935C2.3392 8.45486 2.00666 8.91851 2.0001 9.44317C1.99352 9.96688 2.31386 10.439 2.80326 10.6267L9.49636 13.2002C10.0919 13.4283 10.5635 13.8976 10.7946 14.4917L13.3694 21.1741C13.5441 21.6687 14.012 22 14.5371 22C15.0631 21.9972 15.53 21.6649 15.7038 21.1684L21.9159 3.69912H21.9169C22.0935 3.23922 21.9836 2.7174 21.636 2.36731L21.636 2.3674ZM10.0376 11.798L3.98607 9.48541L18.6903 4.25016L10.7648 12.1687C10.5356 12.0214 10.2923 11.8975 10.0377 11.798H10.0376ZM14.5072 19.9972L12.1972 13.9556C12.1014 13.7022 11.9765 13.4601 11.8261 13.2348L19.7527 5.31071L14.5072 19.9972Z" fill="black"/>
 </g>
 <defs>
 <clipPath id="clip0">
-<rect width="24" height="24" fill="white"/>
+<rect width="24" height="24"/>
 </clipPath>
 </defs>
 </svg>
 `, 
 'email': `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="24" height="24" fill="#C0C0C0"/>
+<rect width="24" height="24"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M2.46667 5C1.65457 5 1 5.65771 1 6.47368V17.5263C1 18.3423 1.65457 19 2.46667 19H21.5333C22.3454 19 23 18.3423 23 17.5263V6.47368C23 5.65771 22.3454 5 21.5333 5H2.46667ZM4.58636 7.19908C4.60212 7.19764 4.61644 7.19764 4.6322 7.19908C4.83272 7.19044 5.0275 7.26528 5.17076 7.40631L11.3238 13.2318C11.616 13.5081 12.3708 13.5095 12.6644 13.2318L18.8288 7.40631C19.1224 7.12712 19.5879 7.14007 19.8658 7.4351C20.1436 7.73012 20.1307 8.19784 19.8371 8.47703L16.2277 11.8849L19.8486 15.5231C19.9918 15.6598 20.0734 15.8483 20.0777 16.0455C20.0806 16.2441 20.0033 16.4355 19.8658 16.5765C19.7268 16.7161 19.5378 16.7953 19.3401 16.7953C19.1424 16.7939 18.9548 16.7133 18.8173 16.5708L15.1506 12.8866L13.6611 14.3027C12.7243 15.1878 11.2519 15.1907 10.3152 14.3027L8.83711 12.8981L5.18189 16.5708C5.04439 16.7133 4.85676 16.7939 4.65909 16.7953C4.46144 16.7953 4.27237 16.7162 4.13344 16.5766C3.99594 16.4355 3.9186 16.2441 3.92146 16.0455C3.92576 15.8484 4.0074 15.6598 4.15063 15.5231L7.77146 11.885L4.16207 8.47707C3.94723 8.28134 3.86845 7.97623 3.96012 7.69992C4.05178 7.4236 4.29705 7.22641 4.58636 7.19908Z" fill="black"/>
 </svg>
 `, 
 'filter': `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0)">
-<rect width="24" height="24" fill="#C0C0C0"/>
-<rect x="3" width="2" height="24" rx="1" fill="black"/>
-<circle cx="4" cy="7" r="3" fill="black"/>
-<rect x="11" width="2" height="24" rx="1" fill="black"/>
-<circle cx="12" cy="17" r="3" fill="black"/>
-<rect x="19" width="2" height="24" rx="1" fill="black"/>
-<circle cx="20" cy="7" r="3" fill="black"/>
+<rect width="24" height="24"/>
+<rect class="fill-me-up" x="3" width="2" height="24" rx="1" fill="black"/>
+<circle class="fill-me-up" cx="4" cy="7" r="3" fill="black"/>
+<rect class="fill-me-up" x="11" width="2" height="24" rx="1" fill="black"/>
+<circle class="fill-me-up" cx="12" cy="17" r="3" fill="black"/>
+<rect class="fill-me-up" x="19" width="2" height="24" rx="1" fill="black"/>
+<circle class="fill-me-up" cx="20" cy="7" r="3" fill="black"/>
 </g>
 <defs>
 <clipPath id="clip0">
-<rect width="24" height="24" fill="white"/>
+<rect width="24" height="24"/>
 </clipPath>
 </defs>
 </svg>

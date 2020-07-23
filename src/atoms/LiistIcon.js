@@ -50,10 +50,14 @@ export class LiistIcon extends LitElement {
     return this.shadowRoot.querySelectorAll("svg > path");
   }
 
+  getFillPaths() {
+    return this.shadowRoot.querySelectorAll("svg path, svg .fill-me-up");
+  }
+
   setColor(color) {
     const transformedColor = LiistColors.transformColorInput(color);
-    this.getSVGPaths().forEach(pathElement => {
-      pathElement.setAttribute("fill", transformedColor);
+    this.getFillPaths().forEach(elementToFill => {
+      elementToFill.setAttribute("fill", transformedColor);
     });
   }
 
