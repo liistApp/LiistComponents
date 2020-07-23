@@ -9,9 +9,6 @@ function defaultTask(cb) {
 }
 
 function buildIcons(cb) {
-  // body omitted
-  console.log("building ICONS!");
-
   // get file template as String (with placeholders)
   let jsFileContent = 'export const LiistSVGIcons = { \n@@@CONTENT@@@ };';
 
