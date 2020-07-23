@@ -77,6 +77,31 @@ export class LiistColors {
       return false;
     }
   }
+
+  static findTheme(bgColor, color) {
+    // init result
+    let result;
+
+    // preprocess colors
+    bgColor = bgColor.startsWith("#") ? bgColor : `#${bgColor}`;
+    bgColor = bgColor.toUpperCase();
+    color = color.startsWith("#") ? color : `#${color}`;
+    color = color.toUpperCase();
+
+    // iterate over all themes
+    Object.keys(LiistColors.themeDict).forEach(themeName => {
+      const themeColorName = LiistColors.getTheme(themeName).color;
+      const themeBgColorName = LiistColors.getTheme(themeName).bgColor;
+      const themeColorHex = LiistColors.get(themeColorName);
+      const themeBgColorHex = LiistColors.get(themeBgColorName);
+      if (themeColorHex === color && themeBgColorHex === bgColor) {
+        result = themeName;
+      }
+    });
+
+    // return result
+    return result;
+  }
 }
 
 /*
@@ -116,3 +141,4 @@ try {
   console.warn("Initializing Global CSS Variables on loading of LiistColors.js did not work. You can still run 'LiistColors.initCssVariables()'");
   console.warn(error.message);
 }
+

@@ -9,9 +9,6 @@ function defaultTask(cb) {
 }
 
 function buildIcons(cb) {
-  // body omitted
-  console.log("building ICONS!");
-
   // get file template as String (with placeholders)
   let jsFileContent = 'export const LiistSVGIcons = { \n@@@CONTENT@@@ };';
 
@@ -34,8 +31,6 @@ function buildIcons(cb) {
 
   // save as new file (override)
   fs.writeFileSync('./src/atoms/icons/LiistSVGIcons.js', jsFileContent);
-  console.log("build icons:");
-  console.log(Object.keys(allContent));
   cb();
 }
 
