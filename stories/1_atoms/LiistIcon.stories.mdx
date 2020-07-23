@@ -1,5 +1,6 @@
 import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
 import '../../src/atoms/LiistIcon.js';
+import { LiistColors } from '../../src/atoms/LiistColors.js';
 
 <Meta
   title="atoms|LiistIcon"
@@ -269,4 +270,12 @@ All icons.
     <h6>30</h6>
     <liist-icon icon="flag" size="30px"></liist-icon>
   </div>
+</Preview>
+
+
+## All Icons (Darkmode)
+
+<span></span>
+<Preview style={{ backgroundColor: LiistColors.get("smokii") }}>
+  <liist-icon icon="flag" size="30px" color="creamii"></liist-icon>
 </Preview>
