@@ -34,8 +34,6 @@ function buildIcons(cb) {
 
   // save as new file (override)
   fs.writeFileSync('./src/atoms/icons/LiistSVGIcons.js', jsFileContent);
-  console.log("build icons:");
-  console.log(Object.keys(allContent));
   cb();
 }
 
