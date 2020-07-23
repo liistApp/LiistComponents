@@ -1,4 +1,4 @@
-class LiistColors {
+export class LiistColors {
   static names() {
     return Object.keys(LiistColors.dict);
   };
