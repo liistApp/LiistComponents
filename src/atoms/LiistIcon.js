@@ -46,14 +46,20 @@ export class LiistIcon extends LitElement {
     return this.shadowRoot.querySelector("svg");
   }
 
-  getSVGPaths() {
-    return this.shadowRoot.querySelectorAll("svg > path");
+  getFillPaths() {
+    return this.shadowRoot.querySelectorAll("svg path, svg .fill-me-up");
+  }
+  getFillStrokePaths() {
+    return this.shadowRoot.querySelectorAll("svg .fill-my-stroke");
   }
 
   setColor(color) {
     const transformedColor = LiistColors.transformColorInput(color);
-    this.getSVGPaths().forEach(pathElement => {
-      pathElement.setAttribute("fill", transformedColor);
+    this.getFillPaths().forEach(elementToFill => {
+      elementToFill.setAttribute("fill", transformedColor);
+    });
+    this.getFillStrokePaths().forEach(elementToFillStroke => {
+      elementToFillStroke.setAttribute("stroke", transformedColor);
     });
   }
 

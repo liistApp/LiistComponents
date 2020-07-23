@@ -11,9 +11,9 @@
   ],
   "module": "index.js",
   "scripts": {
-    "dev": "gulp buildIcons && es-dev-server --app-index demo/demo.html --node-resolve --open --watch --port 3000",
-    "storybook": "gulp buildIcons && start-storybook --node-resolve --watch --open --port 3030",
-    "storybook:build": "gulp buildIcons && build-storybook"
+    "dev": "gulp && es-dev-server --app-index demo/demo.html --node-resolve --open --watch --port 3000",
+    "storybook": "gulp && start-storybook --node-resolve --watch --open --port 3030",
+    "storybook:build": "gulp && build-storybook"
   },
   "repository": {
     "type": "git",
