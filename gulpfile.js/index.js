@@ -5,10 +5,12 @@ var fs = require('fs');
 function defaultTask(cb) {
   // place code for your default task here
   console.log("gulpfile initialized and default task is running!");
+  buildIcons();
+  buildIconNamesDictionary();
   cb();
 }
 
-function buildIcons(cb) {
+function buildIcons() {
   // get file template as String (with placeholders)
   let jsFileContent = 'export const LiistSVGIcons = { \n@@@CONTENT@@@ };';
 
@@ -31,8 +33,25 @@ function buildIcons(cb) {
 
   // save as new file (override)
   fs.writeFileSync('./src/atoms/icons/LiistSVGIcons.js', jsFileContent);
-  cb();
 }
 
-exports.buildIcons = buildIcons;
+function buildIconNamesDictionary() {
+  // get file template as String (with placeholders)
+  let jsFileContent = 'export const LiistIconNames = [ @@@CONTENT@@@ ];';
+
+  // get all filenames and content as object (key=iconname, value=svgContent)
+  const dirname = "./src/atoms/icons/svg/";
+  const iconNamesArr = [];
+  let files = fs.readdirSync(dirname);
+  files.forEach(function (file) {
+    const iconName = file.split(".")[0];
+    iconNamesArr.push(`"${iconName}"`);
+  });
+
+  // save as new file (override)
+  jsFileContent = jsFileContent.replace("@@@CONTENT@@@", iconNamesArr.join(","));
+  fs.writeFileSync('./src/atoms/icons/LiistIconNames.js', jsFileContent);
+}
+
+// exports.buildIcons = buildIcons;
 exports.default = defaultTask
