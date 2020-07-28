@@ -9,7 +9,6 @@ export class LiistPlaceCard extends LitElement {
 
       .card-wrapper {
         width: 100%;
-        max-width: 359px;
         display: flex;
         justify-content: flex-start;
       }
