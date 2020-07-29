@@ -116,7 +116,7 @@ LiistColors.dict = {
   creamii: "#F9DDC5",
   smokii: "#1A1A1A",
   viiolet: "#4F51C2",
-  viiolet80: "#3D3E6C",
+  viiolet80: "#2E2F5B",
   viiolet60: "#8687A7",
   viiolet40: "#DBDCEB",
   viiolet20: "#EDEEF9",
