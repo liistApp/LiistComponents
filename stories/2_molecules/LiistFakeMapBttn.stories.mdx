@@ -17,39 +17,34 @@ A component that displays a map with a center location, an open map button and s
 
 | Property           | Description                                                    | Default     |
 | ------------------ | -------------------------------------------------------------- | ----------- |
-| `listTitle`        | xxx  | `xxx` |
-| `listTitle`        | xxx  | `xxx` |
+| `lat`              | latitude of the center of the map.  | `-73.935242` (NY) |
+| `lng`              | longitude of the center of the map.  | `40.73061` (NY) |
+| `width`            | width of the whle component. Can be in `px`, `%` or viewport.  | `400px` |
+| `height`           | height of the whle component. Can be in `px`, `%` or viewport.  | `200px` |
+| `theme`            | liist-color theme. See LiistColors documentation for all possible values. | `viiolet80` |
+| `liistTitle`       | title of the list. Determines the random points.  | `""` |
+| `url`              | targeturl when fake-map-bttn is clicked. | `undefined` |
+| `googleMapsApiKey` | provide API key from google that has Maps Static API enabled. | `""` |
 
-### Default User
+<br></br><br></br>
+
+### Default
 <Preview>
   <liist-fake-map-bttn></liist-fake-map-bttn>
-  <liist-fake-map-bttn listTitle="some random title"></liist-fake-map-bttn>
-  <liist-fake-map-bttn listTitle="some random title 2"></liist-fake-map-bttn>
-  <liist-fake-map-bttn listTitle="some random title 2" theme="viiolet80" icon="ufo"></liist-fake-map-bttn>
 </Preview>
 
-<!--
-
+### Custom Colors + Theme
 <Preview>
-  <liist-fake-map-bttn listTitle="hello" lat="13.404954" lng="52.520008" theme="hotii"></liist-fake-map-bttn>
-  <liist-fake-map-bttn listTitle="hello" lat="13.404954" lng="52.520008" theme="viiolet"></liist-fake-map-bttn>
-  <liist-fake-map-bttn listTitle="hello" lat="13.404954" lng="52.520008"></liist-fake-map-bttn>
+  <liist-fake-map-bttn listTitle="1" theme="hotii" icon="heart"></liist-fake-map-bttn>
+  <liist-fake-map-bttn listTitle="2" theme="grasii" icon="gem"></liist-fake-map-bttn>
+  <liist-fake-map-bttn listTitle="3" theme="piink" icon="money"></liist-fake-map-bttn>
+  <liist-fake-map-bttn listTitle="4" theme="viiolet" icon="skull"></liist-fake-map-bttn>
+  <liist-fake-map-bttn listTitle="5" theme="viiolet80b" icon="ufo"></liist-fake-map-bttn>
+  <liist-fake-map-bttn listTitle="6" theme="viiolet20" icon="tasty"></liist-fake-map-bttn>
 </Preview>
 
+### With Url (clickable)
 <Preview>
-  <liist-fake-map-bttn listTitle="hello2asd" lat="13.404954" lng="52.520008"></liist-fake-map-bttn>
-  <liist-fake-map-bttn listTitle="hello2asd" lat="13.404954" lng="52.520008"></liist-fake-map-bttn>
-  <liist-fake-map-bttn listTitle="hello2asd" lat="13.404954" lng="52.520008"></liist-fake-map-bttn>
+  <liist-fake-map-bttn url="https://liist.com/"></liist-fake-map-bttn>
 </Preview>
 
-
-<Preview>
-  <liist-fake-map-bttn listTitle="hello3" lat="13.404954" lng="52.520008"></liist-fake-map-bttn>
-  <liist-fake-map-bttn listTitle="hello3" lat="13.404954" lng="52.520008"></liist-fake-map-bttn>
-  <liist-fake-map-bttn listTitle="hello3" lat="13.404954" lng="52.520008"></liist-fake-map-bttn>
-</Preview>
-
-
-<Preview>
-  <liist-fake-map-bttn listTitle="hello3" lat="13.404954" lng="52.520008"></liist-fake-map-bttn>
-</Preview> -->
