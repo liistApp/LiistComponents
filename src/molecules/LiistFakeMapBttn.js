@@ -34,6 +34,7 @@ export class LiistFakeMapBttn extends LitElement {
       width: { type: Number },
       height: { type: Number },
       theme: { type: String },
+      icon: { type: String },
       listTitle: { type: String },
       url: { type: String },
       googleMapsApiKey: { type: String }
@@ -125,9 +126,9 @@ export class LiistFakeMapBttn extends LitElement {
       return this.renderInnerContent();
     }
   }
-  renderwithUrl(url) {
+  renderwithUrl() {
     return html`
-      <a href="${url}" target="_blank">
+      <a href="${this.url}" target="_blank">
         ${this.renderInnerContent()}
       </a>
     `;
