@@ -6,13 +6,15 @@ export class LiistFakeMapBttn extends LitElement {
   static get styles() {
     return css`
       .container {
-        overflow-y: hidden;
         position: relative;
         overflow: hidden;
         border-radius: 6px;
+        display: flex;
         justify-content: center;
         align-items: center;
-        display: flex;
+      }
+      .pointer {
+        cursor: pointer;
       }
       liist-tag {
         position: absolute;
@@ -33,6 +35,7 @@ export class LiistFakeMapBttn extends LitElement {
       height: { type: Number },
       theme: { type: String },
       listTitle: { type: String },
+      url: { type: String },
       googleMapsApiKey: { type: String }
     };
   }
@@ -71,14 +74,24 @@ export class LiistFakeMapBttn extends LitElement {
   }
 
   firstUpdated() {
-    this.containerEl = this.shadowRoot.querySelector(".container");
     const deterministicPoints = this._getDeterministicPoints(this.listTitle);
     this._drawPins(deterministicPoints);
   }
 
+  updated(changedProperties) {
+    if (Array.from(changedProperties.keys()).includes("url")) {
+      const deterministicPoints = this._getDeterministicPoints(this.listTitle);
+      this._drawPins(deterministicPoints);
+    }
+  }
+
   _injectTag(x,y) {
-    const liistHtmlTag = `<liist-tag theme="${this.theme}" icon="${this.icon}" size="28px" style="top: ${x}%; left: ${y}%"></liist-tag>`;
-    this.containerEl.insertAdjacentHTML("beforeend", liistHtmlTag);
+    const tagHtml = `<liist-tag theme="${this.theme}" icon="${this.icon}" size="28px" style="top: ${x}%; left: ${y}%"></liist-tag>`;
+    this._getContainer().insertAdjacentHTML("beforeend", tagHtml);
+  }
+
+  _getContainer() {
+    return this.shadowRoot.querySelector(".container");
   }
 
   // ddraws pins
@@ -87,6 +100,20 @@ export class LiistFakeMapBttn extends LitElement {
   }
 
   render() {
+    if (this.url) {
+      return this.renderwithUrl();
+    } else {
+      return this.renderInnerContent();
+    }
+  }
+  renderwithUrl(url) {
+    return html`
+      <a href="${url}" target="_blank">
+        ${this.renderInnerContent()}
+      </a>
+    `;
+  }
+  renderInnerContent() {
     return html`
       <div class="container" style="${this._buildStyles()}">
         <liist-bttn width="100%" text="OPEN MAP"></liist-bttn>
