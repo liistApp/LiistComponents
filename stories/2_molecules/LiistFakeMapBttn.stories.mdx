@@ -1,0 +1,50 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import '../../src/molecules/LiistFakeMapBttn.js';
+
+<Meta
+  title="molecules|LiistFakeMapBttn"
+  parameters={{
+    component: "liist-fake-map-bttn",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# `<liist-fake-map-bttn>`
+
+A component that displays a map with a center location, an open map button and some randomly assigned liist-tags.
+
+## Properties
+
+| Property           | Description                                                    | Default     |
+| ------------------ | -------------------------------------------------------------- | ----------- |
+| `lat`              | latitude of the center of the map.  | `-73.935242` (NY) |
+| `lng`              | longitude of the center of the map.  | `40.73061` (NY) |
+| `width`            | width of the whle component. Can be in `px`, `%` or viewport.  | `400px` |
+| `height`           | height of the whle component. Can be in `px`, `%` or viewport.  | `200px` |
+| `theme`            | liist-color theme. See LiistColors documentation for all possible values. | `viiolet80` |
+| `liistTitle`       | title of the list. Determines the random points.  | `""` |
+| `url`              | targeturl when fake-map-bttn is clicked. | `undefined` |
+| `googleMapsApiKey` | provide API key from google that has Maps Static API enabled. | `""` |
+
+<br></br><br></br>
+
+### Default
+<Preview>
+  <liist-fake-map-bttn></liist-fake-map-bttn>
+</Preview>
+
+### Custom Colors + Theme
+<Preview>
+  <liist-fake-map-bttn listTitle="1" theme="hotii" icon="heart"></liist-fake-map-bttn>
+  <liist-fake-map-bttn listTitle="2" theme="grasii" icon="gem"></liist-fake-map-bttn>
+  <liist-fake-map-bttn listTitle="3" theme="piink" icon="money"></liist-fake-map-bttn>
+  <liist-fake-map-bttn listTitle="4" theme="viiolet" icon="skull"></liist-fake-map-bttn>
+  <liist-fake-map-bttn listTitle="5" theme="viiolet80b" icon="ufo"></liist-fake-map-bttn>
+  <liist-fake-map-bttn listTitle="6" theme="viiolet20" icon="tasty"></liist-fake-map-bttn>
+</Preview>
+
+### With Url (clickable)
+<Preview>
+  <liist-fake-map-bttn url="https://liist.com/"></liist-fake-map-bttn>
+</Preview>
+

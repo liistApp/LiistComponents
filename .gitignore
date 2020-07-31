@@ -23,4 +23,5 @@
 .history
 .vscode
 
-
+# ADD ENV variables
+.env
