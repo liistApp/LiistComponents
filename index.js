@@ -15,6 +15,7 @@ export { LiistPlaceCard } from './src/molecules/LiistPlaceCard.js';
 export { LiistSection } from './src/molecules/LiistSection.js';
 export { LiistToggleBttn } from './src/molecules/LiistToggleBttn.js';
 export { LiistTag } from './src/molecules/LiistTag.js';
+export { LiistFakeMapBttn } from './src/molecules/LiistFakeMapBttn.js';
 /*
  * ORGAMISMS
  */
