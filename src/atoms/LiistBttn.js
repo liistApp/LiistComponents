@@ -1,11 +1,15 @@
 import { html, css, LitElement } from 'lit-element';
 import { LiistColors } from './LiistColors';
+import './LiistIcon';
 
 export class LiistBttn extends LitElement {
   static get styles() {
     return css`
       p {
         font-size: 15px;
+        line-height: 15px;
+        margin: 0;
+        font-weight: bold;
       }
 
       a {
@@ -15,13 +19,22 @@ export class LiistBttn extends LitElement {
 
       .button {
         font-family: var(--liist-main-font);
-        font-weight: bold;
         height: 50px;
         width: 100%;
         border-radius: 6px;
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+      .button > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+      .thin * {
+        font-weight: normal !important;
       }
 
       .loading {
@@ -37,20 +50,26 @@ export class LiistBttn extends LitElement {
   static get properties() {
     return {
       text: { type: String },
+      thin: { type: Boolean },
       color: { type: String },
       bgColor: { type: String },
       theme: { type: String },
       width: { type: String },
       url: { type: String },
       openInNewTab: { type: Boolean },
+      icon: { type: String },
+      iconPos: { type: String },
       loading: { type: Boolean }
     };
   }
 
   constructor() {
     super();
-    this.width = "250px";
+    this.width = "100%";
     this.theme = "viiolet80";
+    this.thin = false;
+    this.icon = undefined;
+    this.iconPos = "left";
     this.loading = false;
     this.openInNewTab = false;
   }
@@ -83,9 +102,32 @@ export class LiistBttn extends LitElement {
 
   renderBttn(text, bgColor, color) {
     return html`
-      <div class="button ${this.loading ? "loading" : ""} ${this.url ? "pointer" : ""}" style="width:${this.width}; background-color: ${bgColor};">
-        <p style="color:${color}">${text}</p>
+      <div
+        class="flex button ${this.thin ? "thin" : ""} ${this.loading ? "loading" : ""} ${this.url ? "pointer" : ""}"
+        style="width:${this.width}; background-color: ${bgColor};">
+        ${this.icon && this.iconPos === "left" ?
+          this.renderIconLeft(color, text) : this.icon && this.iconPos === "right" ?
+          this.renderIconRight(color, text) : this.renderIconText(color, text) }
       </div>
+    `;
+  }
+
+  renderIconLeft(color, text) {
+    return html`
+      <div class="icon-flex"><liist-icon icon="${this.icon || "pin"}" color="${color}" size="21px" height="21px"></liist-icon></div>
+      ${this.renderIconText(color, text)}
+    `;
+  }
+  renderIconRight(color, text) {
+    return html`
+      ${this.renderIconText(color, text)}
+      <div class="icon-flex"><liist-icon color="${color}" size="21px" height="21px"></liist-icon></div>
+    `;
+  }
+
+  renderIconText(color, text) {
+    return html`
+      <div class="name-flex ${this.thin || ""}"><p style="color:${color}">${text}</p></div>
     `;
   }
 
