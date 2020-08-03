@@ -1,6 +1,7 @@
 import { html, css, LitElement } from 'lit-element';
 import '../molecules/LiistTag.js';
 import '../atoms/LiistBttn.js';
+import { LiistColors } from '../atoms/LiistColors.js';
 
 export class LiistFakeMapBttn extends LitElement {
   static get styles() {
@@ -34,6 +35,8 @@ export class LiistFakeMapBttn extends LitElement {
       width: { type: Number },
       height: { type: Number },
       theme: { type: String },
+      color: { type: String },
+      bgColor: { type: String },
       icon: { type: String },
       listTitle: { type: String },
       url: { type: String },
@@ -49,6 +52,8 @@ export class LiistFakeMapBttn extends LitElement {
     this.width = "400px";
     this.height = "200px";
     this.theme = "viiolet80"; // default color theme
+    this.color = undefined; // default color theme
+    this.bgColor = undefined; // default color theme
     this.icon = "pin";        // default icon
     this.listTitle = "";
     this.googleMapsApiKey = "";
@@ -87,7 +92,15 @@ export class LiistFakeMapBttn extends LitElement {
   }
 
   _injectTag(x,y) {
-    const tagHtml = `<liist-tag theme="${this.theme}" icon="${this.icon}" size="28px" style="top: ${x}%; left: ${y}%"></liist-tag>`;
+    let color, bgColor;
+    color = this.color;
+    bgColor = this.bgColor;
+    if (this.theme) {
+      const theme = LiistColors.getTheme(this.theme);
+      color = LiistColors.get(theme.color);
+      bgColor = LiistColors.get(theme.bgColor);
+    }
+    const tagHtml = `<liist-tag color="${color}" bgColor="${bgColor}" icon="${this.icon}" size="28px" style="top: ${x}%; left: ${y}%"></liist-tag>`;
     this._getContainer().insertAdjacentHTML("beforeend", tagHtml);
   }
 
