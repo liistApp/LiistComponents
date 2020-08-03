@@ -21,21 +21,38 @@ export class LiistTag extends LitElement {
   static get properties() {
     return {
       icon: { type: String },
-      theme: { type: String },
       size: { type: String },
+      theme: { type: String },
+      bgColor: { type: String },
+      color: { type: String },
     };
   }
 
   constructor() {
     super();
     this.icon = "pin";
-    this.theme = "viiolet80";
     this.size = "42px";
+    this.theme = undefined;
+    this.bgColor = undefined;
+    this.color = undefined;
   }
 
   render() {
-    let color = LiistColors.transformColorInput(LiistColors.getTheme(this.theme).color);
-    let bgColor = LiistColors.transformColorInput(LiistColors.getTheme(this.theme).bgColor);
+    let color, bgColor;
+    if (!this.theme && !this.color && !this.bgColor) {
+      this.theme = "viiolet80";
+    }
+    if (this.bgColor) {
+      bgColor = this.bgColor;
+    }
+    if (this.color) {
+      color = this.color;
+    }
+    // theme overrides
+    if (this.theme) {
+      color = LiistColors.transformColorInput(LiistColors.getTheme(this.theme).color);
+      bgColor = LiistColors.transformColorInput(LiistColors.getTheme(this.theme).bgColor);
+    }
     return html`
       <div id="tag-container" style="background-color: ${bgColor}; width:${this.size}; height:${this.size}">
         <liist-icon icon="${this.icon}" color="${color}" size="77.8%"></liist-icon>
