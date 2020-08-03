@@ -18,11 +18,20 @@ Liist tags are a combination of a selected icon and a LiistColor theme.
 | Property | Description            | Default     |
 | -------- | ---------------------- | ----------- |
 | `icon`   | name of the icon. See LiistTag (section tag-icons) for all availible tags | `pin` |
-| `theme`  | Color theme of the tag. See LiistColors (themes) | `viiolet80` |
 | `size`   | Size of the tag, specified in px or percentage. | `42px` |
+| `theme`  | Color theme of the tag. Overrides `color` and `bgColor`. See LiistColors (themes). If no theme, no color, and no bgColor is set, the theme `viiolet80` will be assigned. | `viiolet80` |
+| `bgColor`| Background color of the tag. Only applied if there is no theme. | `undefined` |
+| `color`  | Tint color of the tag. Only applied if there is no theme. | `undefined` |
 
 <br></br>
 <br></br>
+
+
+## Default
+<Preview>
+  <liist-tag></liist-tag>
+</Preview>
+
 
 ## Demo
 <Preview>
@@ -79,3 +88,10 @@ Liist tags are a combination of a selected icon and a LiistColor theme.
   <liist-tag icon="remember" theme="hotii"></liist-tag>
   <liist-tag icon="remember" theme="viiolet"></liist-tag>
 </Preview>
+
+
+## Custom Colors
+<Preview>
+  <liist-tag color="white" bgColor="red"></liist-tag>
+</Preview>
+
