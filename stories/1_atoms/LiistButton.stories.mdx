@@ -18,10 +18,13 @@ Main button component.
 | Property       | Description | Default |
 | -------------- | ----------- | ------- |
 | `text`         | text content of the button. | - |
+| `thin`         | Boolean variable, set font-weight normal instead of bold. | false |
 | `theme`        | theme of the button, see [LiistColors documentation](?path=/docs/atoms-liistcolors--page). **IMPORTANT**: overrides `color` and `bgColor`. | `viiolet80` |
 | `color`        | text color of button. Only applied when `theme` is set to `custom`. | - |
 | `bgColor`      | background color of the button. Only applied when `theme` is set to `custom`. | - |
-| `width`        | width set in percentage or pixels. For example `250px` or `100%` | `250px` |
+| `icon`         | Name of the icon. For example `pin`, `ufo`, `filter`, ... | `undefined` |
+| `iconPos`      | position of the icon. `left` or `right`. | `left` |
+| `width`        | width set in percentage or pixels. For example `250px` or `100%` | `100%` |
 | `url`          | url as string. If no url is set, button is not clickable! | - |
 | `openInNewTab` | Boolean. Opens url in new tab. Only applied when url is set. | - |
 
@@ -30,20 +33,24 @@ Main button component.
 
 ## Default Button
 <Preview>
-  <div>
-    <liist-bttn text="opens in new tab" url="https://www.liist.cc" openInNewTab></liist-bttn>
-  </div>
-  <div>
-    <liist-bttn text="opens in same window" url="https://www.liist.cc"></liist-bttn>
-  </div>
-  <div>
-    <liist-bttn text="no url assigned"></liist-bttn>
-  </div>
+  <liist-bttn text="Hello World"></liist-bttn>
+</Preview>
+
+## With Icon
+<Preview>
+  <liist-bttn width="250px" icon="filter" text="FILTER" theme="viiolet20"></liist-bttn>
+  <liist-bttn width="250px" icon="map" text="VIEW MAP" theme="viiolet20"></liist-bttn>
+  <liist-bttn width="250px" icon="dm" text="DM our Bot" theme="viiolet20"></liist-bttn>
+</Preview>
+
+## Thin Text
+<Preview>
+  <liist-bttn width="250px" text="SAVE MAP" theme="viiolet80" thin></liist-bttn>
 </Preview>
 
 ## Loading State
 <Preview>
-  <liist-bttn loading text="GO!"></liist-bttn>
+  <liist-bttn loading text="GO!" width="250px"></liist-bttn>
   <p
     style={{ margin: 0, fontFamily: "monospace" }}><span style={{ fontWeight: "bold" }}>try selecting button and then running</span><br></br>> $0.loading = false
   </p>
@@ -129,6 +136,13 @@ Main button component.
   ></liist-bttn>
 </Preview>
 
+## Url Target
+<Preview>
+  <liist-bttn width="250px" text="opens in new tab" url="https://www.liist.com" openInNewTab></liist-bttn>
+  <liist-bttn width="250px" text="opens in same window" url="https://www.liist.com"></liist-bttn>
+  <liist-bttn width="250px" text="no url assigned"></liist-bttn>
+</Preview>
+
 ## Javascript OnClick Event
 Instead of using the `url` property, you can also perform a javascript action onclick by adding an onclick attribute in the root component. <br></br> **Important**: you have to manually set the cursor to pointer (for now, can be fixed later).
 
@@ -142,6 +156,7 @@ Instead of using the `url` property, you can also perform a javascript action on
 
 <Preview>
   <liist-bttn
+    width="250px"
     onclick="alert('Hello, Friend!')"
     style={{ cursor: "pointer"}}
     text="Say Hi"
