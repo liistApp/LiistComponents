@@ -51,7 +51,7 @@ export class LiistFakeMapBttn extends LitElement {
     this.lng = 40.730610;  // default value: NewYork
     this.width = "400px";
     this.height = "200px";
-    this.theme = "viiolet80"; // default color theme
+    this.theme = undefined; // default color theme
     this.color = undefined; // default color theme
     this.bgColor = undefined; // default color theme
     this.icon = "pin";        // default icon
@@ -92,6 +92,9 @@ export class LiistFakeMapBttn extends LitElement {
   }
 
   _injectTag(x,y) {
+    if (!this.theme && !this.color && !this.bgColor) {
+      this.theme = "viiolet80";
+    }
     let color, bgColor;
     color = this.color;
     bgColor = this.bgColor;
