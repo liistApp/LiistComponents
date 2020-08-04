@@ -76,6 +76,7 @@ export class LiistFakeMapBttn extends LitElement {
       `height: ${this.height};` +
       `object-fit: ${this.height};` +
       `background-image: url('${this._buildMapImageUrl()}');` +
+      `background-color: var(--liist-viiolet20);` +
       `background-size: cover;`;
   }
 
