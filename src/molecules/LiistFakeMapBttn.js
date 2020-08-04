@@ -47,8 +47,8 @@ export class LiistFakeMapBttn extends LitElement {
   // not sure if needed? in current setup need to be empty for loader to show
   constructor() {
     super();
-    this.lat = -73.935242; // default value: NewYork
-    this.lng = 40.730610;  // default value: NewYork
+    this.lat = 40.730610; // default value: NewYork
+    this.lng = -73.935242;  // default value: NewYork
     this.width = "400px";
     this.height = "200px";
     this.theme = undefined; // default color theme
@@ -62,7 +62,7 @@ export class LiistFakeMapBttn extends LitElement {
   _buildMapImageUrl() {
     // google maps api key exists
     if (this.googleMapsApiKey) {
-      return `https://maps.googleapis.com/maps/api/staticmap?center=${this.lng},${this.lat}` +
+      return `https://maps.googleapis.com/maps/api/staticmap?center=${this.lat},${this.lng}` +
       `&zoom=12&size=500x300` +
       `&key=${this.googleMapsApiKey}` +
       `&style=feature:poi|visibility:off&style=feature:administrative|visibility:off&style=feature:road|element:labels|visibility:off`;
