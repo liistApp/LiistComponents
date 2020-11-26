@@ -40,7 +40,8 @@ export class LiistFakeMapBttn extends LitElement {
       icon: { type: String },
       listTitle: { type: String },
       url: { type: String },
-      googleMapsApiKey: { type: String }
+      googleMapsApiKey: { type: String },
+      disablePins: { type: Boolean }
     };
   }
 
@@ -57,6 +58,7 @@ export class LiistFakeMapBttn extends LitElement {
     this.icon = "pin";        // default icon
     this.listTitle = "";
     this.googleMapsApiKey = "";
+    this.disablePins = false;
   }
 
   _buildMapImageUrl() {
@@ -81,12 +83,14 @@ export class LiistFakeMapBttn extends LitElement {
   }
 
   firstUpdated() {
-    const deterministicPoints = this._getDeterministicPoints(this.listTitle);
-    this._drawPins(deterministicPoints);
+    if (!this.disablePins) {
+      const deterministicPoints = this._getDeterministicPoints(this.listTitle);
+      this._drawPins(deterministicPoints);
+    }
   }
 
   updated(changedProperties) {
-    if (Array.from(changedProperties.keys()).includes("url")) {
+    if (Array.from(changedProperties.keys()).includes("url") && !this.disablePins) {
       const deterministicPoints = this._getDeterministicPoints(this.listTitle);
       this._drawPins(deterministicPoints);
     }
