@@ -41,7 +41,8 @@ export class LiistFakeMapBttn extends LitElement {
       listTitle: { type: String },
       url: { type: String },
       googleMapsApiKey: { type: String },
-      disablePins: { type: Boolean }
+      disablePins: { type: Boolean },
+      buttonText: { type: String },
     };
   }
 
@@ -59,6 +60,7 @@ export class LiistFakeMapBttn extends LitElement {
     this.listTitle = "";
     this.googleMapsApiKey = "";
     this.disablePins = false;
+    this.buttonText = "OPEN MAP";
   }
 
   _buildMapImageUrl() {
@@ -157,7 +159,7 @@ export class LiistFakeMapBttn extends LitElement {
   renderInnerContent() {
     return html`
       <div class="container" style="${this._buildStyles()}">
-        <liist-bttn width="100%" text="OPEN MAP"></liist-bttn>
+        <liist-bttn text="${this.buttonText}" style="width: auto;"></liist-bttn>
       </div>
     `;
   }
