@@ -10,6 +10,8 @@ export class LiistBttn extends LitElement {
         line-height: 15px;
         margin: 0;
         font-weight: bold;
+        padding-left: 10px;
+        padding-right: 10px;
       }
 
       a {
