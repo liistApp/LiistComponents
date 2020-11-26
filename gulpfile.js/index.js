@@ -5,23 +5,32 @@ var fs = require('fs');
 function defaultTask(cb) {
   // place code for your default task here
   console.log("gulpfile initialized and default task is running!");
-  buildIcons();
-  buildIconNamesDictionary();
+  // define which directories to run
+  const directories = [
+    "./src/atoms/icons/svg/",
+    "./src/atoms/icons/newPins/"
+  ]
+  // run both tasks (build icons + build icon names)
+  buildIcons(directories);
+  buildIconNamesDictionary(directories);
   cb();
 }
 
-function buildIcons() {
+function buildIcons(directories) {
   // get file template as String (with placeholders)
   let jsFileContent = 'export const LiistSVGIcons = { \n@@@CONTENT@@@ };';
 
-  // get all filenames and content as object (key=iconname, value=svgContent)
-  const dirname = "./src/atoms/icons/svg/";
+  // initialize results object
   const allContent = {};
-  let files = fs.readdirSync(dirname);
-  files.forEach(function (file) {
-    var contents = fs.readFileSync(dirname + file, 'utf8');
-    const iconName = file.split(".")[0];
-    allContent[iconName] = contents;
+
+  // run for all directories
+  directories.forEach(dirname => {
+    let files = fs.readdirSync(dirname);
+    files.forEach(function (file) {
+      var contents = fs.readFileSync(dirname + file, 'utf8');
+      const iconName = file.split(".")[0];
+      allContent[iconName] = contents;
+    })
   })
 
   // inject the filename and svg content
@@ -35,21 +44,24 @@ function buildIcons() {
   fs.writeFileSync('./src/atoms/icons/LiistSVGIcons.js', jsFileContent);
 }
 
-function buildIconNamesDictionary() {
+function buildIconNamesDictionary(directories) {
   // get file template as String (with placeholders)
-  let jsFileContent = 'export const LiistIconNames = [ @@@CONTENT@@@ ];';
+  let jsFileContent = 'export const LiistIconNames = @@@CONTENT@@@;';
 
-  // get all filenames and content as object (key=iconname, value=svgContent)
-  const dirname = "./src/atoms/icons/svg/";
+  // initialize results array
   const iconNamesArr = [];
-  let files = fs.readdirSync(dirname);
-  files.forEach(function (file) {
-    const iconName = file.split(".")[0];
-    iconNamesArr.push(`"${iconName}"`);
-  });
+
+  // run for all directories
+  directories.forEach(dirname => {
+    let files = fs.readdirSync(dirname);
+    files.forEach(function (file) {
+      const iconName = file.split(".")[0];
+      iconNamesArr.push(iconName);
+    });
+  })
 
   // save as new file (override)
-  jsFileContent = jsFileContent.replace("@@@CONTENT@@@", iconNamesArr.join(","));
+  jsFileContent = jsFileContent.replace("@@@CONTENT@@@", JSON.stringify(iconNamesArr, null, 2));
   fs.writeFileSync('./src/atoms/icons/LiistIconNames.js', jsFileContent);
 }
 
