@@ -27,7 +27,7 @@
     "lit-html": "^1.1.2"
   },
   "devDependencies": {
-    "@open-wc/demoing-storybook": "^1.0.1",
+    "@open-wc/demoing-storybook": "^2.4.7",
     "es-dev-server": "^1.23.0",
     "gulp": "^4.0.2"
   }
